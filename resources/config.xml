@@ -8,7 +8,6 @@
     <refreshEvery>360</refreshEvery>
     <siteTitle>meh.</siteTitle>
     <homePage>#home</homePage>
-    <passQuery>false</passQuery>
 
     <loadingMessage><![CDATA[<center>Loading...</center>]]></loadingMessage>
 
