@@ -19,3 +19,6 @@ at the moment it's paused because I'm really busy.
 The other project is [craftd](https://github.com/meh/craftd), a high performance Minecraft server.
 
 Not much else going on here, I'll go hack on the blog ruby script.
+
+EDIT: Actually the server is dead again, I'm hosting this stuff on [github](http://meh.github.com) with
+the magic CNAME thingy.
