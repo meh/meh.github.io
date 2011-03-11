@@ -7,7 +7,7 @@ posts = Dir.glob('posts/*.md').map {|f|
   b.ctime <=> a.ctime
 }
 
-FileUtils.ln_sf(posts.first.path, 'last')
+FileUtils.cp(posts.first.path, 'last')
 
 File.open('index', 'w') {|f|
   f.write posts.map {|p|
