@@ -1,0 +1,83 @@
+# xft config
+Xft.dpi:                    96
+Xft.hinting:                1 
+Xft.hintstyle:              hintfull 
+Xft.antialias:              1 
+Xft.rgba:                   rgb
+
+# URxvt config
+URxvt*termName:             rxvt
+URxvt*buffered:             true
+URxvt*showMenu:             false
+URxvt*veryBoldFont:         false
+URxvt*visualBell:           false
+URxvt*hideButtons:          true
+URxvt*scrollBar:            false
+URxvt*depth:                32
+URxvt*jumpScroll:           true
+URxvt*saveLines:            31337
+URxvt*secondaryScroll:      true
+URxvt*scrollTtyOutput:      false
+URxvt*scrollTtyKeypress:    true
+URxvt*internalBorder:       0
+URxvt*externalBorder:       0
+URxvt*font:                 xft:Terminus:size=8:antialias=false
+URxvt*boldFont:             xft:Terminus:bold:size=8:antialias=false
+URxvt*transparent:          false
+URxvt*shading:              20
+
+URxvt*background:           rgba:0000/0000/0000/dddd
+URxvt*foreground:           gray
+URxvt*colorBD:              white
+URxvt*colorIT:              white
+URxvt*underlineColor:       #b21818
+URxvt*cursorColor:          #b21818
+URxvt*cursorColor2:         #ffffff
+URxvt*color0:               #000000
+URxvt*color1:               #b21818
+URxvt*color2:               #18b218
+URxvt*color3:               #BE5F00
+URxvt*color4:               #6D85BA
+URxvt*color5:               #b218b2
+URxvt*color6:               #18b2b2
+URxvt*color7:               #b2b2b2
+URxvt*color8:               #686868
+URxvt*color9:               #FF5454
+URxvt*color10:              #54FF54
+URxvt*color11:              #FFFF54
+URxvt*color12:              #73A5FF
+URxvt*color13:              #FF54FF
+URxvt*color14:              #54FFFF
+URxvt*color15:              #FFFFFF
+
+URxvt*perl-ext-common:      default,matcher,url-select
+URxvt*keysym.4-Tab:         perl:url-select:select_next
+URxvt*underlineURLs:        true
+URxvt*urlLauncher:          firefox
+URxvt*matcher.button:       1
+
+URxvt*keysym.Control-Up:    \033[1;5A
+URxvt*keysym.Control-Down:  \033[1;5B
+URxvt*keysym.Control-Left:  \033[1;5D
+URxvt*keysym.Control-Right: \033[1;5C
+
+XTerm*geometry:   40x25
+XTerm*font:       c64
+XTerm*foreground: #a396ff
+XTerm*background: #4e44d8
+XTerm*color0:     #a396ff
+XTerm*color1:     #a396ff
+XTerm*color2:     #a396ff
+XTerm*color3:     #a396ff
+XTerm*color4:     #a396ff
+XTerm*color5:     #a396ff
+XTerm*color6:     #a396ff
+XTerm*color7:     #a396ff
+XTerm*color8:     #a396ff
+XTerm*color9:     #a396ff
+XTerm*color10:    #a396ff
+XTerm*color11:    #a396ff
+XTerm*color12:    #a396ff
+XTerm*color13:    #a396ff
+XTerm*color14:    #a396ff
+XTerm*color15:    #a396ff

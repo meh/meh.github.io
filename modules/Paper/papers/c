@@ -1,0 +1,1621 @@
+C, <span style="font-size: 18px;">IL</span> linguaggio di programmazione, amalo, vivilo, e magari facci sesso.
+============================================================================
+La gente mi pensa di basso livello, eppure sono un paladino lv 80!1!1
+----------------------------------------------------------------------------
+
+Prefazione
+==========
+Dando per scontato che abbiate letto il brevissimo testo sulla programmazione in generale vi premetto
+che i modi di fare di questo testo, non cambiano dal primo, quindi siete avvisati eh, poi non voglio
+lamentele.
+
+Nonostante cio', con questo testo punto ad approfondire i vari meandri del C piu' da un punto di vista
+pratico che teorico, quindi dando esempi funzionanti e rimandandovi ad un terzo testo che scrivero'
+per dettagli teorici su ingegneria del software, algoritmi e strutture di dati. Al massimo descrivero'
+brevemente le varie strutture di dati aggiungendo una semplice implementazione a modo mio.
+
+Detto questo, a voi la lettura di questa grandissima cagata.
+
+Introduzione
+============
+Non staro' a scartavetrarvi i testicoli con la storia del C e stronzate inutili, invece passero' direttamente
+a spiegarvi come funziona la compilazione di un programma C.
+
+Un sorgente C viene prima di tutto passato ad un preprocessore, che tira fuori il sorgente con varie macro
+ed inclusioni estese, una volta ottenuto il sorgente esteso viene compilato, trasformando il sorgente C in
+un linguaggio piu' a basso livello, assemblabile in linguaggio macchina, questo linguaggio piu' a basso livello
+viene assemblato in un file oggetto, che verra' in seguito linkato in un eseguibile/libreria condivisa insieme
+ad altri file oggetto.
+
+Questo modo di fare le cose permette di lavorare con oggetti gia' compilati di cui si conosce solo l'API (<i><span class="small">Application Programming Interface</span></i>),
+permettendo cosi' in modo semplice la condivisione di funzioni e quant'altro. Questo metodo permette anche cosi' di
+compilare programmi che usano librerie o piu' file, difatti quando il compilatore trasforma in codice a basso livello
+il sorgente C, non deve conoscere per forza tutte le posizioni delle varie funzioni, queste verranno definite in seguito,
+in linking time, in compile time viene semplicemente detto che viene usata una funzione con un certo nome, che in linking
+time verra' fatta corrispondere con l'indirizzo di una funzione in una libreria condivisa magari.
+
+Se non avete capito niente di quello che ho scritto, non importa, capirete piu' avanti.
+
+Armamentario per programmare in C
+---------------------------------
+Per programmare in C servono solo 4 cose, un editor di testo, un compilatore, un cervello (possibilmente umano)
+e parte della vostra adolescenza.
+
+Se non siete piu' adolescenti avete fatto la scelta giusta, peccato che ormai sia troppo tardi per imparare
+a programmare come si deve, grazie e arrivederci.
+
+Come sistema operativo io personalmente consiglio Linux per programmare seriamente, e' molto piu' semplice gestire
+le varie librerie e tutto il resto. Se proprio volete usare Windows non sperate ne parli, mai, nei miei testi.
+
+Come compilatore consiglio vivamente [Clang](http://clang.llvm.org/), se non riuscite a procurarvelo potete usare GCC, possibilmente
+l'ultima versione. In questa guida verra' usato Clang 2.0 (SVN) come compilatore, quindi in caso di incompatibilita',
+cazzi vostri. *Se proprio non volete usare Clang va bene anche GCC, ma gli errori/warning che sputa fanno schifo rispetto a quelli
+dati da Clang.*
+
+Come editor di testo io consiglio vivamente **vim**, magari non riuscirete ad usarlo bene da subito
+ma col tempo diverra' lo strumento piu' potente a vostra disposizione. Se usate EMACS, datevi fuoco.
+
+Se siete incapaci di usare un terminale e volete usare un IDE consiglio Code::Blocks, ma non ne parlero',
+io odio gli IDE, quindi in questa guida l'ambiente sara' sempre una shell (ed io consiglio zsh).
+
+Spero vi siate procurati il cervello umano, perche' tra poco si comincia.
+
+Le basi
+=======
+In questo capitolo cerchero' di introdurvi in modo basilare al C con qualche codice mona.
+
+*E' abbastanza difficile spiegare in un ordine sensato il C in quanto anche nei programmi piu' semplici
+si utilizzano features avanzate del linguaggio, quindi in caso parli di cose che non ho ancora spiegato
+ed avete l'impellenza di sapere di cosa si tratta, andate al capitolo che la riguarda da vicino.*
+
+Mona world!
+-----------
+Qual miglior modo per introdurvi al C se non un classico semplice programmino che scriva qualche
+cagata? A me non ne viene in mente uno, quindi ecco a voi il vostro *mona.c*
+
+    /* Ma chi e' chel mona ch-che batte la porta e che chiude u-urlando?!? */
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        puts("Mona world!");
+
+        return 0;
+    }
+
+Se vi sembra roba assurda, ora ve la spiego, se avete capito, perche' state leggendo sta vaccata?
+
+Comunque sia, procediamo, alla prima riga abbiamo uno stupendo quanto inutile commento multilinea, i commenti in C
+sono indicati da // se su linea singola e da /\* \*/ se su piu' linee (ma possono stare anche su una, come vedete).
+
+Di seguito abbiamo una bellissima istruzione del preprocessore, che da come spero intuiate,
+include il file in questione, in questo caso la libreria di standard input/output.
+
+Le due righe seguenti definiscono la funzione main, questa funzione e' la prima che viene eseguita nel programma.
+Se non sapete cos'e' una funzione e morite dalla voglia di saperlo leggetevi il capitolo sulle funzioni. Ci tengo
+a precisare che il mio stile di programmazione e' un mix tra tanti e punta alla massima leggibilita', non al minor
+numero di righe, tanto ci pensa il compilatore ad ottimizzare.
+
+Le parentesi graffe definiscono un blocco di codice, dopo la dichiarazione della funzione bisogna per forza inserire
+un blocco di codice, anche vuoto volendo.
+
+La funzione puts (<i><b>put s</b>tring</i>) non fa altro che stampare sul terminale la stringa passatagli come
+parametro, semplice no?
+
+Il return 0 serve a ritornare 0 al sistema operativo, questo e' uno standard (il restituire 0) che significa
+che il programma e' terminato come si deve.
+
+Ora che presumibilmente avete capito cosa fa il il nostro bel <a href="data:text/x-c;base64,I2luY2x1ZGUgPHN0ZGlvLmg+CgppbnQKbWFpbiAoaW50IGFyZ2MsIGNoYXIqKiBhcmd2KQp7CiAgICBwdXRzKCJNb25hIHdvcmxkISIpOwoKICAgIHJldHVybiAwOwp9Cg==" target="_blank">mona.c</a>,
+apriamo un bel terminale, andiamo nella dir in cui si trova *mona.c* e diamo il nostro bellissimo comando:
+
+    $ clang -Wall -pedantic -o mona mona.c
+
+E ta dah, avremo il nostro eseguibile mona, testiamolo:
+
+    $ ./mona
+    Mona world!
+
+Avete fatto il vostro primo programma C, contenti? Ora potrete vantarvene con tutti i vostri ami-nospè.
+
+Variabili
+=========
+Credo che gia' il nome "Variabile" dovrebbe essere chiaro, ma visto che punta ad essere una guida per
+tutti e' meglio spiegare cos'e' una variabile.
+
+Una variabile, nel contesto della programmazione, e' una zona di memoria a cui viene assegnato un certo nome il cui contenuto
+puo' essere cambiato in quello che ci pare. Ad esempio potrei avere:
+
+    int numero = 42;
+
+Con quel codice dichiaro ed inizializzo una variabile di nome **numero** col valore **42**, potrei
+anche fare:
+
+    int numero;
+    numero = 42;
+
+Dichiarando prima una variabile di nome **numero** dal contenuto sconosciuto ed inizilizzandola poi
+assegnandole **42**.
+
+In generale, la sintassi di dichiarazione delle variabili e' la seguente:
+
+    tipo nome, altronome = valore, lolnome;
+
+Io comunque consiglio di dichiarare ogni variabile su una linea diversa, perche' dichiararle in fila puo' portare
+ad amibiguita' con i puntatori ed altro, in succo, fate come dico io.
+
+Inoltre le variabili andrebbero dichiarate tutte all'inizio della funzione, se si vuole seguire lo standard, pero'
+io me ne sbatto spesso e volentieri, quindi sta a voi, consiglio comunque di seguire lo standard.
+
+
+Scoping<span>, no, non scoping sesso, scoping visibilita'.</span>
+----------------------------------------------------
+Le variabili a seconda di dove vengono dichiarate hanno un certo scope, ovvero sono visibili solo da
+certe parti del codice.
+
+Esempio:
+
+    int lol; // visibile ovunque
+
+    int
+    main (int argc, char** argv)
+    {
+        int omg; // visibile solo dentro la funzione main
+
+        {
+            int penis; // visibile solo all'interno del blocco di codice
+        }
+
+        // qui penis non lo posso piu' usare perche' risultera' non dichiarato
+    }
+
+Tipi di dato
+------------
+Quanto una variabile occupa in memoria e che tipi di valori puo' contenere dipende dal tipo della variabile.
+
+I tipi di dato si dividono in primitivi e composti, i primitivi sono tipi di dato numerici, interi o a virgola mobile e
+sono chiamati primitivi per distinguerli dalle struct e union, che sono tipi di dato composti (appunto da tipi primitivi).
+
+Numeri interi (possono anche essere dichiarati come signed o unsigned):
+
+<table>
+<tr><th>Nome</th><th>Dimensione</th><th>Descrizione</th><th>Range</th></tr>
+<tr><td><code>char</code></td><td>1 byte</td><td>Caratteri ASCII. (<i><span class="small">ricordate che in C i caratteri sono comunque numeri</span></i>)</td><td>signed: -128 a +127unsigned: fino a 255.</td></tr>
+<tr><td><code>short</code></td><td>2 byte</td><td>Numeri di piccole dimensioni.</td><td>signed: da -32768 a 32767unsigned: fino a 65535</td></tr>
+<tr><td><code>int</code></td><td>4 byte</td><td>Numeri di medie dimensioni. (<i><span class="small">viariabile usata piu' comunemente per i numeri interi</span></i>)</td><td>signed: da -2147483648 a 2147483647unsigned: fino a 4294967295</td></tr>
+<tr><td><code>long</code></td><td>32 bit: 4 byte64 bit: 8 byte</td><td>Numeri grandi.</td><td>Come <code>int</code> su 32 bit.<br/>Come <code>long long</code> su 64 bit.</td></tr>
+<tr><td><code>long&nbsp;long</code></td><td>8 byte</td><td>Numeri estremamente grandi.</td><td>signed:&nbsp;da&nbsp;-9223372036854775808&nbsp;a&nbsp;9223372036854775807unsigned: fino a 18446744073709551615</td></tr>
+</table>
+
+Numeri a virgola mobile:
+
+<table>
+<tr><th>Nome</th><th>Dimensione</th><th>Descrizione</th><th>Range</th></tr>
+<tr><td><code>float</code></td><td>4 byte</td><td>Serve a contenere numeri a virgola mobile, oppure quando i numeri sono troppo grandi per long.</td><td>±3.4e ±38 (~7 cifre)</td></tr>
+<tr><td><code>double</code></td><td>8 byte</td><td>Quando float non basta, c'e' double.</td><td>±1.7e ±308 (~15 cifre)</td></tr>
+<tr><td><code>long double</code></td><td>32 bit: 12 byte64 bit: 16 byte</td><td>Quando neanche double basta, lol.</td><td>Troppo.</td></tr>
+</table>
+
+*Tanto per dire, le operazioni sui numeri a virgola mobile vengono fatte nella FPU su registri a 80 bit, a volte 128 bit.*
+
+Oltre a questi tipi di dati c'e' anche un tipi di dato maggico, ovvero `void`, vedremo piu' avanti
+le magie che si possono fare con questo tipo di dato.
+
+Attributi delle variabili
+-------------------------
+Oltre al tipo quando viene dichiarata una variabile le si possono assegnare diversi attributi.
+
+Come abbiamo gia' visto, `signed` ed `unsigned` stabiliscono se una variabile ha il segno o meno, quando usiamo
+variabili con segno e senza segno dobbiamo stare molto attenti a quello che facciamo, perche' potremmo
+dividere per 0, e cio' creerebbe un PIME TARADOX ed il mondo esploderebbe.
+
+Quello che voglio dire e' che se abbiamo un `int` ed un `unsigned int`, e li sommiamo per andare a finire in
+una variabile `int` e la somma dei due supera `INT_MAX` ci ritroveremo un numero negativo
+nella suddetta variabile, il che ovviamente non era nei nostri piani. Questi casini possono verificarsi anche
+nelle comparazioni ed altre operazioni, in succo, state attenti, potrebbe attaccarvi un velociraptor.
+
+<i>E' da notare che assegnare un numero negativo ad una variabile unsigned sara' come sottrarre quel numero
+alla grandezza massima contenibile del tipo signed + 1. Questo significa che </i>`(unsigned int) -1`<i>
+ci dara' il massimo contenibile in un unsigned int.</i>
+
+L'attributo `static` permette di cambiare il comportamento della variabile in memoria a seconda del suo scope.
+
+In una funzione (scope locale) rimarra' sempre intatta, esempio:
+
+    void
+    lol (void)
+    {
+        static int omg = 0; // inizializzo omg a 0
+
+        omg = 2; // setto a 2 omg
+    }
+
+    int
+    main (int argc, char** argv)
+    {
+        lol(); // omg vale 0 finche' non viene cambiato il suo valore
+        lol(); // qui omg parte con valore 2, in quanto e' l'ultimo valore che e' stato assegnato
+    }
+
+In scope globale invece quella variabile sara' utilizzabile solo all'interno del sorgente in cui e' dichiarata.
+
+L'attributo `const` sta ad indicare che quella variabile non e' modificabile, ma purtroppo e' facilmente
+aggirabile con un typecast, quindi consiglio di usare il metodo indicato nel prossimo capitolo per definire costanti.
+
+L'attributo `register` permette di consigliare al compilatore di tenere la variabile sempre nei registri della CPU,
+in questo modo, se ce n'e' la possibilita', e quella variabile viene usata spesso la velocita' del programma aumentera' notevolmente
+eliminando il passaggio tra ram e registri della CPU per eseguire le operazioni. Usare l'attributo register non significa che **SEMPRE**
+la variabile verra' tenuta nei registri, e' semplicemente un consiglio da dare al compilatore: "se riesci tienila nei registri che la uso spesso".
+Questo e' utile soprattutto in processori a 64 bit che hanno 10 registri general purposes in piu'.
+
+L'attributo `volatile` serve a dire che quella variabile puo' cambiare in qualsiasi momento ed indica
+al compilatore di non ottimizzare nulla riguardo a quella variabile.
+
+Ad esempio: { *usero' delle robe che spieghero' piu' avanti, andate a vederle o tornate poi indietro, e' comunque roba avanzata* }
+
+    int
+    main (int argc, char** argv)
+    {
+        int* lol = 0x3673434;
+        *lol     = 0;
+
+        while (*lol == 0);
+
+        return 0;
+    }
+
+Mettiamo che `0x3673434` sia l'indirizzo di qualcosa che conosciamo e sappiamo che col tempo verra' cambiato
+in qualche altro valore, un compilatore leggerebbe il valore in quella posizione e lo salverebbe da qualche parte non
+andando piu' a controllare all'indirizzo dato se la variabile e' cambiata, in questo modo rimarrebbe li' freezato
+anche nel caso il valore cambiasse, mettendo `volatile int* lol = 0x3673434;` invece il codice
+non verrebbe piu' ottimizzato e l'indirizzo verrebbe controllato ogni volta ed al cambiamento del valore continuerebbe
+l'esecuzione.
+
+Costanti
+========
+Le costanti sono dei valori, che appunto, non cambiano, pensavate fossero dei biscotti eh? Invece no.
+
+Costanti numeriche intere
+-------------------------
+Le costanti numeriche intere rappresentano numeri interi, normalmente in decimale, fissi.
+
+Ad esempio quando in un sorgente scrivo `1337` intendo il numero 1337, e nient'altro.
+
+Il C supporta l'inserimento oltre che in base decimale, in base ottale ed esadecimale.
+
+    1337  // decimale
+    02471 // ottale
+    0x539 // esadecimale
+
+Queste costanti in C verranno sempre trattate come valore 1337.
+
+Oltre al valore si puo' specificare il tipo della costante: (il tipo default e' `int`)
+
+    42    // int
+    42U   // unsigned int
+    42L   // long
+    42UL  // unsigned long 
+    42LL  // long long
+    42ULL // unsigned long long
+
+I caratteri finali sono case insensitive, ma maiuscoli son piu' fichi.
+
+Costanti numeriche a virgola mobile
+-----------------------------------
+Questi bellissimi floating point numbers possono essere espressi in diversi magici modi.
+
+    3.14159 // 3.14159
+    6.02e23 // 6.02 x 10^23
+    1.6e-19 // 1.6 x 10^-19
+    3.0     // 3.0 
+
+Come per gli interi si puo' specificare anche il tipo della costante: (il tipo default e' `double`):
+
+    3.14159L // long double
+    6.02e23f // float
+
+Costanti carattere
+------------------
+Volendo, per semplificare alcune operazioni sulle stringhe e per fare comparazioni/assegnazioni si puo'
+usare direttamente un carattere come valore costante.
+
+Esempio:
+
+    char lol = 'z';
+
+Come vedete uso direttamente 'z', che equivale a 122 in decimale. Questo significa che volendo potrei fare
+
+    char lol = 'a' + 4;
+
+Che equivarrebbe a mettere 'e' in **lol**.
+
+Nelle costanti carattere possono anche essere usati degli escape, ovvero le sequenze \qualcosa.
+
+Ecco qui una lista di escapes:
+
+<table>
+<tr><th>Char</th><th>Descrizione</th></tr>
+<tr><td><code>\n</code></td><td>Line feed, nuova linea, a capo, anche conosciuto come LF.</td></tr>
+<tr><td><code>\r</code></td><td>Carriage return, insomma, torna all'inizio della riga, anche conosciuto come CF.</td></tr>
+<tr><td><code>\f</code></td><td>Form feed, anche conosciuto come FF.</td></tr>
+<tr><td><code>\t</code></td><td>Tabulazione orizzontale. (fa uno spazio di tot spazi (lol))</td></tr>
+<tr><td><code>\v</code></td><td>Tabulazione verticale. (va a capo e fa tot \t in modo da tenere tabulati verticalmente gli output (testate per capire))</td></tr>
+<tr><td><code>\b</code></td><td>Backspace, cancella l'ultima robba.</td></tr>
+<tr><td><code>\a</code></td><td>Fa beep, utilissimo eh?</td></tr>
+<tr><td><code>\'</code></td><td>Equivale a '. (serve nel caso si dovesse usare il char ', facendo <code>'\''</code>)</td></tr>
+<tr><td><code>\"</code></td><td>Equivale a ". (serve nelle stringhe, per poter scrivere ", facendo <code>"nigger \"tits\""</code>)</td></tr>
+<tr><td><code>\?</code></td><td>E' un punto di domanda, cosa vi aspettavate?</td></tr>
+<tr><td><code>\\</code></td><td>Equivale a \, in quanto scrivendo \qualcosa il qualcosa dovra essere un escape valido, quindi per inserire \ bisogna fare \\qualcosa.</td></tr>
+<tr><td><code>\0</code></td><td>NULL, equivale a finire la stringa. (si, se fate "jhjdg\0djh" siete scemi)</td></tr>
+</table>
+
+Volendo si puo' anche escapare un valore esadecimale od ottale trasformandolo nel char equivalente nella tabella ASCII.
+
+Esempio:
+
+    char lol = '\x61'; // lol vale 'a', che vale 97 (e 0x61 in esadecimale)
+    char omg = '\142'; // omg vale 'b', che vale 98 (e 0142 in ottale)
+
+Costanti stringa
+----------------
+Le costanti stringa le abbiamo gia' usate nel mona.c, ovvero "Mona world!" e' una costante stringa.
+
+Le costanti stringa possono essere accodate un dietro l'altra senza creare casini, ma posso accodare
+**SOLO** costanti stringa.
+
+Esempio:
+
+    puts("LOL " "guarda domani e' pasqua " "che ne dici di un'acciuga?");
+
+Darebbe come output "LOL guarda domani e' pasqua che ne dici di un'acciuga?" senza dare i numeri.
+
+Volendo posso anche scrivere stringhe su piu' linee senza accodarle, esempio:
+
+    puts("lol\
+    nigger");
+
+Questo darebbe come output `lolnigger`.
+
+Le costanti stringa possono essere composte da qualunque char ed escape valido.
+
+Definire le costanti
+--------------------
+In C l'unico modo per definire delle vere costanti e' usare il preprocessore.
+
+Ovvero usando l'istruzione **define**, esempio:
+
+    #define PI       3.14159
+    #define VERSIONE "0.0.1"
+
+Questo codice definira' la costante VERSIONE che sara' una stringa, e PI il pigreco.
+
+**versione.c**:
+
+    #include &lt;stdio.h&gt;
+
+    #define VERSIONE "0.0.1"
+
+    int
+    main (int argc, char** argv)
+    {
+        puts("La versione di questo programma e': " VERSIONE);
+
+        return 0;
+    }
+
+Operatori
+=========
+Senza gli operatori, come senza variabili e costanti, un linguaggio di programmazione sarebbe inutile.
+
+In caso non lo aveste capito dal nome gli operatori sono delle keywords che permettono di manipolare variabili
+e costanti eseguendo delle operazioni basilari, esempio l'addizione o l'assegnamento.
+
+Gli operatori possono essere unari o binari, un operatore unario lavora solo su un valore, un operatore binario lavora su
+due valori, chiamati lvalue ed rvalue.
+
+Operatore unario:
+
+    value operator // operatore unario postfix
+    operator value // operatore unario prefix
+
+Operatore binario:
+
+    lvalue operator rvalue
+
+Potete anche non leggervi tutto sto capitolo, quando non vi ricorderete un operatore potrete tornare a leggere le cagate
+scritte qui.
+
+`=`<span>, assegnamento</span>
+----------------------------
+L'operatore di assegnamento e' un operatore binario, e serve appunto ad assegnare un valore ad una variabile.
+
+L'lvalue deve essere per forza una variabile, mentre l'rvalue puo' essere qualsiasi cosa, una costante, una variabile, un'espressione.
+
+    int
+    main (int argc, char** argv)
+    {
+        int a;
+        int b;
+
+        // a: ?; b: ?
+        a = 23;
+        // a: 23; b: ?
+        b = a + 19;
+        // a: 23; b: 42
+        a = a + b + 1272;
+        // a: 1337; b: 42
+
+        return 0;
+    }
+
+L'assegnamento puo' anche essere concatenato.
+
+    int
+    main (int argc, char** argv)
+    {
+        int a;
+        int b;
+        int c;
+
+        a = b = c = 42;
+
+        return 0;
+    }
+
+Questo perche' l'operatore prende come rvalue quello che ha dopo, e l'esecuzione di norma avviene da
+destra verso sinistra. Quindi a **c** verra' assegnato 42, a **b** verra' assegnato il valore di
+**c**, e ad **a** il valore di **b**, alla fine tutti varranno 42.
+
+`+ - * / %`<span>, operatori aritmetici</span>
+----------------------------------------------
+In C ci sono 5 operatori aritmetici, eh si, CINQUE!
+
+<table>
+<tr><th>Operatore</th><th>Descrizione</th></tr>
+<tr><td><code>+</code></td><td>Somma lvalue ad rvalue.</td></tr>
+<tr><td><code>-</code></td><td>Sottrae lvalue ad rvalue.</td></tr>
+<tr><td><code>*</code></td><td>Moltiplica lvalue per rvalue. No, non e' una stellina.</td></tr>
+<tr><td><code>/</code></td><td>Divide lvalue per rvalue. No, non e' un escape, l'escape e' \</td></tr>
+<tr><td><code>%</code></td><td>Divide lvalue per rvalue e prende il resto. No, non fa la percentuale.</td></tr>
+</table>
+
+lvalue ed rvalue possono essere variabili, costanti od espressioni.
+
+`+` e `-` possono anche essere unari per esplicitare il segno di una costante/variabile. Esempio: `-var` inverte il segno di var.
+
+`&amp; | ^ ~ &lt;&lt; &gt;&gt;`<span>, operatori bitwise</span>
+---------------------------------------------------------------
+Gli operatori bitwise, come si puo' intuire dal nome, operano sui bit.
+
+### `&amp;` (`AND`)
+L'operatore &amp; e' un operatore binario che da' come risultato l'esecuzione della seguente tabella,
+bit per bit, tra i due numeri.
+
+In caso manchino bit piu' significativi (quelli a sinistra sono i piu' significativi) si usa come bit 0. Ovvero
+se faccio `1 &amp; 100` e' come se facessi `001 &amp; 100` ed il risultato sarebbe 0.
+
+<table>
+<tr><th>lvalue</th><th>rvalue</th><th>Result</th></tr>
+<tr><td>1</td><td>1</td><td><b>1</b></td></tr>
+<tr><td>1</td><td>0</td><td><b>0</b></td></tr>
+<tr><td>0</td><td>1</td><td><b>0</b></td></tr>
+<tr><td>0</td><td>0</td><td><b>0</b></td></tr>
+</table>
+
+L'operatore &amp; e' molto utile nelle bitmap (non le immagini eh).
+
+Esempio: `3 &amp; 1 =&gt; 3 .. 11 &amp; 1 =&gt; 1`
+
+### `|` (`OR`)
+L'operatore | e' come l'&amp;, solo con una tabella diversa.
+
+<table>
+<tr><th>lvalue</th><th>rvalue</th><th>Result</th></tr>
+<tr><td>1</td><td>1</td><td><b>1</b></td></tr>
+<tr><td>1</td><td>0</td><td><b>1</b></td></tr>
+<tr><td>0</td><td>1</td><td><b>1</b></td></tr>
+<tr><td>0</td><td>0</td><td><b>0</b></td></tr>
+</table>
+
+Insieme all'&amp; e' di vitale importanza nell'implementazione di una bitmap.
+
+Esempio: `1 | 2 =&gt; 3 .. 1 | 10 =&gt; 11`
+
+### `^` (`XOR`)
+L'operatore ^ e' come l'&amp;, solo con una tabella diversa.
+
+<table>
+<tr><th>lvalue</th><th>rvalue</th><th>Result</th></tr>
+<tr><td>1</td><td>1</td><td><b>0</b></td></tr>
+<tr><td>1</td><td>0</td><td><b>1</b></td></tr>
+<tr><td>0</td><td>1</td><td><b>1</b></td></tr>
+<tr><td>0</td><td>0</td><td><b>0</b></td></tr>
+</table>
+
+Lo XOR puo' essere usato per fare un semplice algoritmo di criptazione con chiave in quanto
+`c = a ^ b; a = c ^ b;`.
+
+### `~` (`NOT`)
+Il NOT bitwise e' un operatore unario ed inverte i bit, si, 1 diventa 0 e 0 diventa 1, fico no?
+
+Questo operatore e' utile nelle bitmap.
+
+### `&lt;&lt;` (`SHL`)
+Sposta verso sinistra di tanti bit <b>lvalue</b> quanti <b>rvalue</b> aggiungendo uno 0 a destra, quando
+si va in overflow il bit viene eliminato.
+
+Esempio: `111 &lt;&lt; 1 =&gt; 1110`
+
+### `&gt;&gt;` (`SHR`)
+Come SHL ma verso destra.
+
+Esempio: `111 &gt;&gt; 1 =&gt; 11`
+
+Esempio di utilizzo di una bitmap:
+
+    #include &lt;stdio.h&gt;
+
+    // ovviamente le opzioni devono essere potenze di 2 (0x1, 0x2, 0x4, 0x8, 0x10, 0x20, ...)
+    // in questo modo corrispondono al binario 1, 10, 100, 1000, ...
+    #define DOUBLE 0x1
+    #define NIGGER 0x2
+
+    int
+    main (int argc, char** argv)
+    {
+        int flag = DOUBLE | NIGGER; // ha come flag attivi DOUBLE e NIGGER
+        // ovvero vale 11
+
+        //  11 &amp; 1 =&gt; 1        11 &amp; 10 =&gt; 10
+        if ((flag &amp; DOUBLE) &amp;&amp; (flag &amp; NIGGER)) {
+            puts("DOUBLE NIGGER!"); // viene eseguito, perche' sono true
+        }
+
+        // flag = 11 &amp; ~1 (0) =&gt; 10
+        flag &amp;= ~DOUBLE; // disabilito DOUBLE
+
+        //  10 &amp; 1 =&gt; 0        10 &amp; 10 =&gt; 10
+        if ((flag &amp; DOUBLE) &amp;&amp; (flag &amp; NIGGER)) {
+            puts("AGAIN!?!?!?!?"); // non viene eseguito, e' solo NIGGER ora
+        }
+
+        return 0;
+    }
+
+
+`+= -= *= /= %= &gt;&gt;= &lt;&lt;= &amp;= ^= |=`<span>, assegnamento compatto</span>
+-------------------------------------------------------------------------------------
+L'assegnamento compatto non fa altro che eseguire l'operatore prima dell'= con correnti **lvalue** ed **rvalue**
+e mette il risultato in lvalue.
+
+    int
+    main (int argc, char** argv)
+    {
+        int lol = 23;
+ 
+        lol += 42; // lol = lol + 42
+
+        return 0;
+    }
+
+`++ --`<span>, incremento e decremento</span>
+---------------------------------------------
+Questi due operatori sono operatori unari e possono essere messi prima o dopo una variabile, e non fanno
+altro che incrementarne o decrementarne il valore di 1.
+
+La differenza tra prefix (prima) e postfix (dopo) e' che se usato come prefix, prima incrementa e poi
+restituisce il valore della variabile, mentre postfix prima restituisce il valore della variabile e poi incrementa.
+
+    int
+    main (int argc, char** argv)
+    {
+        int lol = 23;
+        int omg = 42;
+
+        lol = ++omg; // lol = 43, omg = 43
+        omg = lol++; // lol = 44, omg = 43
+
+        return 0;
+    }
+
+`== != &gt; &lt; &gt;= &lt;=`<span>, operatori di uguaglianza e relazionali</span>
+-----------------------------------------------------------------------------------
+Gli operatori di uguaglianza e relazionali sono operatori binari, che danno come risultato vero o falso.
+
+<table>
+<tr><th>Operatore</th><th>Nome</th><th>Esempio</th></tr>
+<tr><td>==</td><td>Uguale</td><td><code>42 == 42</code> e' true</td></tr>
+<tr><td>!=</td><td>Diverso</td><td><code>42 != 42</code> e' false</td></tr>
+<tr><td>&gt;</td><td>Maggiore</td><td><code>42 &gt; 42</code> e' false</td></tr>
+<tr><td>&lt;</td><td>Minore</td><td><code>42 &lt; 1337</code> e' true</td></tr>
+<tr><td>&gt;=</td><td>Maggiore o uguale</td><td><code>42 &gt;= 42</code> e' true</td></tr>
+<tr><td>&lt;=</td><td>Minore o uguale</td><td><code>23 &lt;= 42</code> e' true</td></tr>
+</table>
+
+`! &amp;&amp; ||`
+-----------------
+Il NOT `!`, logico e' un operatore unario, che inverte il false in true ed il true in false.
+*Vi ricordo che in C tutto cio' che non e' 0 e' visto come true, mentre 0 e' false.*
+
+L'AND `&amp;&amp;` e l'OR `||` logici invece funzionano come l'AND e l'OR bitwise, solo che hanno a che
+fare con true (1) e false (0).
+
+`,`<span>, operatore di separazione</span>
+------------------------------------------
+La virgola viene usata per combinare piu' espressioni quando ci dovrebbe essere un'espressione sola.
+
+In caso l'espressione combinata debba essere valutata viene considerata solo l'espressione piu' a destra.
+
+Per valutata si intende "restituita", ad esempio `a = (b = 23, b + 42);` in **a** ci sara' 65, in quanto a **b**
+verra' assegnato 23, e poi verra' valutato `b + 42`.
+
+`(type)`<span>, il type-cast</span>
+-----------------------------------
+Il type-cast e', a mio parere, uno degli operatori piu' utili del C.
+
+Quest'operatore ci permette di cambiare tipo a costanti e variabili e di fare tante magie nere.
+
+Esempio:
+
+    int
+    main (int argc, char** argv)
+    {
+        int   lol = 45;
+        int   wat;
+        float omg = 13.37;
+
+        // magia nera :O
+        wat = (((int) omg) * 42) + lol; // (13 * 42) + 45
+        // questo accade perche castando un float/double ad un intero la parte dopo la virgola viene eliminata
+
+        return 0;
+    }
+
+Piu' avanti vi faro' vedere altra magia nera coi typecast.
+
+`x ? a : b`<span>, operatore ternario</span>
+--------------------------------------------
+L'operatore ternario `x ? a : b` *restituisce* **a** in caso **x** sia true, se no restituisce **b**.
+
+Ecco a voi un esempio con roba che ancora non avete fatto, ma che dovrebbe chiarirvi le idee in futuro:
+
+    #define MAX(a, b) ((a &gt; b) ? a : b)
+
+Questa macro non fa altro che semplificarci la vita e darci un semplice MAX tra due variabili.
+
+Altri operatori
+---------------
+Ci sono atri operatori ma ne parlero' piu' avanti, in quanto al momento non servono
+
+Precedenza degli operatori
+--------------------------
+Nella norma, le espressioni vengono valutate partendo da destra andando verso sinistra e rispettando
+le regole aritmetica di precedenza degli operatori.
+
+Ecco una lista del raggruppamento che subiscono e del livello d'importanza degli operatori:
+
+<table>
+    <tr>
+        <th>Livello</th>
+        <th>Operatori</th>
+        <th>Descrizione</th>
+        <th>Orientamento</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><code>()[]<br/>.<br/>-&gt;<br/>++ --</code></td>
+        <td>Chiamata a funzione<br/>Accesso diretto<br/>Selezione membro da oggetto<br/>Selezione membro da puntatore<br/>Incremento/decremento postfix</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><code>++ --+ -<br/>! ~<br/>(type)<br/>*<br/>&amp;<br/>sizeof</code></td>
+        <td>Increment/decremento prefix<br/>Piu'/meno unari<br/>NOT bitwise e logico<br/>Typecast<br/>Dereferenziazione<br/>Address<br/>Grandezza tipo</td>
+        <td>right-to-left</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><code>* / %</code></td>
+        <td>Moltiplicazione, divisione e modulo</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><code>+ -</code></td>
+        <td>Addizione e sottrazione</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><code>&lt;&lt; &gt;&gt;</code></td>
+        <td>Bitwise shift a destra e sinistra</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td><code>&lt; &lt;= &gt; &gt;=</code></td>
+        <td>Maggiore/minore o uguale</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td><code>== !=</code></td>
+        <td>Uguale e diverso</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td><code>&amp;</code></td>
+        <td>AND bitwise</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td><code>^</code></td>
+        <td>XOR bitwise</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td><code>|</code></td>
+        <td>OR bitwise</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td><code>&amp;&amp;</code></td>
+        <td>AND logico</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td><code>||</code></td>
+        <td>OR logic</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td><code>?:</code></td>
+        <td>Operatore ternario</td>
+        <td>left-to-right</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td><code>=+= -=<br/>*= /=<br/>%= &amp;=<br/>^= |=<br/>&lt;&lt;= &gt;&gt;=</code></td>
+        <td>Assegnamento<br/>Assegnamento sommato e sottratto<br/>Assegnamento moltiplicato e diviso<br/>Assegnamento modulato ed assegnamento con bitwise AND<br/>Assegnamento con bitwise XOR e bitwise OR<br/>Assegnamento con bitwise shift a sinistra e destra</td>
+        <td>right-to-left</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td><code>,</code></td>
+        <td>Separatore d'espressioni</td>
+        <td>left-to-right</td>
+    </tr>
+</table>
+
+L'orientamento nella tabella indica in che ordine operatori dello stesso livello vengono valutati.
+
+Le parentesi tonde ci permettono di gestire esplicitamente la precedenza degli operatori.
+
+Esempio:
+
+    int
+    main (int argc, char** argv)
+    {
+        int lol = 23;
+        int omg = 42;
+        int wat;
+
+        // noi potremmo voler fare omg + 1337 e poi moltiplicare per lol
+        wat = omg + 1337 * lol; // invece quello che accade, per ovvie regole aritmetiche
+        // e' che 1337 viene moltiplicato per lol e poi il tutto sommato per omg
+
+        // per evitare quest'ambiguita' si possono usare, come in artimetica, le parentesi
+        wat = (omg + 1337) * lol; // fffffatto?
+
+        return 0;
+    }
+
+I/O di base
+===========
+In questo capitolo vi mostrero' le vie piu' semplici per prendere dati da varie fonti e stampare i risultati sul
+terminale.
+
+Si lo so, avrei dovuto parlare di questo prima, ma senza i capitoli precedenti su variabili, costanti ed operatori
+sarebbe tutto abbastanza inutile no?
+
+Output su terminale
+-------------------
+Senza un modo per dare i risultati un programma sarebbe inutile, ed il modo piu' intuitivo per darli in un programma
+C e' stampandoli in terminale.
+
+Fin'ora abbiamo visto la funzione **puts**, che non fa altro che outputtare una stringa, ma ovviamente avremo bisogno
+anche di outputtare valori diversi dalle stringhe.
+
+Per fare cio' in **stdio.h**, abbiamo una bellissima funzione, ovvero printf (<i><b>print f</b>ormatted</i>).
+
+Il suo funzionamento e' semplicissimo, si passa una stringa con il template da usare e di seguito le variabili da inserire.
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int lol = 23;
+
+        printf("lol: %d\n", lol);
+
+        return 0;
+    }
+
+Questo non fara' altro che outputtare `lol: 23`.
+
+La lista di place holders (i cosi che iniziano con %) la potete trovare su internet o con `$ man 3 printf`.
+
+Non staro' certo qui a spiegarvi ogni funzione, da qui in poi al massimo accennero' al suo funzionamento, per il resto fate affidamento
+su man e su internet (andate a vedere nei Links, consiglio vari siti per references ed altro).
+
+Per outputtare normalmente viene usato **stdout**, **printf** e **puts** di default usano quello stream,
+volendo pero' si puo' printare gli errori su **stderr** usando **fprintf**.
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        fprintf(stderr, "Errore, sei gay.\n");
+
+        return -1337;
+    }
+
+
+Input da tastiera
+-----------------
+Inserire i valori nel sorgente e ricompilare e' piuttosto scomodo, quindi avere la possibilita' di richiedere
+dei dati all'utente e' cosa buona e giusta (cit).
+
+Ci sono diversi modi per fare cio', si puo' richiedere una stringa con gets (<i><b>get s</b>tring</i>) e convertire
+la stringa nel valore che ci serve (metodo che sconsiglio vivamente, gets e' una funzione insicura, ed il motivo
+lo spieghero' dopo) oppure si puo' usare scanf (<i><b>scan f</b>ormatted</i>), la controparte di printf.
+
+**scanf** fa la stessa cosa di **printf**, ma al contrario, ecco un esempio:
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int first;
+        int second;
+
+        printf("Insert a number: ");
+        scanf("%d", &amp;first);
+
+        printf("Insert another number: ");
+        scanf("%d", &amp;second);
+
+        printf("%d + %d = %d\n", first, second, first + second);
+
+        return 0;
+    }
+
+Questo programma e' gia' qualcosa di piu' utile. Come vedete scanf richiede il solito template e poi
+il puntatore alla nostra variabile, &amp; prima di una variabile serve appunto a dare il puntatore.
+Spieghero' piu' avanti in maniera piu' approfondita i puntatori, per il momento prendete sta cosa come
+postulato.
+
+Compilandolo ed eseguendolo dovreste ottenere il seguente output:
+
+    $ clang -o somma somma.c
+    $ ./somma
+    Insert a number: 23
+    Insert another number: 42
+    23 + 42 = 65
+
+Input da linea di comando
+-------------------------
+Uno dei modi che preferisco per prendere input e' da linea di comando, questo perche' rende i programmi
+piu' facilmente "scriptabili".
+
+I dati passati da linea di comando sono forniti dalle variabili **argc** ed **argv** che abbiamo messo
+fin'ora nella dichiarazione del main.
+
+In **argc** c'e' il numero di parametri passati, dove il minimo e' 1, in quanto in argv[0] di default
+c'e' il path richiamato.
+
+Invece **argv** e' un array di stringhe contenenti i vari parametri.
+
+Un esempio di come usare gli argomenti passati da linea di comando:
+
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;math.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int first;
+        int second;
+
+        if (argc &lt; 4) {
+            fprintf(stderr, "You have to pass 3 arguments\n");
+            return -1;
+        }
+
+        first  = atoi(argv[1]);
+        second = atoi(argv[3]);
+
+        switch (argv[2][0]) {
+            case '+':
+            printf("%d + %d = %d\n", first, second, first + second);
+            break;
+
+            case '-':
+            printf("%d - %d = %d\n", first, second, first - second);
+            break;
+
+            case '*':
+            printf("%d * %d = %d\n", first, second, first * second);
+            break;
+
+            case '/':
+            if (second == 0) {
+                fprintf(stderr, "You can't divide by 0, nigger.\n");
+                return -3;
+            }
+
+            printf("%d / %d = %d\n", first, second, first / second);
+            break;
+
+            case '^':
+            printf("%d ^ %d = %ld\n", first, second, (long) pow(first, second));
+            break;
+
+            default:
+            fprintf(stderr, "It's not a valid operator, faggot.\n");
+            return -2;
+        }
+
+        return 0;
+    }
+
+So che ho fatto roba maggica che ancora non vi ho spiegato, pero' avevo voglia di scrivere qualcosa
+di almeno un po' fico, se volete spiegazioni andate al prossimo capitolo.
+
+Ed ecco qui come compilare e testare sta robba maggica:
+
+    $ clang -lm -o calc calc.c
+    $ ./calc 2 + 2
+    2 + 2 = 4
+    $ ./calc 2 * 4
+    2 * 4 = 8
+    $ ./calc 2 / 0
+    You can't divide by 0, nigger.
+    $ ./calc 2 / 2
+    2 / 2 = 1
+    $ ./calc 42 - 23
+    42 - 23 = 19
+    $ ./calc 42 ^ 10
+    42 ^ 10 = 17080198121677824
+
+<i>**-lm** serve per includere la libreria math.h nel linking, e' una shared lib non una parte builtin del compilatore
+quindi serve aggiungere la linea di linking oppure non verra' trovata la funzione pow (o in caso altre
+funzioni di math.h).</i>
+
+Strutture di controllo
+======================
+Un programma normalmente ha bisogno di poter cambiare il suo corso a seconda dei casi, e quindi vengono
+in nostro soccorso queste fantastiche strutture di controllo. Un po' come l'A-TEAM.
+
+Strutture condizionali
+----------------------
+Le strutture condizionali ci aiutano nelle faccende domestiche di tutti i giorni, un po' come l'alcohol.
+
+Senza di esse non potreste mai fare un programma che da del gay a qualcuno di preciso, potreste solo dare
+del gay a tutti, e tutti non ne sarebbe contento :(
+
+Cagate a parte, le strutture di controllo sono fondamentalmente 2, E SONO QUI CON NOI!
+
+### `if-else if-else`
+Come avete visto nel sorgente precedente c'e' la possibilita' di eseguire un certo blocco di istruzioni
+in caso che l'espressione tra parentesi sia true.
+
+La sintassi e' la seguente:
+
+    if (condizione) {
+        codice;
+    }
+    else if (condizione) {
+        codice;
+    }
+    else {
+        codice;
+    }
+
+Volendo si puo' mettere solo l'if, o solo if ed else, o solo if e degli else if, l'importante e' che il
+primo sia un if.
+
+Il suo funzionameto e' piuttosto chiaro, direi, facciamo un esempio:
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        char gayness;
+        int  number;
+
+        printf("Are you gay (y|n)? ");
+        scanf("%c", &amp;gayness);
+
+        if (gayness == 'y' || gayness == 'Y') {
+            puts("Good to know.");
+        }
+        else if (gayness == 'n' || gayness == 'N') {
+            puts("I guess you are.");
+        }
+        else if (gayness == 'z' || gayness == 'Z') {
+            puts("How funny.");
+        }
+        else {
+            puts("I said y or n, you're indeed a faggot.");
+        }
+
+        printf("\nType 100 if you're smart: ");
+        scanf("%d", &amp;number);
+
+        if (number != 100) {
+            puts("You're not very bright, aren't you?");
+        }
+
+        return 0;
+    }
+
+### `switch`
+Lo switch viene spesso sopravalutato, o almeno vengono svalutati i linguaggi in cui esso e' assente, ma
+indubbiamente, se ben implementato, e' davvero un costrutto fico. Purtroppo in C fa cagare.
+
+La sua sintassi e' la seguente:
+
+    switch (espressione) {
+        case 1:
+        codice;
+        break;
+
+        case 2:
+        case 3:
+        codice;
+        break;
+
+        default:
+        codice;
+        break;
+    }
+
+L'**espressione** puo' essere anche semplicemente una variabile, quando l'espressione
+assume un valore dei case (*quel valore puo' essere solo un int, o castabile ad int*)
+viene eseguito il codice in quel case, se non matcha nessuno dei valori nei case va al default.
+
+Faccio notare che non e' come l'if, ma e' un vero e proprio salto al case corrispondente, infatti viene
+visto come un <b style="color: red;">GOTO</b>.
+
+Il **break** in quella situazione viene visto come "esci dallo switch".
+
+Come esempio potete usare la mini calcolatrice nel capitolo precedente.
+
+Strutture iterative<span>, i cicli (mestruali)</span>
+-----------------------------------------------------
+Siccome se volessimo ripetere la stessa azione per 20 volte o finche' non si verifica una certa azione
+sarebbe stupido copypastare all'infinito lo stesso codice, l'uomo del giappone ha inventato i cicli<sup>[*citation needed*]</sup>.
+
+Queste magie nere ci permettono di sviluppare in maniera intelligente ed algoritmicamente sensata cose che richiederebbero
+i <b style="color: red;">GOTO</b>, ebbene si, i <b style="color: red;">GOTO</b>.
+
+Va beh, tralasciando le stronzate, imparatevi bbbbene ste robe sui cicli che vi serviranno in qualsiasi linguaggio (o quasi).
+
+### `while`
+Il while e' il ciclo piu' basilare, continua ad eseguire il suo blocco di codice finche' la sua condizione e' vera.
+
+Ricordate che nel while PRIMA viene valutata la condizione e poi eseguito il codice, questo significa che se la
+condizione e' falsa da subito il codice non verra' mai eseguito.
+
+Sintassi:
+
+    while (condizione) {
+        codice;
+    }
+
+Esempio:
+
+    #include &lt;stdio.h&gt;
+    #include &lt;unistd.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int countdown;
+
+        printf("Insert the countdown start: ");
+        scanf("%d", &amp;countdown);
+
+        while (countdown &gt; 0) {
+            printf("%d ", countdown);
+            fflush(stdout); // provate a commentare questa riga per vedere cosa succede se non flushate
+            sleep(1);
+            countdown--;
+        }
+
+        puts("DOUBLE NIGGER!");
+
+        return 0;
+    }
+
+Per sapere cosa fanno le funzioni fflush e sleep, come al solito, usate man o l'internet.
+
+### `do-while`
+Il do-while e' praticamente come il while solo che PRIMA viene eseguito il codice e poi viene valutata
+la condizione.
+
+Sintassi:
+
+    do {
+        codice;
+    } while (condizione);
+
+### `for`
+Il ciclo for e' quello piu' complesso, ma anche piu' fico.
+
+Sintassi:
+
+    for (inizializzazione; condizione; incremento) {
+        codice;
+    }
+
+Volendo si possono lasciare vuoti gli spazi, ma bisogna comunque mettere i `;`, ad esempio,
+se non avessi bisogno di alcuna inizializzazione potrei fare `for (; lol &gt; 0; lol--)`.
+
+
+1. L'**inizializzazione** puo' essere una qualsiasi espressione, solitamente si assegnano ad un certo valore
+   le variabili utilizzate come counter. Questa espressione viene valutata prima di entrare nel ciclo.
+2. La **condizione** viene valutata, e se vera si procede, se no il ciclo termina.
+3. Viene eseguito il codice.
+4. Viene valutato l'**incremento**, che solitamente modifica le variabili su cui e' valutata la condizione.
+5. Tornare al punto 2.
+
+Esempio:
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int i;
+
+        for (i = 0; i &lt; 10; i++) {
+            printf("%d ", i);
+        }
+
+        printf("\n");
+
+        return 0;
+    }
+
+Questo programmino inutile contera' da 0 a 9.
+
+Salti incondizionati
+--------------------
+I salti incodizionati, spesso e volentieri, sono il <b style="color: red">MALE</b>, ma alcune volte
+possono essere piu' coerenti di ripensare a tutto il modo di ciclare, oppure potrebbero salvare decine
+di righe di codice ripetuto, in quel caso ha senso usarli.
+
+### `goto`
+<img alt="I GOTO SONO IL MALE!" src="data:image/png;base64,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"/>
+
+### `break`
+Il **break** e' una delle magie nere usabili nei cicli, quest'istruzione fantasmagorica permette
+di interrompere il ciclo corrente passando oltre.
+
+Esempio:
+
+    #include &lt;stdio.h&gt;
+
+    int
+    main (int argc, char** argv)
+    {
+        int i;
+
+        for (i = 0; i &lt; 10; i++) {
+            if (i == 5) {
+                break;
+            }
+        }
+
+        printf("%d\n", i);
+
+        return 0;
+    }
+
+Questo programmino del cavolo outputtera' `5`, anche se il ciclo formalmente doveva finire
+quando `i` avrebbe raggiunto 10.
+
+### `continue`
+Il **continue** e' un'altra magia stile **break**, solo che al posto di terminare il ciclo fa finta
+che il blocco da eseguire sia finito, facendo cosi' procedere il ciclo normalmente.
+
+Funzioni
+========
+Le funzioni in C sono fondamentali, una delle parti piu' importanti della programmazione in C e' analizzare
+il problema e dividerlo in sottofunzioni piu' facilmente gestibili.
+
+Prototipo di funzione
+---------------------
+Il prototipo di una funzione e' per il compilatore (e per il programmatore) una descrizione della funzione.
+
+Ovvero tutto quello che ci serve sapere sulla funzione: tipo di ritorno, nome e parametri.
+
+La sintassi e' la seguente:
+
+    type name (type1 param1, type2 param2);
+
+Il prototipo dice al compilatore che da qualche parte c'e' una funzione con quel nome ed in linking time
+verra' associata ad un indirizzo.
+
+Solitamente nei file headers (i .h) ci sono appunto i prototipi delle funzioni che si trovano nella libreria.
+
+Prima di poter usare una funzione, deve esserne dichiarato il prototipo o deve essere dichiarata
+la funzione stessa.
+
+Usare `void` come tipo di ritorno di una funzione indica che la funzione non ritornera' nulla.
+
+Corpo di funzione
+-----------------
+Il corpo della funzione e' un blocco di codice che ha come variabili locali i parametri della funzione.
+
+Dichiarazione di funzione
+-------------------------
+La dichiarazione di una funzione consiste nel prototipo seguito dal corpo della funzione.
+
+Sintassi:
+
+    type
+    name (type1 param1, type2 param2)
+    {
+        codice;
+    }
+
+Semplice no?
+
+Chiamata di funzione
+--------------------
+Come dovreste aver dedotto, una funzione si richiama con le parentesi.
+
+Sintassi:
+
+    type var = name(param1, param2);
+
+E' possibile salvare il valore di ritorno di una funzione in una variabile, utilizzando l'operatore d'assegnamento,
+ma ovviamente non e' obbligatorio, anche se una funzione non e' `void` si puo' ignorare il valore di ritorno.
+
+Funzioni variadiche<span>, con numero di parametri variabile</span>
+-------------------------------------------------------------------
+Una roba molto figa del C e' che si possono scrivere funzioni con numero di parametri variabile, per fare cio'
+si usa una sintassi speciale, ovvero:
+
+    type name (type1 param, ...);
+
+Per poter usare un numero variabile di parametri bisogna mettere almeno una variabile, se no tutto andra' batshit.
+
+Gli strumenti che ci mette a disposizione il C non ci danno la possibilita' di sapere quanti parametri
+ci vengono passati ogni volta e di che tipo sono automaticamente, questo ci obbliga ad usare dei metodi alternativi per
+farci dire quanti parametri sono stati passati e di che tipo sono.
+
+* Usare una stringa di formattazione che ci indica il tipo ed il numero di parametri, esempio "iif" indicherebbe
+  3 parametri passati di tipo `int`, `int` e `float`.
+* Usare un solo tipo e farci dare il numero dei parametri passati come primo parametro.
+* Usare un solo tipo ed usare un valore di delimitazione.
+
+Ad esempio, `printf` usa il primo metodo, i placeholders non servono altro che ad indicare il
+tipo di parametro che gli stiamo passando.
+
+Esempio: (*usando il terzo metodo*)
+
+    #include &lt;stdio.h&gt;
+    #include &lt;stdarg.h&gt;
+
+    long
+    sum (long first, ...)
+    {
+        long total = 0;
+        long current;
+        va_list args;
+
+        va_start(args, first);
+
+        total += first;
+        while ((current = va_arg(args, long)) != 0) {
+            total += current;
+        }
+
+        return total;
+    }
+
+    int
+    main (int argc, char** argv)
+    {
+        printf("23 + 42 + 1337 + 9001 = %ld\n", sum(23, 42, 1337, 9001, 0));
+        printf("2 + 3 = %ld\n", sum(2, 3, 0));
+
+        return 0;
+    }
+
+Compiliamo e testiamo:
+
+    $ clang -o sum sum.c
+    $ ./sum
+    23 + 42 + 1337 + 9001 = 10403
+    2 + 3 = 5
+
+Come vedete abbiamo fatto una funzione che puo' prendere quanti parametri vogliamo.
+
+Forse qui una breve spiegazione e' meglio darla, se volete approfondimenti comunque usate man o l'internet e saprete.
+
+**va_list** e' un tipo di dato che rappresenta il punto a cui e' arrivata la lista di argomenti.
+
+**va_start** inizializza questo tipo di dato. Ha come parametri la lista e l'ultimo argomento della funzione variadica.
+
+**va_arg** prende il prossimo parametro e lo typecasta al tipo passato. Prende come argomenti la lista ed il tipo dell'argomento.
+
+Spero sia chiaro.
+
+Attributi delle funzioni
+------------------------
+Anche le funzioni, come le variabili, possono avere degli attributi.
+
+L'attributo `static` ha lo stesso funzionamento che ha con le variabili globali, ovvero rende
+accessibile la funzione solo al file in cui e' dichiarata.
+
+L'attributo `inline` e' abbastanza fico, permette di dire al compilatore di inserire direttamente il corpo
+della funzione dove la funzione viene richiamata, evitando cosi' di fare una chiamata a funzione (che comunque causa
+dell'overhead). Questo attributo non sempre viene ascoltato, ma volendo si puo' giocare con le opzioni del compilatore
+per forzarlo ad inlinare certe funzioni. In qualsiasi caso un buon compilatore sa analizzare il codice e capisce se e'
+giusto inlinare una certa funzione oppure no, io lascio sempre fare al compilatore queste scelte.
+
+Funzioni ricorsive
+------------------
+Le funzioni ricorsive sono il <b style="color: red;">MALE</b>, ma spesso sono la migliore soluzione se non l'unica (*sensata*)
+ad un problema.
+
+Una funzione ricorsiva e' una funzione che nel corpo richiama se stessa, questo, olte a creare un ENORME overhead
+per via delle call e dello stack allocato per ogni call rende piu' difficile la comprensione
+della funzione, se scritta col culo o usata per una semplice operazione.
+
+Ora vi faro' un esempio in C con una funzione ricorsiva stupida e poi un'esempio utile.
+
+Esempio stupido: (*fattoriale*)
+
+    int
+    fac (int n)
+    {
+        return (n == 1) ? n : n * fac(n - 1);
+    }
+
+Se io chiamassi fac(5) quello che accadrebbe sarebbe semplicemente il ritrovarmi con 5 call accodate a fac che restituiscono, partendo dalla fine
+(quando **n** e' 1) `1 * 2 * 3 * 4 * 5`, ovvero il fattoriale.
+
+Esempio utile: (*DOM getElementsByTagName*) {*Ci sono robe avanzate, tornate a leggere quando capirete di cosa parlo*}
+
+    // Se non sapete cos'e' il DOM posso dirvi che e' semplicemente un modo di astrarre un documento,
+    // insomma, e' un albero con diversi nodi, ed il getElementsByTagName non fa altro che prendere i
+    // nodi che hanno il nome passato, in questo caso la ricorsivita' e' di vitale importanza, implementare
+    // un getElementsByTagName con un ciclo sarebbe da spararsi.
+    // 
+    // Facciamo finta che DOMNodeList e' un tipo gay stile std::vector e che DOMNode e' il tipo del nodo.
+
+    DOMNodeList*
+    DOM_GetElementsByTagName (DOMNode* node, const char* name)
+    {
+        DOMNodeList* list     = DOM_CreateNodeList();
+        DOMNodeList* children = DOM_NodeChildren(node);
+        DOMNode*     current;
+        int          i;
+
+        for (i = 0; i &lt; DOM_NodeListLength(children); i++) {
+            current = DOM_GetNodeListItem(children, i);
+
+            if (DOM_NodeType(current) == DOM_ELEMENT_NODE) {
+                if (strcmp(DOM_GetNodeName(current), name) == 0) {
+                    DOM_AddElement(list, current);
+                }
+
+                DOM_MergeNodeList(list, DOM_GetElementsByTagName(current));
+            }
+        }
+
+        return list;
+    }
+
+Come potete vedere, usando la ricorsione siamo in grado di fare un getElementsByTagName su ogni elemento del nostro tree,
+in questo modo ci viene passata una lista di elementi con quel nome, che viene unita a quella della funzione che ha richiamato
+se stessa e cosi' via, finche' non ci ritroviamo con una lista di elementi con il nome passato.
+
+Fico no?
+
+Puntatori<span>, puntano!</span>
+================================
+I puntatori sono delle variabili che puntano ad una cert'area di memoria e rendono automaticamente castata ad un certo tipo
+l'area di memoria a cui puntano, e la rendono quindi usabile.
+
+Per definire un puntatore ad un tipo basta mettere `*` dopo il tipo, ad esempio `int*` sara' un
+puntatore ad int, come `int**` sara' un puntatore ad un puntatore ad int.
+
+Tipi di dato avanzati</span> (la vendetta)</span>
+=================================================
+Oltre ai tipi di dato primitivi che abbiamo gia' visto nel capitolo [3.2](#3.2) ci sono altri tipi di dato che
+sono molto molto utili, anche se un po' piu' difficili da maneggiare.
+
+`struct`<span>, strutture di dati</span>
+----------------------------------------
+Le struct permettono di riunire piu' variabili di diverso tipo sotto una variabile di un tipo solo,
+definizione orrenda ma non mi viene altro, capirete ora con uno stupido esempio:
+
+    #include &lt;stdio.h&gt;
+
+    struct LOL {
+        int   omg;
+        float wat;
+    };
+
+    int
+    main (int argc, char** argv)
+    {
+        struct LOL lol;
+
+        printf("Inserisci un intero: ");
+        scanf("%d", &amp;lol.omg);
+        printf("Inserisci un numero con la virgola: ");
+        scanf("%f", &amp;lol.wat);
+
+        printf("La somma e' %f\n", lol.omg + lol.wat);
+
+        return 0;
+    }
+
+Come potete vedere posso accedere a `omg` e `wat` da `lol`.
+
+Questo ci permette di portarci dietro insiemi di dati di diverso tipo e di poter astrarre in maniera
+piu' chiara questi insiemi di dati.
+
+Per intenderci, la programmazione ad oggetti in C viene fatta con le struct, in quanto sono la cosa piu'
+simile ad un oggetto. Tra gli argomenti avanzati a fine del libro aggiungero' la programmazione ad oggetti
+in C.
+
+E' inoltre possibile inizializzare staticamente le struct con il seguente metodo:
+
+    struct LOL lol = { 2, 2.3 };
+
+Questo assegnera' al primo elemento (ovvero omg) il valore 2 ed al secondo (ovvero wat) 2.3.
+
+`union`<span>, tutti per uno, union per tutti! (non fa ridere (cit.))</span>
+----------------------------------------------------------------------------
+Le union a differenza delle struct permettono di usare una variabile come fosse di piu' tipi, funziona piu' o meno come una struct ma solo un elemento
+alla volta e' usabile.
+
+    #include &lt;stdio.h&gt;
+
+    union LOL {
+        int   i;
+        float f;
+    };
+
+    int
+    main (int argc, char** argv)
+    {
+        union LOL lol;
+        union LOL wut;
+
+        printf("Inserisci un intero: ");
+        scanf("%d", &amp;lol.i);
+        printf("Inserisci un numero con la virgola: ");
+        scanf("%f", &amp;wut.f);
+
+        printf("La somma e' %f (lol=%lu; wut=%lu)\n", lol.i + wut.f, sizeof(lol), sizeof(wut));
+
+        return 0;
+    }
+
+Come potete vedere la union LOL sara' grande come il tipo piu' grande che contiene ed ogni elemento della union
+condividera' lo stesso spazio in memoria, questo significa che se andassi ad usare due elementi di una stessa union
+andrei a fare casini abnormi.
+
+`enum`
+------
+Gli enum permettono appunto di *enumerare* un insieme di nomi in maniera automatica. Quindi al posto
+di fare millemila `define` si puo' usare un semplice enum.
+
+    #include &lt;stdio.h&gt;
+
+    enum LOL {
+        LOL_WAT,
+        LOL_OMG,
+        LOL_NIGGER = 23,
+        LOL_PENIS
+    };
+
+    int
+    main (int argc, char** argv)
+    {
+        printf("%d %d %d %d\n", LOL_WAT, LOL_OMG, LOL_NIGGER, LOL_PENIS);
+
+        return 0;
+    }
+
+Come potete vedere potete anche scegliere da dove far partire l'enumerazione in qualsiasi punto della lista.
+
+`typedef`
+---------
+Il typedef permette di definire dei nostri tipi o di definire degli alias a tipi gia' esistenti.
+
+    #include &lt;stdio.h&gt;
+
+    typedef int Integer;
+    typedef float Floating;
+
+    typedef struct {
+        Integer  lol;
+        Floating wut;
+    } LOL;
+
+    int
+    main (int argc, char** argv)
+    {
+        LOL lol = { 2, 2.3 };
+
+        printf("%f\n", lol.lol + lol.wut);
+
+        return 0;
+    }
+
+Come potete vedere abbiamo ridefinito i tipi `int` e `float` ed abbiamo definito
+un tipo struct a LOL, questo ci permette di evitare di mettere `struct LOL` ogni volta e di metter
+semplicemente `LOL`.
+
+Il preprocessore
+================
+Il preprocessore, anche conosciuto come **cpp** (che non sta per cippiùpppiù ma per C Pre Processor), ci permette
+di fare tante magie nere, piu' dei type-cast.
+
+Per indicare al preprocessore che si stanno dando istruzioni a lui bisogna iniziare la riga con un <code>#</code> e di seguito
+le istruzioni per il **cpp**.
+
+`include`
+---------
+L'include e' una delle istruzioni basilari del C per implementare la programmazione modulare, come spero intuiate
+permette di includere dei file nel sorgente corrente. In questo modo possiamo includere header con funzioni in altri
+file oggetto o di altre librerie.
+
+L'include e' una funzione ricorsiva, quindi altri include nei file inclusi saranno richiamati e via dicendo.
+
+Sintassi:
+
+    #include &lt;file&gt;
+    #include "file"
+
+Usando &lt;&gt; cerca prima il file in certe directory standard, solitamente */usr/include* ed altre, poi in quelle
+passate al compilatore come parametro ed infine nella dir in cui c'e' il sorgente.
+
+Usando "" cerca prima nella dir in cui c'e' il sorgente e poi nelle altre.
+
+Macro utili
+-----------
+
+    #define PERCENT(x,y)  (100.0 * (double) (x) / (double) (y))
+
+Links
+=====
+A voi una lista di siti sempre utili (soprattutto a me per ricordarmeli, lol).
+
+* [Pre-defined C/C++ Compiler Macros](http://predef.sourceforge.net/index.php)
+* [C Library Reference](http://www.cplusplus.com/reference/clibrary/) anche se e' per il C++ resta la migliore reference.
+
+<div id="license">This <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" rel="dc:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://meh.doesntexist.org" property="cc:attributionName" rel="cc:attributionURL" target="_blank">meh.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.</div>

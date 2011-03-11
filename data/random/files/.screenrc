@@ -1,0 +1,19 @@
+defscrollback 1024
+defutf8 on
+vbell off
+attrcolor b ".I"
+termcapinfo rxvt 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+defbce "on"
+
+backtick 1 5 5 screen-processor.sh
+backtick 2 5 5 screen-temperature.sh
+backtick 3 2 2 screen-wireless.sh
+backtick 4 2 2 screen-battery.sh
+
+backtick 100 1 1 screen-notify-irssi.pl
+backtick 101 3 3 screen-notify-email.pl
+
+hardstatus alwayslastline
+hardstatus string '%{= dd}%{r}[%{W}%H%{r}][%=%{w}%?%-w%?%{r}(%{W}%n%t*%f%?(%u)%?%{r})%{w}%?%+w%?%?%=%{r}]%101`%100`%1`%2`%3`%4`[%{W}%D %d/%m/%Y %c:%s%{r}]'
+
+startup_message off

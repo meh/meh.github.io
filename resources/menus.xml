@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE menus [
+    <!ELEMENT menus (menu*)>
+
+    <!ELEMENT menu ANY>
+    <!ATTLIST menu
+        id  ID  #IMPLIED
+    >
+
+    <!ELEMENT item ANY>
+    <!ATTLIST item
+        href    CDATA   #REQUIRED
+    >
+]>
+
+<menus>
+    <menu id="default">
+        <item href="#blog">Blog</item>
+        <item href="#projects">Projects</item>
+        <item href="#papers">Papers</item>
+        <item href="#random">Random</item>
+    </menu>
+</menus>

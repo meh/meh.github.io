@@ -1,0 +1,25 @@
+#disqus {
+  width: 100%;
+  border-top: 1px solid #EEEEEE;
+  background: #FAFAFA no-repeat url(images/up.png) right 5px;
+  min-height: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 42;
+  opacity: 0.95;
+
+  &:hover {
+    background-image: url(images/down.png);
+  }
+
+  &:hover #disqus_thread {
+    display: block !important;
+  }
+
+  #disqus_thread {
+    padding: 10px;
+    display: none;
+    overflow: auto;
+  }
+}

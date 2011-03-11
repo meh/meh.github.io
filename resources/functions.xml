@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE functions [
+    <!ELEMENT functions (function*)>
+
+    <!ELEMENT function (#PCDATA)>
+    <!ATTLIST function name CDATA #REQUIRED>
+]>
+
+<functions>
+    <function name="raw"><![CDATA[
+        text = text.replace(/&/g,  '&amp;amp;');
+        text = text.replace(/</g,  '&amp;lt;');
+        text = text.replace(/>/g,  '&amp;gt;');
+
+        text = "<pre>" + text + "</pre>";
+    ]]></function>
+</functions>

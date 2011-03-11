@@ -1,0 +1,84 @@
+# cHoBi Dark Theme
+
+toolbar:                            raised solid
+toolbar.color:                      #111111
+
+toolbar.button:                     parentrelative
+toolbar.button.picColor:            lightgray
+toolbar.button.pressed:             raised solid
+toolbar.button.pressed.color:       #333333
+
+toolbar.label:                      sunken
+toolbar.label.color:                #111111
+toolbar.label.textColor:            #DD0000
+
+toolbar.windowLabel:                sunken
+toolbar.windowLabel.color:          #111111
+toolbar.windowLabel.textColor:      #DD0000
+
+toolbar.clock:                      sunken
+toolbar.clock.color:                #111111
+toolbar.clock.textColor:            #DD0000
+
+toolbar.justify:                    Center
+
+menu.title:                         raised
+menu.title.color:                   #222222
+menu.title.textColor:               red
+menu.title.justify:                 center
+
+menu.frame:                         flat solid bevel1
+menu.frame.color:                   #111111
+menu.frame.textColor:               lightgray
+menu.frame.justify:                 left
+
+menu.hilite:                        flat solid bevel1
+menu.hilite.textColor:              darkred
+menu.hilite.color:                  black
+
+menu.bullet:                        triangle
+menu.bullet.position:               right
+
+window.title.focus:                 raised solid
+window.title.focus.color:           #111111
+window.title.unfocus:               raised solid
+window.title.unfocus.color:         #111111
+
+window.label.focus:                 sunken
+window.label.focus.color:           #222222
+window.label.focus.textColor:       red
+window.label.unfocus:               raised solid
+window.label.unfocus.color:         #111111
+window.label.unfocus.textColor:     darkred
+
+window.handle.focus:                flat solid
+window.handle.focus.color:          darkred
+window.handle.unfocus:              flat solid
+window.handle.unfocus.color:        black
+
+window.grip.focus:                  raised solid
+window.grip.focus.color:            darkred
+window.grip.unfocus:                flat solid
+window.grip.unfocus.color:          black
+
+window.button.focus:                parentrelative
+window.button.focus.picColor:       red
+
+window.button.unfocus:              parentrelative
+window.button.unfocus.picColor:     darkred
+
+window.button.pressed:              flat solid bevel2
+window.button.pressed.color:        darkred
+
+window.frame.focusColor:            darkred
+window.frame.unfocusColor:          black
+
+window.justify:                     center
+
+borderColor:                        #DD0000
+
+borderWidth:                        1
+bevelWidth:                         1
+handleWidth:                        3
+
+*Font:                              nu

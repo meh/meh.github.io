@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE pages [
+    <!ELEMENT pages (page*)>
+
+    <!ELEMENT page ANY>
+    <!ATTLIST page
+        id        ID    #REQUIRED
+        type      CDATA #IMPLIED
+        arguments CDATA ""
+        menu      CDATA #IMPLIED
+        alias     CDATA #IMPLIED
+    >
+
+    <!ELEMENT list (link*, item*, nest*, list*)>
+    <!ATTLIST list
+        class  CDATA "links"
+        before CDATA #IMPLIED
+        after  CDATA #IMPLIED
+        type   CDATA #IMPLIED
+    >
+
+    <!ELEMENT link (#PCDATA)>
+    <!ATTLIST link
+        class       CDATA "link"
+        id          CDATA ""
+        src         CDATA #IMPLIED
+        url         CDATA #IMPLIED
+        href        CDATA #IMPLIED
+        text        CDATA #REQUIRED
+        before      CDATA #IMPLIED
+        after       CDATA #IMPLIED
+        type        CDATA #IMPLIED
+        domain      CDATA #IMPLIED
+        menu        CDATA #IMPLIED
+    >
+
+    <!ELEMENT item (#PCDATA)>
+    <!ATTLIST item
+        class   CDATA   "item"
+        id      CDATA   ""
+        before  CDATA   #IMPLIED
+        after   CDATA   #IMPLIED
+    >
+
+    <!ELEMENT nest ANY>
+    <!ATTLIST nest
+        class   CDATA "nest"
+        style   CDATA "margin-left: 10px;"
+    >
+]>
+
+<pages>
+    <page id="home" alias="#page=blog/last&amp;type=markdown"/>
+
+    <page id="blog" alias="#page=blog/index&amp;type=markdown"/>
+
+    <page id="projects" type="markdown"><![CDATA[
+
+Maintained projects
+-------------------
+
+* [miniLOL](#miniLOL), a lightweight javascript CMS.
+* [failirc](#failirc), an easily extendable IRC server and client library.
+* [faildns](#faildns), an easy to use DNS server and client library.
+* [packø](#packo), the "pacco" package manager.
+* [craftd](#craftd), a high performance Minecraft server.
+
+Unmaintained but working projects
+---------------------------------
+
+* [fffs](#fffs), a virtual filesystem.
+* [ruby-mbox](#ruby-mbox), a library to parse and manage mbox files.
+* [optimus](#optimus), a shitty option parser, I don't even use it anymore.
+* [LOLastfm](#LOLastfm), a cool universal last.fm scrobbler.
+
+Paused projects
+---------------
+
+* [lulzKey](#lulzKey), a shitty try at creating an operating system.
+* [lolibc](#lolibc), a libc that doesn't suck.
+* [lulzutils](#lulzutils), like coreutils, but more lulzy.
+* [lal](#lal), a library to easily implement GUIs.
+* [libcss](#libcss), a library to parse CSS.
+
+Abandoned projects
+------------------
+
+* lulzBB, a shitty PHP CMS, one of my first projects, it sucks.
+* libxml++, an even more shitty XML library, still one of my first projects.
+* lulzjs, a fail idea, a lot of other people implemented the same thing, so I gave up.
+* lulzhttpd, just dreamt about it and wanted to write it down, not even finished.
+
+    ]]></page>
+
+    <page id="papers" type="markdown"><![CDATA[
+
+Guides
+======
+
+* [C guide](#module=paper&name=c) (Italian, kinda offensive speech, still **incomplete**)
+
+    ]]></page>
+
+    <page id="random" type="markdown"><![CDATA[
+
+.files
+======
+
+* [~/.bashrc](#page=random/files/.bashrc&type=raw)
+* [~/.screenrc](#page=random/files/.screenrc&type=raw)
+* [~/bin/screen-*](data/random/files/bin/screen.tar.bz2)
+* [~/.vimrc](#page=random/files/.vimrc&type=raw)
+* [~/.vim/color/darkblood.vim](#page=random/files/.vim/colors/darkblood.vim&type=raw)
+* [~/.Xdefaults](#page=random/files/.Xdefaults&type=raw)
+* [~/.xinitrc](#page=random/files/.xinitrc&type=raw)
+
+    ]]></page>
+</pages>

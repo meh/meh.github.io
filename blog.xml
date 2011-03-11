@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE blog [
+    <!ELEMENT blog (post*)>
+    <!ATTLIST blog
+        total CDATA #REQUIRED
+    >
+
+    <!ELEMENT post ANY>
+    <!ATTLIST post
+        title  CDATA #REQUIRED
+        date   CDATA #REQUIRED
+        id     ID    #REQUIRED
+        author CDATA #REQUIRED
+        tags   CDATA #IMPLIED
+    >
+
+    <!ELEMENT comments (comment*)>
+
+    <!ELEMENT comment (#PCDATA)>
+    <!ATTLIST comment
+        date    CDATA #REQUIRED
+        id      ID    #REQUIRED
+
+        author  CDATA #IMPLIED
+        email   CDATA #IMPLIED
+        website CDATA #IMPLIED
+    >
+]>
+
+<blog>
+    <post id="1" author="meh." date="Thu Feb 03 2011 16:12:26 GMT+0100 (CET)"><![CDATA[
+
+I just found out about an **AWESOME** program, I've been looking for something
+like this for months (aka doing nothing to actually find it).
+
+[Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior/) is a task management
+tool with a _REALLY_ cool command line interface.
+
+It support projects, tags, dependencies and a lot of other cool stuff.
+
+Now I won't forget things to do :)
+
+I suggest getting version 1.9.4 from git, its zsh completion support makes it a breeze to use.
+
+    ]]></post>
+
+    <post id="2" author="meh." date="Thu Feb 03 2011 16:20:55 GMT+0100 (CET)"><![CDATA[
+
+I found myself in the need of some helper functions to do easily CSS3 with
+scss, so I created some useful mixins which make the scss shorted and easier to read
+avoiding the presence of over 9000 vendor-related CSS3 rules.
+
+<pre class="brush: scss">
+
+@mixin border-radius ($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-top-left-radius ($radius) {
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-radius-topleft: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius ($radius) {
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-left-radius ($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-radius-bottomleft: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-right-radius ($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  -moz-border-radius-bottomright: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin box-shadow ($data) {
+  -webkit-box-shadow: $data;
+  -moz-box-shadow: $data;
+  -o-box-shadow: $data;
+  box-shadow: $data;
+}
+
+@mixin transition ($data) {
+  -webkit-transition: $data;
+  -moz-transition: $data;
+  -o-transition: $data;
+  transition: $data;
+}
+
+</pre>
+
+    ]]></post>
+
+    <post id="2" author="meh."><![CDATA[
+$ cat ~/.xkb/xkbevd.cf
+Bell()  shell "/home/meh/bin/vbell"
+
+$ cat ~/.xinitrc
+exec xkbevd -bg
+    ]]></post>
+</blog>

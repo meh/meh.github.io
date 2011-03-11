@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE modules [
+    <!ELEMENT modules (module*)>
+    <!ATTLIST modules
+        path CDATA "modules"
+    >
+
+    <!ELEMENT module EMPTY>
+    <!ATTLIST module
+        name CDATA #REQUIRED
+    >
+]>
+
+<modules>
+    <module name="Markdown"/>
+    <module name="Word Filter"/>
+    <module name="Paper"/>
+    <module name="Disqus"/>
+</modules>

@@ -1,0 +1,117 @@
+# Menu by meh
+
+[begin] (LULZ)
+	[exec] (urxvt) {urxvt -pt Root} 
+	[separator]
+
+	[submenu] (Internet)
+		[submenu] (Browsers)
+			[exec] (Firefox)  {firefox}
+            [exec] (Opera)    {opera}
+            [exec] (Chromium) {chromium --enable-webgl --disable-accelerated-compositing}
+            [exec] (Internet Explorer 6) {ie6}
+		[end]
+		[submenu] (Mail)
+			[exec] (Thunderbird) {thunderbird}
+		[end]
+		[submenu] (Messengers)
+			[exec] (aMSN) {amsn}
+            [exec] (Pidgin) {pidgin}
+            [exec] (Skype) {skype}
+		[end]
+		[submenu] (P2P)
+            [exec] (Deluge) {deluge}
+            [exec] (Transmission) {transmission}
+            [exec] (Limewire) {limewire}
+			[exec] (aMule) {amule}
+		[end]
+        [submenu] (Protocols)
+            [exec] (FTP) {filezilla}
+        [end]
+	[end]
+
+	[submenu] (Editors)
+        [submenu] (Programming)
+            [exec] (Glade) {glade-3}
+        [end]
+        [exec] (mousepad) {mousepad}
+        [exec] (gobby) {gobby}
+	[end]
+
+	[submenu] (Multimedia)
+		[submenu] (Audio)
+            [submenu] (Editing)
+                [exec] (LMMS) {lmms}
+                [exec] (soundconverter) {soundconverter}
+                [exec] (EasyTag) {easytag}
+                [exec] (Audacity) {audacity}
+            [end]
+            [exec] (EAC) {eac}
+            [exec] (Songbird) {songbird-bin}
+			[exec] (VLC) {vlc}
+			[exec] (Audacious) {audacious}
+		[end]
+		[submenu] (Video)
+			[exec] (MPlayer) {gnome-mplayer}
+			[exec] (Avidemux2) {avidemux2_gtk}
+		[end]
+		[submenu] (Graphic)
+            [exec] (Comical) {comical}
+			[exec] (Gimp) {gimp}
+		[end]
+		[submenu] (Games)
+            [exec] (Minecraft) {nice -20 java -Xmx1024M -Xms1024M -jar ~/bin/minecraft.jar}
+            [exec] (Urban Terror) {/opt/UrbanTerror/ioUrbanTerror.x86_64}
+            [exec] (World of Goo) {WorldOfGoo}
+            [exec] (Wesnoth) {wesnoth}
+            [exec] (Nintendo DS) {wine ~/bin/nogba.exe}
+            [exec] (Toribash) {toribash}
+			[exec] (Starcraft) {wine /adati/Games/Starcraft/StarCraft/StarCraft.exe}
+            [exec] (Diablo2) {wine /adati/Games/Diablo\ II/Diablo\ II.exe}
+			[exec] (Armagetron Advance) {armagetronad}
+		[end]
+	[end]
+
+	[submenu] (Office)
+		[exec] (OpenOffice.org) {soffice}
+	[end]
+
+	[submenu] (System)
+        [submenu] (Virtual)
+            [exec] (Arch Linux) {VBoxManage startvm "Arch Linux"}
+            [exec] (Mac OS X) {VBoxManage startvm "Mac OS X"}
+            [exec] (Microsoft Windows 7) {VBoxManage startvm "Microsoft Windows 7"}
+        [end]
+		[submenu] (Files)
+			[exec] (Thunar) {Thunar}
+		[end]
+		[submenu] (Utility)
+            [exec] (VirtualBox) {VirtualBox}
+			[exec] (xkill) {xkill}
+            [exec] (charmap) {charmap}
+		[end]
+	[end]
+
+	[submenu] (Fluxbox Menu')
+        [exec] (Appearance) {lxappearance}
+		[config] (Configure) 
+		[submenu] (Styles)
+			[include] (/usr/share/fluxbox/menu.d/styles/)
+		[end]
+		[workspaces] (Workspace List) 
+		[submenu] (Tools)
+			[submenu] (Screenshots)
+				[exec] (Screenshot Screen) {screenshot scr}
+				[exec] (Screenshot Window) {screenshot win}
+				[exec] (Screenshot Area) {screenshot area}
+			[end]
+			[exec] (Window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center}
+		[end]
+		[commanddialog] (Fluxbox Command) 
+		[reconfig] (Reload config) 
+		[restart] (Restart) 
+		[exec] (About) {(fluxbox -v; fluxbox -info | sed 1d) 2> /dev/null | xmessage -file - -center} 
+		[separator] 
+		[exit] (Exit) 
+	[end]
+[end]

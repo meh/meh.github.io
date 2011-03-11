@@ -1,0 +1,146 @@
+[startup] {gifbg.sh ~/random/images/wp/love.gif}
+[startup] {urxvt -pt Root -name first&}
+[startup] {urxvt -pt Root -name second&}
+[startup] {urxvt -pt Root -name bottom&}
+[startup] {urxvt -pt Root -name coed&}
+
+[app] (name=first)
+  [Workspace]	{0}
+  [Dimensions]	{1280 560}
+  [Position]	(UPPERLEFT)	{1 1}
+  [Deco]	{NONE}
+  [Hidden]	{no}
+  [Sticky]	{no}
+  [Layer]	{10}
+  [Alpha]	{235 235}
+[end]
+
+[app] (name=second)
+  [Workspace]	{1}
+  [Dimensions]	{1280 560}
+  [Position]	(UPPERLEFT)	{1 1}
+  [Deco]	{NONE}
+  [Hidden]	{no}
+  [Sticky]	{no}
+  [Layer]	{10}
+  [Alpha]	{235 235}
+[end]
+
+[app] (name=bottom)
+  [Dimensions]	{1280 240}
+  [Position]	(UPPERLEFT)	{1 560}
+  [Deco]	{NONE}
+  [Hidden]	{no}
+  [Sticky]	{yes}
+  [Layer]	{10}
+  [Alpha]	{235 235}
+[end]
+
+[app] (name=coed)
+  [Workspace]	{5}
+  [Dimensions]	{1280 780}
+  [Position]	(UPPERLEFT)	{1 8}
+  [Deco]	{NONE}
+  [Hidden]	{no}
+  [Sticky]	{no}
+  [Layer]	{1}
+  [Alpha]   {255 255}
+[end]
+
+[app] (role=browser)
+  [Workspace]	{2}
+  [Dimensions]	{1280 788}
+  [Position]	(UPPERLEFT)	{0 0}
+  [Deco]	{NONE}
+  [Hidden]	{no}
+  [Sticky]	{no}
+  [Alpha]	{255 255}
+[end]
+
+[app] (class=Chrome)
+  [Workspace]	{3}
+  [Dimensions]	{1280 788}
+  [Position]	(UPPERLEFT)	{0 0}
+  [Deco]	{NONE}
+  [Hidden]	{yes}
+  [Sticky]	{no}
+  [Alpha]	{255 255}
+[end]
+
+[app] (title=background)
+    [Alpha] {255 255}
+    [Hidden] {yes}
+    [Sticky] {yes}
+    [Position]	(UPPERLEFT)	{0 0}
+    [Deco] {NONE}
+    [Layer] {12}
+[end]
+
+[app] (class=MPlayer)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Vlc)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Gnome-mplayer)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Ristretto)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=AmsnWebcam)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Gimp)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Eclipse)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Exe)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Npviewer.bin)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=<unknown>)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=VirtualBox)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Comix)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Filezilla)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=armagetronad)
+    [Alpha] {255 255}
+[end]
+
+[app] (class=Skype)
+    [Workspace] {5}
+    [Dimensions] {1 1}
+    [Position] (UPPERRIGHT) {20 20}
+    [Layer] {12}
+    [Hidden] {yes}
+    [Alpha] {0 0}
+[end]
+
+[app] (class=net-minecraft-MinecraftLauncher)
+    [Alpha] {255 255}
+[end]

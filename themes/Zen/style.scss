@@ -1,0 +1,174 @@
+@import "css3";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #FAFAFA;
+  color: #444444;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 12px;
+
+  cursor: default;
+
+  a {
+    cursor: default;
+  }
+
+  hr {
+    color: #EEEEEE;
+    background: #EEEEEE;
+    height: 1px;
+    border: 0;
+  }
+
+  code, pre {
+    border: 1px solid #EEEEEE;
+    font-family: Terminus, Courier New, monospace;
+  }
+
+  pre {
+    width: 96%;
+    padding: 5px;
+    margin: auto auto;
+
+    code {
+      border: 0;
+    }
+  }
+
+  table, td, th {
+    border: 1px solid #EEEEEE;
+
+    code, pre {
+      border: 0;
+    }
+  }
+
+  h1, h2, h3 {
+    & code, & pre {
+      border: 0;
+    }
+  }
+}
+
+#logo {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+
+  z-index: 100;
+  overflow: hidden;
+  opacity: 0.1;
+
+  background: url(images/nothing.png) no-repeat;
+
+  cursor: crosshair !important;
+
+  @include transition(opacity 1s linear);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#menu {
+  width: 100%;
+  background: #FAFAFA;
+  border-bottom: 1px solid #EEEEEE;
+  font-size: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 42;
+
+  .element {
+    padding: 15px;
+    float: left;
+
+    a {
+      color: #888888;
+      font-weight: bold;
+      text-decoration: none;
+
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+
+      &:hover {
+        position: relative;
+        top: 2px;
+        left: 2px;
+
+        color: #888888;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+      }
+    }
+  }
+}
+
+#body {
+  margin-top: 55px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  padding: 10px;
+  zoom: 1;
+
+  a {
+    color: #222222;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-decoration: none;
+
+    &:hover {
+      color: #111111;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .6);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #666666;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
+  ul {
+    list-style-type: square;
+
+    li {
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+
+  & > pre {
+    border: 0;
+  }
+}
+
+#credits {
+  position: fixed;
+  bottom: 2px;
+  right: 4px;
+  background: #FAFAFA;
+  @include border-radius(2px);
+
+  a {
+    color: transparent;
+    font-weight: bold;
+  }
+
+  text-shadow: 0 0 2px rgba(66, 66, 66, 1);
+}

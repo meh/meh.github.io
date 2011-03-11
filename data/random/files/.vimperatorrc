@@ -1,0 +1,43 @@
+set editor="urxvt -e vim -R -c 'set wrap nonu'"
+set noautocomplete
+set gui=none
+set noscrollbars
+set defsearch=g
+
+loadplugins
+
+colorscheme darkblood
+
+alias e o
+alias m tabmove
+
+com -nargs=0 fireftp open chrome://fireftp/content/fireftp.xul
+com -nargs=0 deluge open https://localhost:8112
+
+map <C-A-g> :e google 
+map <C-A-w> :e wikipedia 
+map <C-A-u> :e ud 
+map <C-A-e> :e ed 
+
+map m :set gui=menu,navigation,tabs<CR>
+map M :set gui=nomenu,nonavigation,notabs<CR>
+
+map a :set gui=addons<CR>
+map A :set gui=noaddons<CR>
+
+map <C-c> :set! browser.cache.disk.enable=false<CR>:set! browser.cache.memory.enable=false<CR>
+map <C-S-c> :set! browser.cache.disk.enable=true<CR>:set! browser.cache.memory.enable=true<CR>
+
+map <C-h> :set! network.http.sendRefererHeader=0<CR>
+map <C-S-h> :set! network.http.sendRefererHeader=1<CR>
+
+map <C-j> :set! javascript.enabled=false<CR>
+map <C-S-j> :set! javascript.enabled=true<CR>
+
+map <BS> :back<CR>
+
+map <C-n> :js if (content.wrappedJSObject.location.href.match(/netlog.*[ot]t/)) content.wrappedJSObject.location.href = content.wrappedJSObject.location.href.replace(/\/[ot]t\//, "/oo/");<CR>
+map <C-b> :js (function(){var elem=content.wrappedJSObject.document.createElement('script');elem.setAttribute('src','https://bespin.mozillalabs.com/bookmarklet/bookmarklet.js');content.wrappedJSObject.document.body.appendChild(elem);})()
+
+map s :stylish toggle<CR>
+map S :stylish toggle<CR>

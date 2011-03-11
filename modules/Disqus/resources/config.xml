@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE configuration [
+    <!ELEMENT configuration ANY>
+    <!ATTLIST configuration
+        domain CDATA #REQUIRED
+    >
+]>
+
+<configuration domain="Disqus">
+    <shortname>m-e-h</shortname>
+</configuration>

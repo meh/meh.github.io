@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE theme [
+    <!ELEMENT theme (initialize?, finalize?, styles?)>
+    <!ATTLIST theme
+        name   CDATA #REQUIRED
+        author CDATA #REQUIRED
+    >
+
+    <!ELEMENT initialize (#PCDATA)>
+
+    <!ELEMENT finalize (#PCDATA)>
+
+    <!ELEMENT styles (style+)>
+    
+    <!ELEMENT style EMPTY>
+    <!ATTLIST style
+        name    CDATA   #REQUIRED
+    >
+]>
+
+<theme name="Zen" author="meh." homepage="http://meh.doesntexist.org" menu="menu" content="body">
+    <initialize><![CDATA[
+        var resize, fade, urlChange;
+
+        this.resize = resize = function (retarded) {
+            try {
+                $("zen").setStyle({
+                    width:  document.viewport.getWidth() + "px",
+                    height: document.viewport.getHeight() + "px"
+                });
+
+                $("zen-text").setStyle({
+                    top:  ((document.viewport.getHeight() - $("zen-text").getHeight())/2) + "px",
+                    left: ((document.viewport.getWidth() - $("zen-text").getWidth())/2) + "px"
+                });
+            } catch (e) { }
+
+            if (retarded) {
+                resize.defer();
+            }
+        }
+
+        var block = new Element("div", {
+            id:    "zen",
+            style: "z-index: 9001; position: fixed; top: 0; left: 0; background: #FAFAFA; color: #444444; font-size: 42px; text-align: center;"
+        });
+
+        var fading = false;
+
+        if (Prototype.Browser.IE) {
+            block.update("<div id='zen-text' style='position: absolute; font-size: 23px;'>I'm sorry but you're using Internet Explorer, come back when you're using a real browser.</div>");
+        }
+        else {
+            block.update("<div id='zen-text' style='position: absolute'>#{message}</div>".interpolate({
+                message: miniLOL.config['core']['message'] || 'meh.'
+            }));
+        }
+
+        $(document.body).insert(block)
+
+        resize();
+        Event.observe(window, 'resize', resize);
+
+        if (Prototype.Browser.IE) {
+            return;
+        }
+
+        this.fade = fade = function () {
+            if (!block || fading) {
+                return;
+            }
+
+            fading = true;
+
+            if (miniLOL.error()) {
+              $("zen-text").update("#{message}<div style='position: absolute; top: -5px; right: -10px; font-size: 10px'>:(</div>".interpolate({
+                message: miniLOL.config['core']['message'] || 'meh.'
+              }));
+
+              return;
+            }
+
+            block.fade({ duration: 2.0,
+                afterFinish: function () {
+                    Event.stopObserving(window, 'resize', resize);
+                    
+                    if (!block) {
+                        return;
+                    }
+
+                    block.remove();
+                    block = null;
+                }
+            });
+        }
+        
+        Event.observe(document, 'mousemove', fade)
+
+        Event.observe(document, ":initialized", function () {
+            setTimeout(fade, 3000);
+        });
+
+        Event.observe(document, ':url.change', this.urlChange = urlChange = function (event) {
+            event.stop();
+
+            miniLOL.CSS.create('html body * { cursor: progress !important; }', 'waiting');
+
+            $('body').fade({ duration: 0.5, afterFinish: function () {
+                if (event.memo) {
+                    miniLOL.go(event.memo);
+                }
+                else {
+                    miniLOL.go(miniLOL.config['core'].homePage);
+                }
+
+                $('body').appear({ duration: 0.5, afterFinish: function () {
+                    $('waiting').remove();
+                }});
+            }});
+        });
+
+        Event.observe(document, ':module.disqus.added', function (event) {
+          Event.observe(window, 'resize', function () {
+            $(event.memo.firstChild).setStyle({
+              height: parseInt(document.viewport.getHeight() / 2) + "px"
+            });
+          });
+
+          $(event.memo.firstChild).setStyle({
+            height: parseInt(document.viewport.getHeight() / 2) + "px"
+          });
+        });
+    ]]></initialize>
+
+    <finalize><![CDATA[
+        Event.stopObserving(document, 'mousemove', this.fade);
+        Event.stopObserving(window, 'resize', this.resize);
+        Event.stopObserving(document, ':url.change', this.urlChange);
+    ]]></finalize>
+
+    <templates>
+        <menu>
+            <layers>
+                <_0>
+                    <menu><![CDATA[
+                        #{data}<div style="clear: both"></div>
+                    ]]></menu>
+
+                    <item><![CDATA[
+                        <div class="element"><a href="#{href}" #{attributes}>#{text}</a></div>
+                    ]]></item>
+                </_0>
+            </layers>
+        </menu>
+    </templates>
+
+    <styles>
+        <style name="style"/>
+        
+        <style name="Disqus"/>
+    </styles>
+</theme>
