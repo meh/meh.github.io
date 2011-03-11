@@ -51,6 +51,10 @@ miniLOL = {
                     miniLOL.config['core'] = {};
                 }
 
+                if (!miniLOL.config['core'].passQuery) {
+                    miniLOL.config['core'].passQuery = true;
+                }
+
                 if (!miniLOL.config['core'].siteTitle) {
                      miniLOL.config['core'].siteTitle = 'miniLOL #{version}'.interpolate(miniLOL);
                 }
@@ -1296,7 +1300,9 @@ miniLOL = {
                 ).interpolate(Object.extend(Object.extend({}, miniLOL.config['core']), queries));
             }
 
-            new Ajax.Request('data/#{path}?#{queries}'.interpolate({ path: path, queries: Object.toQueryString(queries) }), {
+            new Ajax.Request(((miniLOL.config['core'].passQuery && miniLOL.config['core'].passQuery != 'false')
+              ? 'data/#{path}?#{queries}'
+              : 'data/#{path}').interpolate({ path: path, queries: Object.toQueryString(queries) }), {
                 method: 'get',
 
                 onSuccess: function (http) {
