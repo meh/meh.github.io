@@ -107,13 +107,13 @@ Guides
 .files
 ======
 
-* [~/.bashrc](#page=random/files/.bashrc&type=raw)
-* [~/.screenrc](#page=random/files/.screenrc&type=raw)
+* [~/.bashrc](#page=random/files/bashrc&type=raw)
+* [~/.screenrc](#page=random/files/screenrc&type=raw)
 * [~/bin/screen-*](data/random/files/bin/screen.tar.bz2)
-* [~/.vimrc](#page=random/files/.vimrc&type=raw)
-* [~/.vim/color/darkblood.vim](#page=random/files/.vim/colors/darkblood.vim&type=raw)
-* [~/.Xdefaults](#page=random/files/.Xdefaults&type=raw)
-* [~/.xinitrc](#page=random/files/.xinitrc&type=raw)
+* [~/.vimrc](#page=random/files/vimrc&type=raw)
+* [~/.vim/color/darkblood.vim](#page=random/files/vim/colors/darkblood.vim&type=raw)
+* [~/.Xdefaults](#page=random/files/Xdefaults&type=raw)
+* [~/.xinitrc](#page=random/files/xinitrc&type=raw)
 
     ]]></page>
 </pages>
