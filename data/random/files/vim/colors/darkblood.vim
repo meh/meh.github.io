@@ -97,7 +97,6 @@ hi link Boolean         Constant
 hi link Float           Number
 hi link Function        Identifier
 hi link Number          Constant
-hi link Conditional     Statement
 hi link Repeat          Statement
 hi link Label           Statement
 hi link Keyword         Statement
@@ -115,3 +114,4 @@ hi link SpecialChar     Special
 hi link Delimiter       Normal
 hi link SpecialComment  Special
 hi link Debug           Special
+hi link Conditional     Statement
