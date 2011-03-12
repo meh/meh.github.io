@@ -25,7 +25,7 @@ miniLOL.module.create("Paper", {
         if (what["name"]) {
             miniLOL.content.set("<div id='paper'>" + miniLOL.module.execute('Markdown', miniLOL.utils.get(this.root+"/papers/#{name}".interpolate(what))) + "</div>")
             this.content(miniLOL.theme.content());
-            this.menu(miniLOL.theme.content());
+//            this.menu(miniLOL.theme.content());
 
             var to = miniLOL.theme.content();
 
