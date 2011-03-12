@@ -28,7 +28,7 @@ miniLOL.module.create("Paper", {
             this.menu(miniLOL.theme.content());
 
             var to = miniLOL.theme.content();
-            
+
             if (what['chapter']) {
                 to = to.xpath('//a[@name = #{name}]'.interpolate({ name: what['chapter'] })).first();
             }
@@ -69,7 +69,7 @@ miniLOL.module.create("Paper", {
             Event.observe(a, 'click', function () {
                 element.xpath('//a[@name = #{name}]'.interpolate({ name: this.firstChild.firstChild.nodeValue })).first().scrollTo();
             });
-        });
+        }, this);
 
         block.appendChild(group);
 
