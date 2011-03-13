@@ -49,7 +49,7 @@ to install twisted and such I wrote a small Ruby script to simulate the same thi
           end
         }
 
-        begin; sockets.spawn; rescue; return; end
+        begin; sockets.spawn; rescue; break; end
 
         sleep 0.5
       end

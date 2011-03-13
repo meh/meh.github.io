@@ -49,7 +49,7 @@ to install twisted and such I wrote a small Ruby script to simulate the same thi
           end
         }
 
-        begin; sockets.spawn; rescue; return; end
+        begin; sockets.spawn; rescue; break; end
 
         sleep 0.5
       end
@@ -61,4 +61,4 @@ Well, the result was that the server still let people inside, but it created "Th
 used 300 MB of memory for nothing and kept the CPU at 100%.
 
 Not a good result but not even an apocalyptic one.
-<div class="older"><a href="#page=blog/index&0.8332422199005063&type=blog">Older posts</a></div>
+<div class="older"><a href="#page=blog/index&0.7283335625343468&type=blog">Older posts</a></div>
