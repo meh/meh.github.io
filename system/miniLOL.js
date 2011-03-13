@@ -68,6 +68,14 @@ miniLOL = {
                     }
                 }
 
+                if ($('__miniLOL.core.style')) {
+                  $('__miniLOL.core.style').remove();
+                }
+
+                if (miniLOL.config['core'].style) {
+                    miniLOL.CSS.create(miniLOL.config['core'].style, '__miniLOL.core.style');
+                }
+
                 if (!document.title) {
                     document.title = miniLOL.config['core'].siteTitle;
                 }

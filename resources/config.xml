@@ -7,9 +7,17 @@
 <configuration domain="core">
     <refreshEvery>360</refreshEvery>
     <siteTitle>meh.</siteTitle>
-    <homePage>#home</homePage>
+    <homePage>#blog</homePage>
 
     <loadingMessage><![CDATA[<center>Loading...</center>]]></loadingMessage>
 
     <theme>Zen</theme>
+
+    <style><![CDATA[
+        .blog .older {
+            position: fixed;
+            bottom: 2px;
+            right: 5px;
+        }
+    ]]></style>
 </configuration>

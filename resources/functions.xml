@@ -15,4 +15,8 @@
 
         text = "<pre>" + text + "</pre>";
     ]]></function>
+
+    <function name="blog"><![CDATA[
+        text = "<div class='blog'>" + miniLOL.module.execute("Markdown", text) + "</div>";
+    ]]></function>
 </functions>

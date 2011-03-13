@@ -51,9 +51,7 @@
 ]>
 
 <pages>
-    <page id="home" alias="#page=blog/last&amp;type=markdown"/>
-
-    <page id="blog" alias="#page=blog/index&amp;type=markdown"/>
+    <page id="blog" alias="#page=blog/last&amp;type=blog"/>
 
     <page id="projects" type="markdown"><![CDATA[
 
