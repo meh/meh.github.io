@@ -51,7 +51,7 @@
 ]>
 
 <pages>
-    <page id="blog" alias="#page=blog/last&amp;type=blog"/>
+    <page id="blog" alias="#page=blog/last&amp;nocache&amp;type=blog"/>
 
     <page id="projects" type="markdown"><![CDATA[
 

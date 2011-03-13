@@ -1306,6 +1306,7 @@ miniLOL = {
 
             new Ajax.Request('data/#{path}?#{queries}'.interpolate({ path: path, queries: Object.toQueryString(queries) }), {
                 method: 'get',
+                cached: !queries.nocache,
 
                 onSuccess: function (http) {
                     if (queries.type) {

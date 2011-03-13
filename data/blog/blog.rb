@@ -20,5 +20,5 @@ File.open('index', 'w') {|f|
 }
 
 File.open('last', 'a') {|f|
-  f.write %{<div class="older"><a href="#page=blog/index&type=blog">Older posts</a></div>}
+  f.write %{<div class="older"><a href="#page=blog/index&#{rand}&type=blog">Older posts</a></div>}
 }
