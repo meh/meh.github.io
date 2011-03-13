@@ -61,4 +61,3 @@ Well, the result was that the server still let people inside, but it created "Th
 used 300 MB of memory for nothing and kept the CPU at 100%.
 
 Not a good result but not even an apocalyptic one.
-<div class="older"><a href="#page=blog/index&type=blog">Older posts</a></div>
