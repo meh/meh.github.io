@@ -24,7 +24,7 @@
     <initialization><![CDATA[
         Event.stopObserving(document, ":go", miniLOL.tmp.fixScroll);
 
-        Event.observe(documet, ":go", function () {
+        Event.observe(document, ":go", function () {
             $(document.body).scrollTo();
         });
     ]]></initialization>
