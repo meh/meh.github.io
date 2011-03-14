@@ -132,17 +132,23 @@
           });
         });
 
-        Event.stopObserving(document, ":go", miniLOL.tmp.fixScroll);
-
-        Event.observe(document, ":go", function () {
+        this.fixScroll = function () {
             $(document.body).scrollTo();
-        });
+        }
+
+        Event.stopObserving(document, ':go', miniLOL.tmp.fixScroll);
+        Event.observe(document, ':go', this.fixScroll);
+
+        this.fixScroll.defer();
     ]]></initialize>
 
     <finalize><![CDATA[
         Event.stopObserving(document, 'mousemove', this.fade);
         Event.stopObserving(window, 'resize', this.resize);
         Event.stopObserving(document, ':url.change', this.urlChange);
+
+        Event.observe(document, ':go', miniLOL.tmp.fixScroll);
+        Event.stopObserving(document, ':go', this.fixScroll);
     ]]></finalize>
 
     <templates>
