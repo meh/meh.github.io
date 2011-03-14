@@ -20,12 +20,4 @@
             right: 5px;
         }
     ]]></style>
-
-    <initialization><![CDATA[
-        Event.stopObserving(document, ":go", miniLOL.tmp.fixScroll);
-
-        Event.observe(document, ":go", function () {
-            $(document.body).scrollTo();
-        });
-    ]]></initialization>
 </configuration>

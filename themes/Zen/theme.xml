@@ -131,6 +131,12 @@
             height: parseInt(document.viewport.getHeight() / 2) + "px"
           });
         });
+
+        Event.stopObserving(document, ":go", miniLOL.tmp.fixScroll);
+
+        Event.observe(document, ":go", function () {
+            $(document.body).scrollTo();
+        });
     ]]></initialize>
 
     <finalize><![CDATA[
