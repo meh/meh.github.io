@@ -93,12 +93,21 @@ Abandoned projects
 
     <page id="miniLOL" type="markdown"><![CDATA[
 
+miniLOL, more than just a CMS
+-----------------------------
+
+miniLOL is a lightweight Javascript CMS and a javascript framework library that improves on
+top of Prototype.
+
+Sadly I'm not having enough time to develop it further, there are lots of things I'd like
+to implement, but well, for the moment it will stay as it is.
+
     ]]></page>
 
     <page id="papers" type="markdown"><![CDATA[
 
 Guides
-======
+------
 
 * [C guide](#module=paper&name=c) (Italian, kinda offensive speech, still **incomplete**)
 
@@ -107,7 +116,7 @@ Guides
     <page id="random" type="markdown"><![CDATA[
 
 .files
-======
+------
 
 * [~/.bashrc](#page=random/files/bashrc&type=raw)
 * [~/.screenrc](#page=random/files/screenrc&type=raw)
