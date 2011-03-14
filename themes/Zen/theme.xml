@@ -133,13 +133,11 @@
         });
 
         this.fixScroll = function () {
-            $(document.body).scrollTo();
+            $(document.body).scrollTo.defer();
         }
 
         Event.stopObserving(document, ':go', miniLOL.tmp.fixScroll);
         Event.observe(document, ':go', this.fixScroll);
-
-        this.fixScroll.defer();
     ]]></initialize>
 
     <finalize><![CDATA[
