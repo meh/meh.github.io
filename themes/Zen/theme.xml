@@ -12,7 +12,7 @@
     <!ELEMENT finalize (#PCDATA)>
 
     <!ELEMENT styles (style+)>
-    
+
     <!ELEMENT style EMPTY>
     <!ATTLIST style
         name    CDATA   #REQUIRED
@@ -84,7 +84,7 @@
             block.fade({ duration: 2.0,
                 afterFinish: function () {
                     Event.stopObserving(window, 'resize', resize);
-                    
+
                     if (!block) {
                         return;
                     }
@@ -94,7 +94,7 @@
                 }
             });
         }
-        
+
         Event.observe(document, 'mousemove', fade)
 
         Event.observe(document, ":initialized", function () {
@@ -167,7 +167,7 @@
 
     <styles>
         <style name="style"/>
-        
+
         <style name="Disqus"/>
     </styles>
 </theme>
