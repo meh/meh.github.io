@@ -17,4 +17,3 @@ The configure generation instead overloads mkmf functions and translates them in
 
 Still have to see if the other guys will agree to convert the craftd to this building system, hope
 they'll see the light :)
-<div class="older"><a href="#page=blog/index&0.24820142891849917&type=blog">Older posts</a></div>
