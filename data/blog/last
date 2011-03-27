@@ -10,11 +10,10 @@ normal Makefile and configure script.
 There obviously are some limitations, but generally it works.
 
 The trick is that it overloads the sh rake function making it add the shell command to a Makefile
-instead of executing it. It the executes the tasks in a way to write down Makefile rules in the right
-way.
+instead of executing it. It then executes the tasks to write down Makefile rules in the right way.
 
 The configure generation instead overloads mkmf functions and translates them into simple shell script.
 
 Still have to see if the other guys will agree to convert the craftd to this building system, hope
 they'll see the light :)
-<div class="older"><a href="#page=blog/index&0.24820142891849917&type=blog">Older posts</a></div>
+<div class="older"><a href="#page=blog/index&0.6016260084157973&type=blog">Older posts</a></div>

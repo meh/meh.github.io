@@ -10,8 +10,7 @@ normal Makefile and configure script.
 There obviously are some limitations, but generally it works.
 
 The trick is that it overloads the sh rake function making it add the shell command to a Makefile
-instead of executing it. It the executes the tasks in a way to write down Makefile rules in the right
-way.
+instead of executing it. It then executes the tasks to write down Makefile rules in the right way.
 
 The configure generation instead overloads mkmf functions and translates them into simple shell script.
 
