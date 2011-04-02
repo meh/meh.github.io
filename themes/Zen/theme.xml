@@ -23,6 +23,44 @@
     <initialize><![CDATA[
         var resize, fade, urlChange;
 
+        Event.observe(document, ':url.change', this.urlChange = urlChange = function (event) {
+            event.stop();
+
+            miniLOL.CSS.create('html body * { cursor: progress !important; }', 'waiting');
+
+            $('body').fade({ duration: 0.5, afterFinish: function () {
+                if (event.memo) {
+                    miniLOL.go(event.memo);
+                }
+                else {
+                    miniLOL.go(miniLOL.config['core'].homePage);
+                }
+
+                $('body').appear({ duration: 0.5, afterFinish: function () {
+                    $('waiting').remove();
+                }});
+            }});
+        });
+
+        Event.observe(document, ':module.disqus.added', function (event) {
+          Event.observe(window, 'resize', function () {
+            $(event.memo.firstChild).setStyle({
+              height: parseInt(document.viewport.getHeight() / 2) + "px"
+            });
+          });
+
+          $(event.memo.firstChild).setStyle({
+            height: parseInt(document.viewport.getHeight() / 2) + "px"
+          });
+        });
+
+        this.fixScroll = function () {
+            $(document.body).scrollTo.defer();
+        }
+
+        Event.stopObserving(document, ':go', miniLOL.tmp.fixScroll);
+        Event.observe(document, ':go', this.fixScroll);
+
         this.resize = resize = function (retarded) {
             try {
                 $("zen").setStyle({
@@ -52,8 +90,12 @@
             block.update("<div id='zen-text' style='position: absolute; font-size: 23px;'>I'm sorry but you're using Internet Explorer, come back when you're using a real browser.</div>");
         }
         else {
+            if (!miniLOL.config['core']['message']) {
+                return;
+            }
+
             block.update("<div id='zen-text' style='position: absolute'>#{message}</div>".interpolate({
-                message: miniLOL.config['core']['message'] || 'meh.'
+                message: miniLOL.config['core']['message']
             }));
         }
 
@@ -98,46 +140,8 @@
         Event.observe(document, 'mousemove', fade)
 
         Event.observe(document, ":initialized", function () {
-            setTimeout(fade, 3000);
+            setTimeout(fade, (miniLOL.config["core"].fadeTime.toNumber() || 3) * 1000);
         });
-
-        Event.observe(document, ':url.change', this.urlChange = urlChange = function (event) {
-            event.stop();
-
-            miniLOL.CSS.create('html body * { cursor: progress !important; }', 'waiting');
-
-            $('body').fade({ duration: 0.5, afterFinish: function () {
-                if (event.memo) {
-                    miniLOL.go(event.memo);
-                }
-                else {
-                    miniLOL.go(miniLOL.config['core'].homePage);
-                }
-
-                $('body').appear({ duration: 0.5, afterFinish: function () {
-                    $('waiting').remove();
-                }});
-            }});
-        });
-
-        Event.observe(document, ':module.disqus.added', function (event) {
-          Event.observe(window, 'resize', function () {
-            $(event.memo.firstChild).setStyle({
-              height: parseInt(document.viewport.getHeight() / 2) + "px"
-            });
-          });
-
-          $(event.memo.firstChild).setStyle({
-            height: parseInt(document.viewport.getHeight() / 2) + "px"
-          });
-        });
-
-        this.fixScroll = function () {
-            $(document.body).scrollTo.defer();
-        }
-
-        Event.stopObserving(document, ':go', miniLOL.tmp.fixScroll);
-        Event.observe(document, ':go', this.fixScroll);
     ]]></initialize>
 
     <finalize><![CDATA[
