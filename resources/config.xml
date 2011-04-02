@@ -21,6 +21,12 @@
         }
     ]]></style>
 
-    <message>meh.</message>
-    <fadeTime>0.5</fadeTime>
+    <message>
+        <text>meh.</text>
+        <fade>0.5</fade>
+    </message>
+
+    <page>
+        <fade>0.5</fade>
+    </page>
 </configuration>

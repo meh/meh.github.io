@@ -28,6 +28,8 @@
 
             miniLOL.CSS.create('html body * { cursor: progress !important; }', 'waiting');
 
+            var duration = (miniLOL.config['core'].page && miniLOL.config['core'].page.fade) ? miniLOL.config['core'].page.fade / 2 : 0.5;
+
             $('body').fade({ duration: 0.5, afterFinish: function () {
                 if (event.memo) {
                     miniLOL.go(event.memo);
@@ -90,12 +92,12 @@
             block.update("<div id='zen-text' style='position: absolute; font-size: 23px;'>I'm sorry but you're using Internet Explorer, come back when you're using a real browser.</div>");
         }
         else {
-            if (!miniLOL.config['core']['message']) {
+            if (!miniLOL.config['core'].message || !miniLOL.config['core'].message.text) {
                 return;
             }
 
             block.update("<div id='zen-text' style='position: absolute'>#{message}</div>".interpolate({
-                message: miniLOL.config['core']['message']
+                message: miniLOL.config['core'].message.text
             }));
         }
 
@@ -140,7 +142,7 @@
         Event.observe(document, 'mousemove', fade)
 
         Event.observe(document, ":initialized", function () {
-            setTimeout(fade, (miniLOL.config["core"].fadeTime.toNumber() || 3) * 1000);
+            setTimeout(fade, (miniLOL.config["core"].page.fade.toNumber() || 3) * 1000);
         });
     ]]></initialize>
 
