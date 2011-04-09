@@ -10,7 +10,7 @@ posts = Dir.glob('posts/*.md').map {|f|
 FileUtils.cp(posts.first.path, 'last')
 
 File.open('index', 'w') {|f|
-  f.write posts.map {|p|
+  f.write posts[1, posts.length].map {|p|
     title = p.read.lines.first
 
     next if !title || title.strip.empty?

@@ -16,8 +16,23 @@
     <style><![CDATA[
         .blog .older {
             position: fixed;
-            bottom: 2px;
+            top: 65px;
             right: 5px;
+
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        #paper {
+            padding-top: 8px !important;
+        }
+
+        #paper #license {
+            top: 61px !important;
+            bottom: auto !important;
+            border-top: 0 !important;
+            border-bottom: 1px solid #EEEEEE !important;
+            text-align: center;
         }
     ]]></style>
 

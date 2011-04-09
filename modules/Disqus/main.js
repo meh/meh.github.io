@@ -16,30 +16,36 @@ miniLOL.module.create("Disqus", {
   initialize: function () {
     miniLOL.resource.get("miniLOL.config").load(this.root + "/resources/config.xml");
 
+    $(document.body).insert(new Element('div', { id: 'disqus' }));
+    $('disqus').insert(new Element('div', { id: 'disqus_thread' }));
+
+    Event.fire(document, ':module.disqus.added', $('disqus'));
+
+    $H(miniLOL.config["Disqus"]).each(function (pair) {
+      window["disqus_" + pair.key] = pair.value;
+    });
+
+    function normalize (str) {
+      var replacement = '_';
+
+      return str.replace(/[#_\-=?&]/g, replacement).replace(new RegExp('^\\' + replacement), '');
+    }
+
+    function identifier () {
+      return normalize(location.hash) || normalize(miniLOL.config["core"].homePage);
+    }
+
     Event.observe(document, ":go", function () {
-      if ($('disqus-script')) {
-        $('disqus-script').remove();
+      if (!$('disqus-script')) {
+        window.disqus_identifier = identifier();
+
+        miniLOL.utils.include("http://" + window.disqus_shortname + ".disqus.com/embed.js", { id: 'disqus-script' });
       }
-
-      if ($('disqus')) {
-        $('disqus').remove();
+      else {
+        DISQUS.reset({ reload: true, config: function () {
+          alert(Object.inspect(window.disqus_identifier = this.page.identifier = identifier()));
+        }});
       }
-
-      $(document.body).insert(new Element('div', { id: 'disqus' }));
-      $('disqus').insert(new Element('div', { id: 'disqus_thread' }));
-
-      Event.fire(document, ':module.disqus.added', $('disqus'));
-
-      $H(miniLOL.config["Disqus"]).each(function (pair) {
-        window["disqus_" + pair.key] = pair.value;
-      });
-
-      window.disqus_developer  = window.disqus_developer || 0;
-      window.disqus_identifier = location.hash.replace(/^#/, '');
-      window.disqus_url        = location.href;
-      window.disqus_title      = document.title;
-
-      miniLOL.utils.include("http://" + window.disqus_shortname + ".disqus.com/embed.js", { id: 'disqus-script' });
     });
   }
 });

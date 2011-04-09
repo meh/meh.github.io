@@ -435,7 +435,7 @@ miniLOL = {
         });
 
         Event.observe(document, ':go', (miniLOL.tmp.fixScroll = function () {
-            miniLOL.theme.content().scrollTo();
+            $(document.body).scrollTo();
         }));
 
         if (miniLOL.config['core'].initialization) {
@@ -1555,6 +1555,8 @@ miniLOL = {
                 url = '#' + url;
             }
         }
+
+        url = url.replace(/#!/, '#');
 
         var queries = url.toQueryParams();
         var matches = url.match(/#(([^=&]*)&|([^=&]*)$)/); // hate WebKit so much.

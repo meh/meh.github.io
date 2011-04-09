@@ -16,5 +16,5 @@
     <module name="Markdown"/>
     <module name="Word Filter"/>
     <module name="Paper"/>
-    <!-- <module name="Disqus"/> -->
+    <module name="Disqus"/>
 </modules>

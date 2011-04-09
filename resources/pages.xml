@@ -122,9 +122,17 @@ Guides
 * [~/.screenrc](#page=random/files/screenrc&type=raw)
 * [~/bin/screen-*](data/random/files/bin/screen.tar.bz2)
 * [~/.vimrc](#page=random/files/vimrc&type=raw)
-* [~/.vim/color/darkblood.vim](#page=random/files/vim/colors/darkblood.vim&type=raw)
-* [~/.Xdefaults](#page=random/files/Xdefaults&type=raw)
 * [~/.xinitrc](#page=random/files/xinitrc&type=raw)
+
+Themes
+------
+
+* [~/.Xdefaults](#page=random/files/Xdefaults&type=raw)
+* [~/.fluxbox/styles/DarkBloodRewind](#page=random/files/DarkBloodRewind.fluxbox&type=raw)
+* [~/.moc/themes/darkblood](#page=random/files/DarkBloodRewind.moc&type=raw
+* [~/.vim/color/darkblood.vim](#page=random/files/vim/colors/darkblood.vim&type=raw)
+* [~/.themes/DarkBloodRewind](#page=random/files/DarkBloodRewind.gtk.tar.bz2)
+* [~/.irssi/darkblood.theme](#page=random/files/darkblood.theme&type=raw)
 
     ]]></page>
 </pages>

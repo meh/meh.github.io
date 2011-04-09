@@ -1,0 +1,96 @@
+# meh.
+
+replaces = { };
+abstracts = {
+
+  default_color = "-1";
+
+  prompt = "%W$* %r<%n ";
+
+  sb_background = "%n";
+  sb_default_bg = "%n";
+  sb_prompt_bg = "%W";
+  sb_info_bg = "%n";
+  sb_topic_bg = "%W%n";
+  sb_act_sep = "%r$*%n";
+  sb_act_text = "%r$*%n";
+  sb_act_msg = "%W$*%n";
+  sb_act_hilight = "%W$*%n";
+  sb_act_hilight_color = "%W$0 $1-%W";
+
+  sb = " %r[%W$*%r]%n";
+  sbmode = " %W+$*";
+  sbaway = " %WzZzZ%r";
+  sbservertag = ": $0%n";
+
+  sbstart = "";
+  sbend = " ";
+
+  topicsbstart = " %r[%W$*";
+  topicsbend = "$*%r] ";
+  line_start = "%W>>>%W ";
+  timestamp = "%K$0-%n";
+  hilight = "%_$*%_";
+  error = "%r$0-%n";
+  channel = "%W$0-%n";
+  nick = "%W$0-%n";
+  nickhost = "%r[%W$0-%r]%n";
+  server = "%W$0-%n";
+  comment = "%W[%n$0-%W]%n";
+  reason = "{comment $0-}";
+  mode = "{comment $0-}";
+  channick_hilight = "%G$0-%n";
+  chanhost_hilight = "{nickhost %W$0-%n}";
+  channick = "%r$0-%n";
+  chanhost = "{nickhost $0-}";
+  channelhilight = "%r$0-%n";
+  ban = "%r$0-%n";
+  msgnick = "%r$0$1-%n";
+  ownmsgnick = "{msgnick $1-} %|%r";
+  ownnick = "%W>%n";
+  pubmsgnick = "<{msgnick $0 $1-}> %|";
+  pubnick = "%N$0-%n";
+  pubmsgmenick = "{msgnick $0 $1-}%K> %w%U";
+  menick = "%W$0-";
+  pubmsghinick = " {msgnick %W$0%R$1-}%r>%W ";
+  msgchannel = "%K:%c$0-%n";
+  privmsg = "[%k %W$0$1-%n] %| %r ";
+  ownprivmsg = "%W$0%K(%W$1-%K)] %|%r";
+  ownprivmsgnick = "{msgnick $0 $1-}%K %|%W";
+  ownprivnick = "%r>";
+  privmsgnick = "%W[{msgnick %N$0-%n}%W] %|%r";
+  action_core = "%R* $0$1-";
+  action = "{action_core $0-} ";
+  ownaction = "{action $0-}";
+  ownaction_target = "{action_core $0}%K:%c$1%n ";
+  pvtaction = "%W (*) $0-%n ";
+  pvtaction_query = "{action $0-}";
+  pubaction = "{action $0-}";
+  ownnotice = "[%rNOTICE %W$1-%n] ";
+  notice = "%W$0-%n ";
+  pubnotice_channel = ":%W$0-";
+  pvtnotice_host = "%r[%W$0%r]%n";
+  servernotice = "%W!$0-%n ";
+  ownctcp = "[%rCTCP %W$1-%n] ";
+  ctcp = "%w$0-%n";
+  wallop = "%W$0-%n: ";
+  wallop_nick = "%n$0-";
+  wallop_action = "%W * $0-%n ";
+  netsplit = "%r$0-%n";
+  netjoin = "%G$0-";
+  names_nick = "%r[%n%W$0%n$1-%r]%n ";
+  names_users = "%r[%W$0-%r]%n";
+  names_channel = "%W$0-%n";
+  dcc = "%r$0-%n";
+  dccfile = "%W$0-%n";
+  dccownmsg = "[%r$0%K($1-%K)%n] ";
+  dccownnick = "%W$0-%n";
+  dccownaction = "{action $0-}";
+  dccownaction_target = "{action_core $0}%K:%c$1%n ";
+  dccmsg = "[%W$1-%K(%r$0%K)%n] ";
+  dccquerynick = "%W$0-%n";
+  dccaction = "%W (*dcc*) $0-%n %|";
+};
+formats = {
+  "fe-common/core" = { pubmsg = "{pubmsgnick $2 {pubnick \00309$0}}$1"; };
+};
