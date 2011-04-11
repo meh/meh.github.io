@@ -43,7 +43,7 @@ miniLOL.module.create("Disqus", {
       }
       else {
         DISQUS.reset({ reload: true, config: function () {
-          alert(Object.inspect(window.disqus_identifier = this.page.identifier = identifier()));
+          window.disqus_identifier = this.page.identifier = identifier();
         }});
       }
     });
