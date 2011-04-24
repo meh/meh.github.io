@@ -24,4 +24,3 @@ VENITE VENITE SIORE E SIORI!
 
 Come scritto sopra, andate sul wiki o mandatemi un'email se siete interessati o volete qualche
 informazione in proposito.
-<div class="older"><a href="#page=blog/index&0.5899639750645858&type=blog">Older posts</a></div>

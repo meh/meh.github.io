@@ -216,7 +216,7 @@ nella suddetta variabile, il che ovviamente non era nei nostri piani. Questi cas
 nelle comparazioni ed altre operazioni, in succo, state attenti, potrebbe attaccarvi un velociraptor.
 
 <i>E' da notare che assegnare un numero negativo ad una variabile unsigned sara' come sottrarre quel numero
-alla grandezza massima contenibile del tipo signed + 1. Questo significa che </i>`(unsigned int) -1`<i>
+alla grandezza massima contenibile del tipo unsigned + 1. Questo significa che </i>`(unsigned int) -1`<i>
 ci dara' il massimo contenibile in un unsigned int.</i>
 
 L'attributo `static` permette di cambiare il comportamento della variabile in memoria a seconda del suo scope.
@@ -505,7 +505,7 @@ se faccio `1 &amp; 100` e' come se facessi `001 &amp; 100` ed il risultato sareb
 
 L'operatore &amp; e' molto utile nelle bitmap (non le immagini eh).
 
-Esempio: `3 &amp; 1 =&gt; 3 .. 11 &amp; 1 =&gt; 1`
+Esempio: `3 &amp; 1 =&gt; 1 .. 11 &amp; 1 =&gt; 1`
 
 ### `|` (`OR`)
 L'operatore | e' come l'&amp;, solo con una tabella diversa.
