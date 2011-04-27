@@ -1,0 +1,151 @@
+app-editors/vim ruby python cscope vim-pager
+
+app-editors/emacs -X -alsa -dbus -gif -jpeg -png -tiff -xpm
+
+app-emacs/emacs-common-gentoo -X
+
+app-emulation/wine openal xcomposite xml
+app-emulation/qemu-kvm aio
+
+app-i18n/uim gtk m17n-lib
+
+dev-lang/python sqlite
+
+app-misc/screen nethack
+
+app-portage/layman git subversion cvs mercurial
+app-portage/eix
+
+app-text/poppler cairo glib
+
+dev-cpp/gflags python
+
+dev-games/guichan sdl
+dev-games/ogre tools examples
+
+dev-java/icedtea6-bin nsplugin
+dev-java/swt cairo
+
+dev-lang/parrot opengl examples
+dev-lang/perl ithreads
+
+dev-libs/boost expat icu mpi python tools
+dev-libs/DirectFB sdl
+dev-libs/libxml2 python icu
+
+dev-lang/mono moonlight
+dev-lang/php apache2 cgi bzip2 ftp gd hash mysqli sockets simplexml xml xmlreader xmlwriter xmlrpc xsl zip
+dev-db/mysql berkdb big-tables extraengine
+dev-db/sqlite extensions secure-delete unlock-notify
+
+dev-java/sun-jre-bin nsplugin
+
+dev-ruby/ncurses-ruby examples
+
+games-fps/nexuiz opengl
+games-fps/unreal-tournament opengl
+games-rpg/tmw opengl
+games-strategy/wesnoth server
+
+mail-client/mutt mbox gpg imap pop smtp sidebar
+mail-filter/procmail mbox
+
+media-libs/gd fontconfig
+media-libs/imlib2 gif jpeg mp3 png tiff
+media-libs/libsdl opengl xinerama
+media-libs/sdl-mixer mikmod vorbis
+media-libs/libpng apng
+
+media-gfx/comix rar
+media-gfx/gimp aalib curl exif lcms mng pdf smp svg tiff wmf python
+
+media-sound/cmus mikmod mp4 wma zsh-completion
+media-sound/lmms fftw fluidsynth sdl vst
+media-sound/moc curl ffmpeg
+media-sound/mp3blaster -sid sdl
+media-sound/mpd zip curl sqlite pipe network libmms lastfmradio lame id3 fifo ffmpeg
+media-sound/ncmpcpp clock curl outputs taglib visualizer
+media-sound/rubyripper wav cdrdao normalize
+media-sound/shntool shorten
+
+media-video/ogle css
+media-video/ffmpeg ieee1394 encode
+media-video/mplayer radio directfb
+media-video/vlc a52 aalib cddb directfb gnutls httpd id3tag libproxy libv4l2 live mpeg opengl sdl stream taglib udev run-as-root gnutls
+media-video/avidemux gtk
+
+net-analyzer/wireshark gtk geoip
+
+net-nds/openldap sasl
+
+net-fs/samba-client kerberos acl cups ldap pam readline winbind syslog
+net-fs/samba-libs ldap syslog winbind
+
+net-im/bitlbee gnutls msn twitter otr libevent -oscar -yahoo
+net-im/bitlbee-skype daemon plugin
+
+net-libs/farsight2 msn
+net-libs/libsoup gnome
+net-libs/rb_libtorrent python
+
+net-misc/tightvnc server
+net-misc/wicd -X -gtk -pm-utils
+
+net-p2p/transmission gtk gnome
+net-p2p/deluge -gtk webinterface
+
+net-print/cups gnutls
+
+net-proxy/tsocks tordns
+
+net-wireless/bluez usb -consolekit
+
+www-client/links fbcon directfb sdl tiff
+
+www-plugins/lightspark nsplugin
+www-plugins/adobe-flash -32bit
+
+www-servers/cherokee admin coverpage fastcgi geoip
+www-servers/lighttpd bzip2 fastcgi gdbm mysql pcre php ssl webdav
+
+x11-base/xorg-server sdl
+
+x11-libs/libdrm video_cards_intel
+x11-libs/cairo svg opengl cleartype tee
+x11-libs/wxGTK opengl
+
+x11-libs/qt qt3support
+x11-libs/qt-core qt3support
+x11-libs/qt-gui qt3support
+x11-libs/qt-opengl qt3support
+x11-libs/qt-sql qt3support
+
+x11-misc/xscreensaver opengl
+
+x11-terms/rxvt-unicode afterimage blink wcwidth iso14755 256-color -vanilla
+
+x11-wm/fluxbox newmousefocus xinerama -slit -toolbar
+x11-wm/compiz gtk
+
+xfce-base/thunar exif
+
+sys-apps/portage python3
+
+sys-block/gparted fat ntfs
+
+sys-devel/clang alltargets system-cxx-headers
+sys-devel/llvm alltargets clang
+
+sys-fs/udev extras
+
+sys-libs/gdbm berkdb
+
+www-client/firefox mozdevelop iceweasel system-sqlite
+net-libs/xulrunner mozdevelop system-sqlite
+www-plugins/gnash gtk gstreamer cairo
+
+dev-lang/ruby doc
+dev-libs/glib doc
+
+net-analyzer/metasploit gtk sqlite
+dev-ruby/activerecord sqlite3

@@ -1,0 +1,39 @@
+app-misc/retty **
+sys-devel/llvm **
+media-sound/lmms **
+dev-lang/ruby **
+sys-devel/clang **
+sys-devel/llvm **
+media-video/webcamserver **
+www-client/surf **
+dev-lang/v8 **
+
+x11-base/xorg-server **
+x11-base/xorg-drivers **
+x11-drivers/xf86-video-intel **
+x11-drivers/xf86-input-keyboard **
+x11-drivers/xf86-input-mouse **
+media-libs/mesa **
+x11-libs/libdrm **
+x11-apps/xrandr **
+x11-proto/randrproto **
+x11-proto/xextproto **
+x11-libs/pixman **
+x11-libs/cairo **
+x11-libs/libva **
+media-video/mplayer **
+
+#net-libs/xulrunner **
+#www-client/firefox **
+
+dev-lang/flex-sdk **
+
+www-plugins/gecko-mediaplayer **
+media-video/gnome-mplayer **
+
+sys-libs/newlib **
+
+#sys-kernel/zen-sources **
+
+sys-devel/gdb **
+sys-devel/gcc **

@@ -136,6 +136,15 @@ Themes
 * [~/.irssi/darkblood.theme](#page=random/files/darkblood.theme&type=raw)
 * [~/.themes/DarkBloodRewind](data/random/files/DarkBloodRewind.gtk.tar.bz2)
 
+Portage
+-------
+
+* [/etc/make.conf](#page=random/portage/make.conf&type=raw)
+* [/etc/portage/package.use](#page=random/portage/package.use&type=raw)
+* [/etc/portage/package.mask](#page=random/portage/package.mask&type=raw)
+* [/etc/portage/package.unmask](#page=random/portage/package.unmask&type=raw)
+* [/etc/portage/package.keywords](#page=random/portage/package.keywords&type=raw)
+
 Textes
 ------
 * [Women, avoid them](#page=random/textes/women.md&type=markdown), a short text taken from an image found on /b/, if only I had it 4 years ago.

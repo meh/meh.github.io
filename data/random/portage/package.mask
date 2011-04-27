@@ -1,0 +1,6 @@
+=dev-python/skype4py-1.0.32.0
+=dev-util/closure-compiler-20100917
+=net-analyzer/dsniff-2.4_beta1-r5
+>=www-client/chromium-10.0.648.133
+=net-im/bitlbee-9999
+=dev-lang/python-3.2
