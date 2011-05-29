@@ -22,6 +22,8 @@ Like versionomy, example for Windows versioning.
           part.as(:major) >> separator.maybe >>
           str('SP').maybe >> part.as(:minor)
         }
+
+        root :version
       end
 
       def major
