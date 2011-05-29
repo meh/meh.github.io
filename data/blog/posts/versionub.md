@@ -50,4 +50,3 @@ Like versionomy, example for Windows versioning.
     end
 
 It uses parslet for parsing/transforming and then simply defines methods to use the version object.
-<div class="older"><a href="#page=blog/index&0.806363528741215&type=blog">Older posts</a></div>
