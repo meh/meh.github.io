@@ -10,14 +10,14 @@ Borderline Personality Disorder
 -------------------------------
 The Borderline Personality Disorder slut will have lots of male friends, a few (3 or 4) male friend she considers to be close friends, but these "close"
 friends will be friendzoned co-dependent types. The Borderline slut will have a boyfriend or ex-boyfriend she considers the primary relationship in her life, but it will always be a rocky relationship.
-He will most likely be depressed. She wll make you feel like you're the king of the world when she first meets you, but this will only last a short period of time beforeshe begins to devalue you.
+He will most likely be depressed. She will make you feel like you're the king of the world when she first meets you, but this will only last a short period of time before she begins to devalue you.
 You have a month or two to fuck her good until this happens. **DO NOT** become one of her few male friends waiting for her to fall in love with you, that will **NEVER** happen because she hates herself too much
 to allow real intimacy in her life.
 
 Histrionic Personality Disorder
 -------------------------------
 
-The Histrionic Personality Disorder slut will b lively and charismatic, and like the Borderline slut, she will have lots of ostly male friends. But unlike he Borderline slut, she may have a few lesser attractive female
+The Histrionic Personality Disorder slut will be lively and charismatic, and like the Borderline slut, she will have lots of mostly male friends. But unlike he Borderline slut, she may have a few lesser attractive female
 friends. She will flirst, touch, and make you feel like you're the hottest thing around. She is after your attention, and only your attention. The trick to fucking her is to not seem as if you have surrendered to her charms.
 The more apathetic you are towards her, the more she wants you. The minute she thinks she's won you over, shewill consider you less than dirt. Never tell her you love her unless you want the relationship
 (I use that term loosely, they will never have a real relationship) to be over.
