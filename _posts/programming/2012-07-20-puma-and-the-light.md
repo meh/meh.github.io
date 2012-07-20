@@ -27,7 +27,7 @@ noticed how it handled connections and requests.
 @thread_pool = ThreadPool.new(@min_threads, @max_threads) do |client, env|
   process_client(client, env)
 end
-{% highlightend %}
+{% endhighlight %}
 
 When it starts it creates a `ThreadPool`, the default minimum is **0** the default maximum is **16**,
 after reading more of it, specifically that `process_client` function I realized something else:
@@ -63,7 +63,7 @@ while offset < content.length
 end
 
 puts "oh, there's a door ( ･ ◡◡･)"
-{% highlightend %}
+{% endhighlight %}
 
 I ran that script on a simple *sinatra* application and prepared to run `ab` to see
 how it handled everything, this was the result:
