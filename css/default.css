@@ -2,7 +2,8 @@ html, body {
 	background: #000000;
 	color: #bebebe;
 
-	font-family: monospace;
+	font-family: gohufont, monospace;
+	font-size: 11px;
 }
 
 a {
@@ -15,6 +16,10 @@ a {
 h1, h2, h3, h4, h5, h6  {
 	color: #ffffff !important;
 	font-size: inherit !important;
+}
+
+pre, code {
+	font-size: 11px;
 }
 
 #container {
