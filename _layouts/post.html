@@ -8,7 +8,7 @@ comments: true
   <div class="header"><h2>
     {{ page.title | format_text }}
 
-    <span class="categories">in <b>{{ page.categories | array_to_sentence_string }}</b></span>
+    <span class="categories"><span class="bracket">[</span><b>{{ page.categories | array_to_sentence_string }}</b><span class="bracket">]</span></span>
 
     <div class="date">{{ page.date | date:"%B %d, %Y" }}</div>
     <div style="clear: both"></div>
