@@ -11,4 +11,4 @@ I am bored and feeling wordy, so here comes my new website.
 
 Gotta test online to style Disqus ◕ ◡ ◔
 
-Disqus suck, IntenseDebate it is.
+Disqus sucks, IntenseDebate it is.
