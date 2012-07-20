@@ -47,7 +47,7 @@ options = {}
 
 OptionParser.new do |o|
   options[:host]    = 'localhost'
-  options[:port]    = 4567
+  options[:port]    = 9292
   options[:threads] = 16
   options[:content] = "GET / HTTP/1.1\r\nHost: localhost\r\n\r\n"
   options[:sleep]    = 1
@@ -60,7 +60,7 @@ OptionParser.new do |o|
     options[:port] = value
   end
 
-  o.on '-t', '--threads [MAX_THREADS]', 'the max amount of threads on the server' do |value|
+  o.on '-t', '--threads [MAX_THREADS]', Integer, 'the max amount of threads on the server' do |value|
     options[:threads] = value
   end
 
@@ -103,7 +103,7 @@ options[:threads].times {
 
 puts "oh noes, a wall on my path D:"
 
-until lantern.descriptors.all?(&:done?)
+until lantern.all?(&:done?)
   lantern.writable.each {|s|
     s.send_next
   }
