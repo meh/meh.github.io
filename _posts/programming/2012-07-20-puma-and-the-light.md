@@ -68,7 +68,9 @@ puts "oh, there's a door ( ･ ◡◡･)"
 I ran that script on a simple *sinatra* application and prepared to run `ab` to see
 how it handled everything, this was the result:
 
-    Benchmarking 127.0.0.1 (be patient)...apr_poll: The timeout specified has expired (70007)
+{% highlight text %}
+Benchmarking 127.0.0.1 (be patient)...apr_poll: The timeout specified has expired (70007)
+{% endhighlight %}
 
 It **dies**.
 
