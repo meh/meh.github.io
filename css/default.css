@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6  {
 	font-weight: normal;
 }
 
-#id-container-parent #idc-container {
+#idc-container-parent #idc-container {
 	width: 50em !important;
 	width: 80ch !important;
 	margin: 0 auto !important;
