@@ -60,7 +60,8 @@ OptionParser.new do |o|
     options[:port] = value
   end
 
-  o.on '-t', '--threads [MAX_THREADS]', Integer, 'the max amount of threads on the server' do |value|
+  o.on '-t', '--threads [MAX_THREADS]', Integer,
+       'the max amount of threads on the server' do |value|
     options[:threads] = value
   end
 
@@ -68,7 +69,8 @@ OptionParser.new do |o|
     options[:content] = value
   end
 
-  o.on '-s', '--sleep SECONDS', Float, 'the time to sleep before sending every character' do |value|
+  o.on '-s', '--sleep SECONDS', Float,
+       'the time to sleep before sending every character' do |value|
     options[:sleep] = value
   end
 end.parse!
@@ -98,7 +100,8 @@ end
 lantern = Barlume::Lanterna.best
 
 options[:threads].times {
-  lantern << Slowpoke.new(TCPSocket.new(options[:host], options[:port]), options[:content])
+  lantern << Slowpoke.new(TCPSocket.new(
+    options[:host], options[:port]), options[:content])
 }
 
 puts "oh noes, a wall on my path D:"
