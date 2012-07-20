@@ -12,3 +12,7 @@ I am bored and feeling wordy, so here comes my new website.
 Gotta test online to style Disqus ◕ ◡ ◔
 
 Disqus sucks, IntenseDebate it is.
+
+{% hilight ruby %}
+puts 'test'
+{% endhilight %}
