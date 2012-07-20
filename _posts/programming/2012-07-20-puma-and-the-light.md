@@ -45,7 +45,7 @@ max_threads = ARGV.empty? ? 16 : ARGV.first.to_i
 sockets     = []
 
 max_threads.times {
-	sockets << TCPSocket.new('localhost', 4567)
+  sockets << TCPSocket.new('localhost', 4567)
 }
 
 content = "GET / HTTP/1.1\r\nHost: localhost\r\n\r\n"
@@ -54,12 +54,12 @@ offset  = 0
 puts "oh noes, a wall on my path D:"
 
 while offset < content.length
-	sockets.each {|s|
-		s.write_nonblock content[offset]
-	}
+  sockets.each {|s|
+    s.write_nonblock content[offset]
+  }
 
-	offset += 1
-	sleep 1
+  offset += 1
+  sleep 1
 end
 
 puts "oh, there's a door ( ･ ◡◡･)"
