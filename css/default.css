@@ -74,18 +74,6 @@ pre, code {
 	text-decoration: none;
 }
 
-#menu a:before {
-	color: #b21818;
-	content: "[";
-	font-weight: normal;
-}
-
-#menu a:after {
-	color: #b21818;
-	content: "]";
-	font-weight: normal;
-}
-
 #idc-container-parent #idc-container {
 	width: 51em !important;
 	width: 82ch !important;
