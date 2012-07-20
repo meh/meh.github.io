@@ -1,0 +1,63 @@
+html, body {
+	background: #000000;
+	color: #bebebe;
+
+	font-family: monospace;
+}
+
+#container {
+	position: relative;
+
+	width: 50em;
+	width: 80ch;
+	margin: 40px auto;
+	border: 1px solid #b21818;
+
+	padding: 5px;
+	padding-bottom: 25px;
+}
+
+#container a {
+	color: #ffffff;
+	border-bottom: 1px solid #b21818;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#container h2 {
+	color: #ffffff;
+	font-size: inherit;
+}
+
+#container .date {
+	float: right;
+}
+
+#menu {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	text-align: center;
+	padding-bottom: 2px;
+}
+
+#menu a {
+	color: #ffffff;
+	border-bottom: 0;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#menu a:before {
+	color: #b21818;
+	content: "[";
+	font-weight: normal;
+}
+
+#menu a:after {
+	color: #b21818;
+	content: "]";
+	font-weight: normal;
+}

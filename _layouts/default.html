@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        {% if page.lang %}
+          <meta http-equiv="content-language" content="{{ page.lang }}">
+        {% endif %}
+
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/css/default.css" />
+        <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+
+        <link rel="icon" type="image/png" href="/favicon.gif" />
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="content">
+                <div class="types">
+                    {% if page.stub %}
+                        {% include stub.html %}
+                    {% endif %}
+                </div>
+
+                {{ content }}
+            </div>
+
+            <div id="menu">
+              <a href="/">~/</a>
+              <a href="/archive.html">~/words</a>
+              <a href="/projects.html">~/projects</a>
+            </div>
+        </div>
+
+        {% if page.comments %}
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+
+            <script type="text/javascript">
+                var disqus_shortname = 'm-e-h';
+                var disqus_url = "http://meh.paranoid.pk{{ page.url }}";
+                var disqus_identifier = "{{ page.url }}";
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+        {% endif %}
+    </body>
+</html>

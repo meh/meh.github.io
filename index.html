@@ -1,0 +1,26 @@
+---
+title: meh.
+lang: en
+
+layout: default
+comments: false
+---
+
+<div id="posts">
+  {% for post in site.posts limit:5 %}
+    <div class="post">
+      <div class="header"><h2>
+        <a href="{{ post.url }}">{{ post.title | format_text }}</a>
+
+        <span class="categories">in <b>{{ post.categories | array_to_sentence_string }}</b></span>
+
+        <div class="date">{{ post.date | date:"%B %d, %Y" }}</div>
+        <div style="clear: both"></div>
+      </h2></div>
+
+      <div class="content">
+        {{ post.content }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
