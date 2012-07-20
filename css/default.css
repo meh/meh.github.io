@@ -38,6 +38,14 @@ h1, h2, h3, h4, h5, h6  {
 	color: #b21818;
 }
 
+#container .post {
+	border-bottom: 1px solid #b21818;
+}
+
+#container .post:last-child {
+	border-bottom: 0;
+}
+
 #menu {
 	width: 100%;
 	position: absolute;
@@ -67,7 +75,9 @@ h1, h2, h3, h4, h5, h6  {
 	font-weight: normal;
 }
 
-#idc-container {
+#id-container-parent #idc-container {
+	width: 50em !important;
+	width: 80ch !important;
 	margin: 0 auto !important;
 }
 
