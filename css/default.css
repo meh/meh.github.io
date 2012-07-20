@@ -61,3 +61,8 @@ html, body {
 	content: "]";
 	font-weight: normal;
 }
+
+#disqus_thread {
+	width: 80%;
+	margin: 0 auto;
+}
