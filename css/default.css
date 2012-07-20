@@ -2,8 +2,8 @@ html, body {
 	background: #000000;
 	color: #bebebe;
 
-	font-family: gohufont, monospace;
-	font-size: 11px;
+	font-family: monospace;
+	font-size: 1em;
 }
 
 a {
@@ -19,7 +19,8 @@ h1, h2, h3, h4, h5, h6  {
 }
 
 pre, code {
-	font-size: 11px;
+	font-family: monospace;
+	font-size: 1em;
 }
 
 #container {
