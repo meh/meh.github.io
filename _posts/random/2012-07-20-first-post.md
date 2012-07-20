@@ -13,6 +13,6 @@ Gotta test online to style Disqus ◕ ◡ ◔
 
 Disqus sucks, IntenseDebate it is.
 
-{% hilight ruby %}
+{% highlight ruby %}
 puts 'test'
-{% endhilight %}
+{% endhighlight %}
