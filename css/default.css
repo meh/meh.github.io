@@ -44,12 +44,17 @@ pre, code {
 	color: #b21818;
 }
 
-#container .post {
-	border-bottom: 1px solid #b21818;
+#container hr {
+  border: 0;
+  color: #b21818;
+  background-color: #b21818;
+  height: 1px;
+  width: 100%;
+  text-align: left;
 }
 
-#container .post:last-child {
-	border-bottom: 0;
+#container hr:last-child {
+  display: none;
 }
 
 #menu {
