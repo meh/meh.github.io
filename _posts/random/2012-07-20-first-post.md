@@ -15,4 +15,8 @@ Disqus sucks, IntenseDebate it is.
 
 {% highlight ruby %}
 puts 'test'
+
+puts 'more test'
+
+(0 .. 10).select(&:odd?).inject(:+)
 {% endhighlight %}
