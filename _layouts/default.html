@@ -35,6 +35,7 @@
             </div>
         </div>
 
+        <!--
         {% if page.comments %}
             <div id="disqus_thread">
                 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -52,6 +53,16 @@
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                 })();
             </script>
+        {% endif %}
+        -->
+
+        {% if page.comments %}
+            <script>
+            var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
+            var idcomments_post_id;
+            var idcomments_post_url;
+            </script>
+            <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js">
         {% endif %}
     </body>
 </html>
