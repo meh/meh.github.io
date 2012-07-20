@@ -5,6 +5,18 @@ html, body {
 	font-family: monospace;
 }
 
+a {
+	color: #ffffff;
+	border-bottom: 1px solid #b21818;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6  {
+	color: #ffffff !important;
+	font-size: inherit !important;
+}
+
 #container {
 	position: relative;
 
@@ -15,18 +27,6 @@ html, body {
 
 	padding: 5px;
 	padding-bottom: 25px;
-}
-
-#container a {
-	color: #ffffff;
-	border-bottom: 1px solid #b21818;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-#container h2 {
-	color: #ffffff;
-	font-size: inherit;
 }
 
 #container .date {
@@ -62,14 +62,18 @@ html, body {
 	font-weight: normal;
 }
 
-#disqus_thread {
-	width: 80%;
-	margin: 0 auto;
+#idc-container {
+	margin: 0 auto !important;
 }
 
-#disqus_thread .dsq-textarea-background {
-	background: #000000;
-	border-radius: 0;
-	border: 1px solid #b21818;
-	box-shadow: none;
+#idc-container-parent #idc-container textarea, #idc-container-parent #idc-container input {
+	background: #000000 !important;
+	color: #bebebe !important;
+	border: 1px solid #b21818 !important;
+	border-radius: 0 !important;
+	font-family: monospace !important;
+}
+
+#idc-container-parent #idc-container .idc-focus {
+	border-color: #b21818 !important;
 }

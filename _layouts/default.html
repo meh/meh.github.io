@@ -35,34 +35,14 @@
             </div>
         </div>
 
-        <!--
         {% if page.comments %}
-            <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            </div>
-
-            <script type="text/javascript">
-                var disqus_shortname = 'm-e-h';
-                var disqus_url = "http://meh.paranoid.pk{{ page.url }}";
-                var disqus_identifier = "{{ page.url }}";
-
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-        {% endif %}
-        -->
-
-        {% if page.comments %}
-            <script>
-            var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
-            var idcomments_post_id;
-            var idcomments_post_url;
-            </script>
-            <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js">
+          <script>
+          var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
+          var idcomments_post_id = "{{ page.url }}";
+          var idcomments_post_url = "http://meh.paranoid.pk{{ page.url }}";
+          </script>
+          <span id="IDCommentsPostTitle" style="display:none"></span>
+          <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
         {% endif %}
     </body>
 </html>
