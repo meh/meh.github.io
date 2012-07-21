@@ -1,11 +1,6 @@
 ---
 title: Puma and the light
-
-categories:
-  - programming
-  - ruby
-  - lol
-
+categories: [programming, ruby, lol]
 layout: post
 ---
 
