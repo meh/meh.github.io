@@ -34,7 +34,7 @@ pre, code, kbd, samp {
 	border: 1px solid #b21818;
 
 	padding: 5px;
-	padding-bottom: 25px;
+  padding-bottom: 0px;
 }
 
 #container .date {
@@ -61,12 +61,10 @@ pre, code, kbd, samp {
 
 #menu {
 	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
 
 	text-align: center;
 	padding-bottom: 2px;
+  padding-top: 5px;
 }
 
 #menu a {
@@ -77,9 +75,11 @@ pre, code, kbd, samp {
 }
 
 #idc-container-parent #idc-container {
-	width: 51em !important;
-	width: 82ch !important;
-	margin: 0 auto !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  width: 100% !important;
+  border-top: 1px solid #b21818;
+  padding-top: 10px;
 }
 
 #idc-container-parent #idc-container textarea, #idc-container-parent #idc-container input {
@@ -92,4 +92,12 @@ pre, code, kbd, samp {
 
 #idc-container-parent #idc-container .idc-focus {
 	border-color: #b21818 !important;
+}
+
+#idc-container-parent #idc-container .idc-foot {
+  display: none;
+}
+
+#idc-container-parent #idc-container .idc-new {
+  margin: 0 !important;
 }

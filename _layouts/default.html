@@ -24,6 +24,16 @@
                 {{ content }}
             </div>
 
+            {% if page.comments %}
+              <script>
+              var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
+              var idcomments_post_id = "{{ page.url }}";
+              var idcomments_post_url = "http://meh.paranoid.pk{{ page.url }}";
+              </script>
+              <span id="IDCommentsPostTitle" style="display:none"></span>
+              <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+            {% endif %}
+
             <div id="menu">
               <span class="bracket">[</span><a href="/">~/</a><span class="bracket">]</span>
               <span class="bracket">[</span><a href="/archive.html">~/archive</a><span class="bracket">]</span>
@@ -31,15 +41,5 @@
               <span class="bracket">[</span><a href="/which.html">which meh</a><span class="bracket">]</span>
             </div>
         </div>
-
-        {% if page.comments %}
-          <script>
-          var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
-          var idcomments_post_id = "{{ page.url }}";
-          var idcomments_post_url = "http://meh.paranoid.pk{{ page.url }}";
-          </script>
-          <span id="IDCommentsPostTitle" style="display:none"></span>
-          <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-        {% endif %}
     </body>
 </html>
