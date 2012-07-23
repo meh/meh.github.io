@@ -128,3 +128,5 @@ and keep it as concurrent as before.
 
 In the meantime I'd suggest to not use it in production or at least with other external
 measures to avoid that kind of attack.
+
+EDIT: it has been fixed with [6777c77](https://github.com/puma/puma/commit/6777c771d829a31634b968c74a829cc53b80a144).
