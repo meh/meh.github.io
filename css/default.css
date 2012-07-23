@@ -18,11 +18,16 @@ h1, h2, h3, h4, h5, h6  {
 	font-size: inherit !important;
 }
 
-pre, code, kbd, samp {
+pre, pre code, kbd, samp {
 	font-family: monospace !important;
 	font-size: 1em !important;
 
   background: #0a0a0a !important;
+  border: none;
+}
+
+code {
+  border-bottom: 1px solid #b21818;
 }
 
 menu, ol, ul {

@@ -5,14 +5,12 @@ comments: true
 ---
 
 <div class="post">
-  <div class="header"><h2>
+  <div class="header" title="{{ page.categories | array_to_sentence_string }}"><h1>
     {{ page.title | format_text }}
-
-    <span class="categories"><span class="bracket">[</span><b>{{ page.categories | array_to_sentence_string }}</b><span class="bracket">]</span></span>
 
     <div class="date"><span class="bracket">[</span>{{ page.date | date:"%B %d, %Y" }}<span class="bracket">]</span></div>
     <div style="clear: both"></div>
-  </h2></div>
+  </h1></div>
 
   <div class="content">
     {{ content }}
