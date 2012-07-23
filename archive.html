@@ -8,10 +8,7 @@ title: meh, an archive
 
   <ul class="posts">
     {% for post in site.posts %}
-    <li>
-        <span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="categories">in <b>{{ post.categories | array_to_sentence_string }}</b></span>
-    </li>
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
 </div>

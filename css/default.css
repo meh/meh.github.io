@@ -25,6 +25,10 @@ pre, code, kbd, samp {
   background: #0a0a0a !important;
 }
 
+menu, ol, ul {
+  padding: 0 0 0 20px !important;
+}
+
 #container {
 	position: relative;
 

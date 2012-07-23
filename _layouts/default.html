@@ -36,13 +36,14 @@
 
             <div id="menu">
               {% if page.url == "/index.html" %}
-                <span class="bracket">[</span><a href="/archive.html">~/archive</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
               {% else %}
-                <span class="bracket">[</span><a href="/">~/</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/">cat ~/words/*(ocmM-42[0,5])</a><span class="bracket">]</span>
               {% endif %}
 
-              <span class="bracket">[</span><a href="/projects.html">~/projects</a><span class="bracket">]</span>
+              <span class="bracket">[</span><a href="/projects.html">cat ~/projects/*</a><span class="bracket">]</span>
               <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
+              <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
             </div>
         </div>
     </body>
