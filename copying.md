@@ -6,7 +6,8 @@ layout: default
 comments: false
 ---
 
-All the content that is not code is under the following license.
+All the content that is not code is under the following license unless
+otherwise noted.
 
 {% highlight text %}
 Creative Commons Legal Code
@@ -304,7 +305,7 @@ Creative Commons Notice
     Creative Commons may be contacted at http://creativecommons.org/.
 {% endhighlight %}
 
-All the code is under the following license.
+All the code is under the following license unless otherwise noted.
 
 {% highlight text %}
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
