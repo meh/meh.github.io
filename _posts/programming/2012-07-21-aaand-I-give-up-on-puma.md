@@ -12,3 +12,6 @@ So yeah, I've got better things to do, at least it gave me some ideas for barlum
 me find few bugs.
 
 Next train: reactor and proactor land.
+
+EDIT: with the last fix including barlume in puma seems easy, too bad Rubinius lacks `FFI::Union`
+and FFI::Struct#pack, I still give up for the moment, until someone adds that to Rubinius.
