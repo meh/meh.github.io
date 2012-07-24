@@ -1,9 +1,6 @@
 ---
 title: First post
-
-categories:
-  - random
-
+categories: [random]
 layout: post
 ---
 
