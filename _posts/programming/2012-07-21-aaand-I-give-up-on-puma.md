@@ -14,4 +14,7 @@ me find few bugs.
 Next train: reactor and proactor land.
 
 EDIT: with the last fix including barlume in puma seems easy, too bad Rubinius lacks `FFI::Union`
-and FFI::Struct#pack, I still give up for the moment, until someone adds that to Rubinius.
+and `FFI::Struct#pack`, I still give up for the moment, until someone adds that to Rubinius.
+
+EDIT2: and that someone could be me, Rubinius really needs an update to compatibility with the
+ffi gem.
