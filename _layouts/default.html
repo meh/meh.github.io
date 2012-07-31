@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{ page.title }}</title>
+  <head>
+    <title>{{ page.title }}</title>
 
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-        {% if page.lang %}
-          <meta http-equiv="content-language" content="{{ page.lang }}">
+    {% if page.lang %}
+      <meta http-equiv="content-language" content="{{ page.lang }}">
+    {% endif %}
+
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml"/>
+
+    <link rel="icon" type="image/png" href="/favicon.gif" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="menu">
+        {% if page.url == "/index.html" %}
+          <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
+        {% elsif page.url == "/projects.html" || page.url == "/projects/active.html" || page.url == "/projects/paused.html" || page.url == "/projects/working.html" || page.url == "/projects/dropped.html" %}
+          <span class="bracket">[</span><a href="/">cd ..</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects/active.html">cat active/*</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects/paused.html">cat paused/*</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects/working.html">cat working/*</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects/dropped.html">cat dropped/*</a><span class="bracket">]</span>
+        {% else %}
+          <span class="bracket">[</span><a href="/">cat ~/words/*(ocmM-42[0,5])</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
+          <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
         {% endif %}
+      </div>
 
-        <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="/css/default.css" />
-        <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+      <div id="content">
+          {{ content }}
+      </div>
 
-        <link rel="alternate" type="application/rss+xml" href="/rss.xml"/>
-
-        <link rel="icon" type="image/png" href="/favicon.gif" />
-    </head>
-
-    <body>
-        <div id="container">
-            <div id="menu">
-              {% if page.url == "/index.html" %}
-                <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
-              {% elsif page.url == "/projects.html" || page.url == "/projects/active.html" || page.url == "/projects/paused.html" || page.url == "/projects/working.html" || page.url == "/projects/dropped.html" %}
-                <span class="bracket">[</span><a href="/">cd ..</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects/active.html">cat active/*</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects/paused.html">cat paused/*</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects/working.html">cat working/*</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects/dropped.html">cat dropped/*</a><span class="bracket">]</span>
-              {% else %}
-                <span class="bracket">[</span><a href="/">cat ~/words/*(ocmM-42[0,5])</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
-                <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
-              {% endif %}
-            </div>
-
-            <div id="content">
-                {{ content }}
-            </div>
-
-            {% if page.comments %}
-              <script>
-              var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
-              var idcomments_post_id = "{{ page.url }}";
-              var idcomments_post_url = "http://meh.paranoid.pk{{ page.url }}";
-              </script>
-              <span id="IDCommentsPostTitle" style="display:none"></span>
-              <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
-            {% endif %}
-        </div>
-    </body>
+      {% if page.comments %}
+        <script>
+        var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
+        var idcomments_post_id = "{{ page.url }}";
+        var idcomments_post_url = "http://meh.paranoid.pk{{ page.url }}";
+        </script>
+        <span id="IDCommentsPostTitle" style="display:none"></span>
+        <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+      {% endif %}
+    </div>
+  <body>
 </html>

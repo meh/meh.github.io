@@ -18,10 +18,9 @@ layout: nil
       <link>http://meh.paranoid.pk{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>meh@paranoici.org (meh.)</author>
-      <guid>http://meh.paranoid.pk{{ post.id }}</guid>
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}
 
-  </channel> 
+  </channel>
 </rss>
