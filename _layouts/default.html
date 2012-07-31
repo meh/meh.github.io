@@ -20,6 +20,26 @@
 
     <body>
         <div id="container">
+            <div id="menu">
+              {% if page.url == "/index.html" %}
+                <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
+              {% elsif page.url == "/projects.html" || page.url == "/projects/active.html" || page.url == "/projects/paused.html" || page.url == "/projects/working.html" || page.url == "/projects/dropped.html" %}
+                <span class="bracket">[</span><a href="/">cd ..</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects/active.html">cat active/*</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects/paused.html">cat paused/*</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects/working.html">cat working/*</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects/dropped.html">cat dropped/*</a><span class="bracket">]</span>
+              {% else %}
+                <span class="bracket">[</span><a href="/">cat ~/words/*(ocmM-42[0,5])</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
+                <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
+              {% endif %}
+            </div>
+
             <div id="content">
                 {{ content }}
             </div>
@@ -33,18 +53,6 @@
               <span id="IDCommentsPostTitle" style="display:none"></span>
               <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
             {% endif %}
-
-            <div id="menu">
-              {% if page.url == "/index.html" %}
-                <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
-              {% else %}
-                <span class="bracket">[</span><a href="/">cat ~/words/*(ocmM-42[0,5])</a><span class="bracket">]</span>
-              {% endif %}
-
-              <span class="bracket">[</span><a href="/projects.html">cat ~/projects/*</a><span class="bracket">]</span>
-              <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
-              <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
-            </div>
         </div>
     </body>
 </html>
