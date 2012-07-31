@@ -39,3 +39,12 @@ them out, I'll gladly fix them to be more consistent with D standards and sugges
 The primitives are implemented directly in D instead of using *libev* or similar.
 
 <hr/>
+
+[torchat](https://github.com/meh/ruby-torchat)
+----------------------------------------------
+torchat is an anonymous and secure distributed chat that uses Tor hidden services to work.
+
+It's a very awesome idea and my implementation is a library that also provides a daemon that can
+be used in conjunction with my bitlbee plugin.
+
+There are plans to move jtorchat to my torchat implementations, it's still under work though.
