@@ -89,9 +89,16 @@ clojure literals and can easily generate clojure s-expressions from native Ruby 
 <hr/>
 
 [threadpool](https://github.com/meh/ruby-threadpool)
------------------------------------------------
+----------------------------------------------------
 threadpool is a simple ThreadPool implementation written properly, it supports interrupting
 tasks after they've been queued and some other stuff.
+
+<hr/>
+
+[mbox](https://github.com/meh/ruby-mbox)
+----------------------------------------
+mbox is a library to parse mailboxes in the mbox format, it provides a daemon that can check
+various stuff about mboxes.
 
 <hr/>
 
@@ -153,17 +160,52 @@ all the objects referenced in that scope, so use it carefully.
 
 <hr/>
 
-[retarded](https://github.com/meh/ruby-retarded)
-------------------------------------------------
+[retarded](https://github.com/meh/retarded)
+-------------------------------------------
 retarded is a simple gem that lets you create a Retarded object by passing a block, as soon as a
 method is called on it the block is executed and its return value stored and it will keep
 proxying method calls to that return value.
 
 <hr/>
 
+[versionub](https://github.com/meh/versionub)
+---------------------------------------------
+versionub is a nice library to handle and compare version schemes, it's modular and
+provides some already implemented version schemes.
+
+<hr/>
+
+[colorb](https://github.com/meh/colorb)
+---------------------------------------
+colorb is a simple gem that provides ANSI coloring for strings, it supports 256 colors too.
+
+<hr/>
+
+[fffs](https://github.com/meh/fffs)
+-----------------------------------
+Is a library that provides a fake filesystem, it's useful for programs that want to embed
+a filesystem in the DATA or load them from a file, it's mainly used in packø.
+
+<hr/>
+
+[hwaddr](https://github.com/meh/ruby-hwaddr)
+--------------------------------------------
+hwaddr is a MAC address abstraction that follows the ipaddr stdlib style and interface.
+
+<hr/>
+
 [bitmap](https://github.com/meh/ruby-bitmap)
 -------------------------------------------------
 bitmap is a simple Ruby library to handle bitmaps also known as bit arrays.
+
+<hr/>
+
+[boolean-expression](https://github.com/meh/boolean-expression)
+---------------------------------------------------------------
+boolean-expression is a simple gem to deal with boolean expressions.
+
+It provides an easy API to parse a boolean expression and then validate it on an
+Array that contains symbols/strings that are present in the boolean expression.
 
 <hr/>
 
@@ -192,3 +234,47 @@ mpd is a controller library for MPD, it supports all the currently existing prot
 wraps them in an easy to use API.
 
 It's compatible with moc and cmus controller interface, although a lot richer.
+
+<hr/>
+
+[faildns](https://github.com/meh/faildns)
+-----------------------------------------
+faildns is a nice library that abstracts the DNS protocol and provides both client and server
+facilities.
+
+<hr/>
+
+[failirc](https://github.com/meh/failirc)
+-----------------------------------------
+failirc is similar in vein to faildns but it's made for the IRC protocol, it provides a very nice
+(albeit relatively slow) modular server and it's pretty easy to implement new modules.
+
+It also provides a simple interface to handle clients.
+
+<hr/>
+
+[dm-unlazy](https://github.com/meh/dm-unlazy)
+---------------------------------------------
+dm-unlazy is an ugly hack to provide unlazification to DataMapper models, for when you
+have to fetch a huge amount of data and don't want to incur in the lazy overhead.
+
+It's ugly but it works.
+
+<hr/>
+
+[rtripcode](https://github.com/meh/rtripcode)
+---------------------------------------------
+rtripcode is a dumb and easy \*chan tripcode generator, it supports secure tripcodes too.
+
+<center class="section">DEIMOS</center><hr/>
+
+[libconfig](https://github.com/meh/deimos-libconfig)
+----------------------------------------------------
+libconfig is a very nice configuration handling library, the deimos has a header for
+using the C interface and also has an easy to use D-esque wrapper.
+
+<center class="section">JAVASCRIPT LIBRARIES</center><hr/>
+
+[clj](https://github.com/meh/clj.js)
+------------------------------------
+clj is an easy to use library to handle clojure s-expressions much like the clj Ruby gem.
