@@ -20,7 +20,7 @@
 
   <body>
     <div id="container">
-      <div id="menu">
+      <div id="menu"><center>
         {% if page.url == "/index.html" %}
           <span class="bracket">[</span><a href="/archive.html">ls -lh ~/words</a><span class="bracket">]</span>
           <span class="bracket">[</span><a href="/projects.html">cd ~/projects</a><span class="bracket">]</span>
@@ -38,7 +38,9 @@
           <span class="bracket">[</span><a href="/whereis.html">whereis meh</a><span class="bracket">]</span>
           <span class="bracket">[</span><a href="/copying.html">cat COPYING</a><span class="bracket">]</span>
         {% endif %}
-      </div>
+      </center></div>
+
+      <hr class="menu-bottom"/>
 
       <div id="content">
           {{ content }}

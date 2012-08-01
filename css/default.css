@@ -41,6 +41,7 @@ menu, ol, ul {
 	width: 80ch;
 	margin: 40px auto;
 	border: 1px solid #b21818;
+  overflow: hidden;
 
 	padding: 5px;
   padding-bottom: 0px;
@@ -53,6 +54,13 @@ menu, ol, ul {
 #container .bracket {
 	font-weight: normal;
 	color: #b21818;
+}
+
+#container center.section {
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+  top: 5px;
 }
 
 #container hr {
@@ -68,10 +76,15 @@ menu, ol, ul {
   display: none;
 }
 
+#container hr.menu-bottom {
+  width: 200%;
+  position: relative;
+  left: -5px;
+  margin-top: 4px !important;
+}
+
 #menu {
 	width: 100%;
-
-	text-align: center;
 }
 
 #menu a {
@@ -81,6 +94,7 @@ menu, ol, ul {
 	text-decoration: none;
 }
 
+/* intense debate */
 #idc-container-parent #idc-container {
   max-width: 100% !important;
   min-width: 100% !important;
