@@ -2,8 +2,7 @@
 title: meh, paused projects
 lang: en
 
-layout: default
-comments: false
+layout: projects
 ---
 
 [impedito](https://github.com/meh/impedito)

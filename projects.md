@@ -2,8 +2,7 @@
 title: meh, some projects
 lang: en
 
-layout: default
-comments: false
+layout: projects
 ---
 
 Active projects are projects that are still actively and heavily developed.

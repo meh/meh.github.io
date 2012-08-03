@@ -1,9 +1,8 @@
 ---
-title: cat COPYING
+title: COPYING
 lang: en
 
-layout: default
-comments: false
+layout: random
 ---
 
 All the content that is not code is under the following license unless

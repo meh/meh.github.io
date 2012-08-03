@@ -2,8 +2,7 @@
 title: meh, working projects
 lang: en
 
-layout: default
-comments: false
+layout: projects
 ---
 
 <center class="section">DAEMONS</center><hr/>
