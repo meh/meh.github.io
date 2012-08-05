@@ -78,6 +78,19 @@ Firefox version, operating system and other stuff.
 
 It's made to try counter browser fingerprinting.
 
+<center class="section">BITLBEE PLUGINS</center><hr/>
+
+[torchat](https://github.com/meh/bitlbee-torchat)
+-------------------------------------------------
+torchat is a plugin to use talk with TorChat and jTorchat users by using torchatd
+provided by ruby-torchat.
+
+<hr/>
+
+[omegle](https://github.com/meh/bitlbee-omegle)
+-----------------------------------------------
+omegle is a plugin to talk on [omegle.com](http://omegle.com/).
+
 <center class="section">RUBY GEMS</center><hr/>
 
 [clj](https://github.com/meh/ruby-clj)
