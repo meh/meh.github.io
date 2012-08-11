@@ -29,6 +29,10 @@ It starts in a state, and it finishes in multiple states, a branch ends when
 there's no more possible changing in the state, the other branches keep going
 until every branch ends.
 
+To be clear, when it branches you don't get a copy of the universe, it's the
+same universe, same amount of matter and energy, same everything but the
+different states.
+
 This branchiverse exists completely and has always existed.
 
 We aren't aware of the snapshotting and the branching as it is, we can conceive
