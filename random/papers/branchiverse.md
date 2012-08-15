@@ -45,3 +45,16 @@ What does this tell about the universe and our life?
 Nothing really, it's just how I see *reality*, everything happens at the same
 time, and we're already dead, just enjoy the trip through the branch you're
 being aware of and stop being a faggot.
+
+Why do we exist?
+----------------
+We are but a result of probability, we must exist because we're in the right
+region of the branchiverse, in the right region of the galaxy and in the right
+region of the solar system. It couldn't be otherwise.
+
+Why does this branchiverse exist with these physical laws?
+----------------------------------------------------------
+If we apply the same concept of branching we apply to the branchiverse to the
+initial state and laws of it, we can get a branching of initial states and
+laws, so we are in this branchiverse with these laws because it couldn't be
+otherwise, it's still just a result of probability.
