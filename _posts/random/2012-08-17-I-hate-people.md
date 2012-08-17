@@ -9,6 +9,6 @@ denying me access to the subdomain on afraid.org.
 
 I'd say this is slightly better and funnier, and also my "property", so it's fine.
 
-For non-italian speakers "schizofrenico" means "schizophrenic".
+For perspicacity deprived non-italian speakers "schizofrenico" means "schizophrenic".
 
 Fuck you retarded owner of paranoid.pk, fuck you.
