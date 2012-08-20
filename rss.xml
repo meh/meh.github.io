@@ -5,8 +5,8 @@ layout: nil
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>meh.</title>
-    <link>http://meh.paranoid.pk</link>
-    <atom:link href="http://meh.paranoid.pk/rss.xml" rel="self" type="application/rss+xml" />
+    <link>http://meh.schizofreni.co</link>
+    <atom:link href="http://meh.schizofreni.co/rss.xml" rel="self" type="application/rss+xml" />
     <description>I don't care</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
@@ -15,9 +15,9 @@ layout: nil
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>http://meh.paranoid.pk{{ post.url }}</link>
+      <link>http://meh.schizofreni.co{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-      <author>meh@paranoici.org (meh.)</author>
+      <author>meh@schizofreni.co (meh.)</author>
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}
