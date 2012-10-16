@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="utf-8" />
+
+	<link href="css/normalize.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="impress">
+		<div class="step slide" data-x="0" data-y="0">
+			<h1>Cos'è torchat</h1>
+			<p class="small">
+				torchat è un sistema di messaggistica istantanea decentralizzato che
+				sfrutta i Tor hidden services.
+			</p>
+
+			<p class="small">
+				Ogni utente è un hidden service il che rende la sua locazione sconosciuta
+				ed il trasferimento dei messaggi sicuro.
+			</p>
+
+			<p class="small">
+				Chat private, chat di gruppo e trasferimenti di file sono supportati, sono anche
+				in sviluppo varie estensioni, ad esempio un ricerca degli utenti o canali permanenti
+				attraverso la "rete torchat".
+			</p>
+		</div>
+
+		<div class="step slide" data-x="1000" data-y="1500">
+			<h1>torchat oggi</h1>
+
+			<ul class="implementations">
+				<li>Implementazione originale non più mantenuta, accrocchio in Python intelligibile.</li>
+				<li>Reimplementazione dell'autore dell'originale in Pascal, in lavoro modulo per libpurple ed UI standalone, ed essendo in Pascal avra' sicuramente un brillante futuro.</li>
+				<li>Implementazione in Java, tendenzialmente rotta, accrocchio instabile.</li>
+				<li>Implementazione in Ruby, libreria event-driven che fornisce un daemon ed un plugin per bitlbee, sono l'unico pirla che lo usa.</li>
+			</ul>
+		</div>
+
+		<div class="step slide" data-x="2000" data-y="0">
+			<h1>torchat mai?</h1>
+
+			<p class="small">
+				Sarebbe bello riuscire a trovare qualcuno interessato a lavorare sulla GUI
+				che dovrebbe sapere o aver voglia di imparare ad usare Swing e JRuby.
+			</p>
+
+			<p class="small">
+				Sarà anche interessante vedere come si evolverà la situazione con
+				l'aumento del numero di utenti di torchat, e di conseguenza degli
+				hidden services.
+			</p>
+
+			<p class="small">
+				Potrebbe anche essere interessante aggiungere una modalità che automagicamente
+				rende l'utente torchat anche un relay.
+			</p>
+		</div>
+
+		<div id="end" class="step slide" data-x="3000" data-y="1500">
+			<p class="small">Se siete interessati o volete piu' informazioni, venite all'hackspace, urlate <b>OH CANE NERO</b> e giungerò su un barattolone numerato.</p>
+
+			<h2>Link utili</h2>
+			<ul>
+				<li>https://github.com/prof7bit/torchat</li>
+				<li>https://github.com/jtorchat/jtorchat</li>
+				<li>https://github.com/meh/ruby-torchat</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="js/impress.js"></script>
+	<script>impress().init();</script>
+</body>
+</html>

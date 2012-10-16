@@ -1,0 +1,109 @@
+body {
+	font-family: sans-serif;
+	min-height: 740px;
+
+	background: white;
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+
+a {
+	color: inherit;
+	text-decoration: none;
+	padding: 0 0.1em;
+	text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+
+	transition: 0.5s;
+}
+
+a:hover,
+a:focus {
+	background: rgba(255,255,255,1);
+	text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+h1 {
+	text-align: center;
+}
+
+#end .small {
+	padding-bottom: 30px;
+}
+
+li {
+	list-style: none;
+	line-height: 1.4em;
+}
+
+table {
+	margin-left: 40px;
+	border-spacing: 15px;
+	border-collapse: separate;
+}
+
+ul.implementations {
+	text-align: justify;
+	margin: 0;
+	padding: 0;
+}
+
+ul.implementations li {
+	padding-bottom: 20px;
+}
+
+p.bottom {
+	margin-top: 180px !important;
+	font-size: 20px !important;
+	text-align: center !important;
+}
+
+.step {
+	position: relative;
+	width: 900px;
+	padding: 40px;
+	margin: 20px auto;
+
+	box-sizing: border-box;
+
+	font-family: serif;
+	font-size: 48px;
+	line-height: 1.5;
+}
+
+.slide {
+	display: block;
+
+	width: 900px;
+	height: 650px;
+	padding: 40px 60px;
+
+	background-color: #eee;
+	border-radius: 10px;
+
+	color: rgb(102, 102, 102);
+	text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+	font-family: sans-serif;
+	font-size: 30px;
+	line-height: 36px;
+	letter-spacing: -1px;
+}
+
+.slide p {
+	display: block;
+	font-size: 50px;
+	line-height: 72px;
+
+	margin-top: 100px;
+}
+
+.slide p strong {
+	white-space: nowrap;
+}
+
+p.small {
+	margin-top: 50px;
+	font-size: 1em;
+	line-height: 1.4em;
+}
