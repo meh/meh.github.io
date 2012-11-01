@@ -108,7 +108,7 @@ func getString(r io.Reader, b []byte) (string, error) {
 This is my translation to Zsh:
 
 {% highlight bash %}
-function X:auth:read:length:in {
+function X:auth:read-short {
 	integer fd="$2"
 	local encoded
 
@@ -117,18 +117,18 @@ function X:auth:read:length:in {
 	local first="$encoded[1]"
 	local second="$encoded[2]"
 
-	assign $1 "$(( #first << 8 | #second ))"
+	typeset -g "${1:-REPLY}=$(( #first << 8 | #second ))"
 }
 
-function X:auth:read:string:in {
+function X:auth:read-string {
 	integer fd="$2"
 	integer length
 
-	X:auth:read:length:in length "$fd"
+	X:auth:read-short length "$fd"
 	sysread -i $fd -s $length $1 || return $?
 }
 
-function X:auth:read:in {
+function X:auth:read {
 	local display="$2"
 	local hostname="${3:-$HOST}"
 	local authority="${XAUTHORITY:-$HOME/.Xauthority}"
@@ -147,15 +147,15 @@ function X:auth:read:in {
 	local data
 
 	while true; do
-		X:auth:read:length:in family $fd || break
-		X:auth:read:string:in addr $fd || break
-		X:auth:read:string:in disp $fd || break
-		X:auth:read:string:in name $fd || break
-		X:auth:read:string:in data $fd || break
+		X:auth:read-short  family $fd || break
+		X:auth:read-string addr   $fd || break
+		X:auth:read-string disp   $fd || break
+		X:auth:read-string name   $fd || break
+		X:auth:read-string data   $fd || break
 
-    if [[ "$family" == 256 && "$addr" == "$hostname" && "$disp" == "$display" ]]
+		if [[ "$family" == 256 && "$addr" == "$hostname" && "$disp" == "$display" ]]
     then
-      set -A $1 name "$name" data "$data"
+			set -A "${1:-reply}" name "$name" data "$data"
 
 			break
 		fi
@@ -163,7 +163,7 @@ function X:auth:read:in {
 
 	exec {fd}>&-
 
-	(( ${#${(P)1}} ))
+	(( ${#${(P)1:-reply}} ))
 }
 {% endhighlight %}
 
