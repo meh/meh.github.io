@@ -29,7 +29,7 @@ single language they know.
 
 What I would suggest instead, would be to read in parallel a [book][1] and the
 [Intel manuals][2], this will give the novice programmer a better overview on
-programming languages and the system they're going to develop.
+programming languages and the system they're going to develop for.
 
 After a while they should start a project on their own and choose the language
 they find most appealing. This implies that they must first look around at the
