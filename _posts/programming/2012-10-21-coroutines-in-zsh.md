@@ -19,7 +19,7 @@ yields them to the main process.
 
 Here's it in Go:
 
-{% highlight go %}
+```go
 package main
 
 import (
@@ -45,11 +45,11 @@ func main() {
     fmt.Printf("Here's a random number: %d\n", <-c)
   }
 }
-{% endhighlight %}
+```
 
 And here's in Zsh:
 
-{% highlight bash %}
+```bash
 coproc {
   while true; do
     print $RANDOM
@@ -61,7 +61,7 @@ coproc {
 while read -p number; do
   print "Here's a random number: $number"
 done
-{% endhighlight %}
+```
 
 This is a retarded example, but it can be used for greater good; too bad you
 can only have a single coprocess and implicit channel.

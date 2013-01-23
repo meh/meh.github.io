@@ -15,7 +15,7 @@ what's this heresy?
 Well, I came up with a simple header that makes that easily doable, thus
 improving usability of libraries.
 
-{% highlight c %}
+```c
 #define ARGS_LENGTH(...)  ARGS_LENGTH_(0, ##__VA_ARGS__, ARGS_LENGTH_SEQ)
 #define ARGS_LENGTH_(...) ARGS_LENGTH_N(__VA_ARGS__)
 
@@ -66,11 +66,11 @@ improving usability of libraries.
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-{% endhighlight %}
+```
 
 Here's a simple example of how it makes life easier with variadic functions:
 
-{% highlight c %}
+```c
 #include <stdio.h>
 #include <stdarg.h>
 #include "magic.h"
@@ -101,13 +101,13 @@ main (int argc, char* argv[])
 
   return 0;
 }
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 > gcc -std=gnu99 -o lol lol.c
 > ./lol
 14
-{% endhighlight %}
+```
 
 As you can see, doing it like that you don't have to pass the number of
 arguments as first parameter or pass a guard to know where the last parameter
@@ -115,7 +115,7 @@ is, just some preprocessor magic and we have that automatically.
 
 Here's an example for optional parameters:
 
-{% highlight c %}
+```c
 #include <stdio.h>
 #include <stdarg.h>
 #include "magic.h"
@@ -146,15 +146,15 @@ main (int argc, char* argv[])
 
   return 0;
 }
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 > gcc -std=gnu99 -Wno-pointer-to-int-cast -o lol lol.c
 > ./lol
 6
 6
 6
-{% endhighlight %}
+```
 
 For optional parameters follow the example with default parameters but pass as
 parameter soemthing you know means nothing has been passed.

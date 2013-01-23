@@ -12,7 +12,7 @@ to get the name and the data for the authentication process.
 
 This is the code it uses to get that data:
 
-{% highlight go %}
+```go
 // readAuthority reads the X authority file for the DISPLAY.
 // If hostname == "" or hostname == "localhost",
 // then use the system's hostname (as returned by os.Hostname) instead.
@@ -103,11 +103,11 @@ func getString(r io.Reader, b []byte) (string, error) {
   }
   return string(b), nil
 }
-{% endhighlight %}
+```
 
 This is my translation to Zsh:
 
-{% highlight bash %}
+```bash
 function X:auth:read-short {
 	integer fd="$2"
 	local encoded
@@ -165,7 +165,7 @@ function X:auth:read {
 
 	(( ${#${(P)1:-reply}} ))
 }
-{% endhighlight %}
+```
 
 Error handling is easier and better looking in shell scripts than with Go, most of the code
 in the loop in the Go code is error checking and returning the same thing.

@@ -20,17 +20,17 @@ Soon enough enlightenment struck me.
 We can set an associative array with a numbered serie of key names, like
 follows:
 
-{% highlight bash %}
+```bash
 local -A map
 map=(roots.length 2 roots.1.window 23 roots.2.window 42)
-{% endhighlight %}
+```
 
 We start from 1 as index because that's what Zsh uses for indexed arrays.
 
 Now that we have our array of *associative arrays*, we can loop over them and
 access them more easily:
 
-{% highlight bash %}
+```bash
 integer i
 for (( i=1; i <= $map[roots.length]; ++i )); do
   local -A root
@@ -38,7 +38,7 @@ for (( i=1; i <= $map[roots.length]; ++i )); do
 
   print "root window for root number $i: $root[window]"
 done
-{% endhighlight %}
+```
 
 Ta dah.
 

@@ -18,11 +18,11 @@ So I started digging around the source to see where I could improve its performa
 after seeing the orror of `IO.select` usage (which isn't that bad for how they use it) I
 noticed how it handled connections and requests.
 
-{% highlight ruby %}
+```ruby
 @thread_pool = ThreadPool.new(@min_threads, @max_threads) do |client, env|
   process_client(client, env)
 end
-{% endhighlight %}
+```
 
 When it starts it creates a `ThreadPool`, the default minimum is **0** the default maximum is **16**,
 after reading more of it, specifically that `process_client` function I realized something else:
@@ -31,7 +31,7 @@ it can only handle *maximum threads* clients at a time.
 What are the consequences of this sad realization? The consequences are that this simple script
 makes *puma* completely unresponsive:
 
-{% highlight ruby %}
+```ruby
 #! /usr/bin/env ruby
 # encoding: utf-8
 require 'socket'
@@ -110,14 +110,14 @@ until lantern.all?(&:done?)
 end
 
 puts "oh, there's a door ( ･ ◡◡･)"
-{% endhighlight %}
+```
 
 I ran that script on a simple *sinatra* application and prepared to run `ab` to see
 how it handled everything, this was the result:
 
-{% highlight text %}
+```
 Benchmarking 127.0.0.1 (be patient)...apr_poll: The timeout specified has expired (70007)
-{% endhighlight %}
+```
 
 It **dies**.
 

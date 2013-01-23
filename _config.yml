@@ -1,12 +1,7 @@
 auto: true
 pygments: true
 
-markdown: kramdown
+markdown: redcarpet
 
-kramdown:
-  use_coderay: true
-
-  coderay:
-    coderay_bold_every: 0
-    coderay_line_numbers:
-    coderay_css: class
+redcarpet:
+  extensions: [tables, fenced_code_blocks, strikethrough, autolink, superscript, no_intra_emphasis]

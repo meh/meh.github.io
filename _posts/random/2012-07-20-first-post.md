@@ -10,10 +10,10 @@ Gotta test online to style Disqus ◕ ◡ ◔
 
 Disqus sucks, IntenseDebate it is.
 
-{% highlight ruby %}
+```ruby
 puts 'test'
 
 puts 'more test'
 
 (0 .. 10).select(&:odd?).inject(:+)
-{% endhighlight %}
+```
