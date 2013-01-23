@@ -4,8 +4,8 @@ categories: [random]
 layout: post
 ---
 
-Few days ago the hard disk of my laptop started having bad problems, the home
-partition remounted itself readonly, and a huge serie of I/O errors were
+A few days ago the hard disk of my laptop started having bad problems, the home
+partition remounted itself readonly, and a huge series of I/O errors were
 showing in `dmesg`.
 
 I hastily backed up the whole disk using `dd` with `conv=noerror`, I thought
@@ -21,7 +21,7 @@ back the data from the fresh backup.
 
 Everything went fine, then I started up X, and Fluxbox was acting weird. I
 thought the technician broke the keyboard while fixing another issue and
-started raging, the keyboard worked perfectly in tty tho, so I thought there
+started raging, the keyboard worked perfectly in tty though, so I thought there
 was something else.
 
 I started up looking around the config, and at my dismay the *keys* file was
@@ -37,7 +37,7 @@ scratch getting the files I need while configuring."
 
 My *mail* folder was corrupted to no end.
 
-"Ok, I lost emails, luck I've got a backup of it two weeks old."
+"Ok, I lost emails, lucky I've got a backup of it two weeks old."
 
 "Wait, what if the passwords file is corrupted? What the fuck am I gonna do
 without all my passwords? Ok, here goes nothing."
