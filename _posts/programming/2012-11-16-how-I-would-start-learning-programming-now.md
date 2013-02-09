@@ -27,17 +27,19 @@ language, it would be like a carpenter only knowing how to use a hammer), in
 the end they don't even look around for better tools and just stick with the
 single language they know.
 
-What I would suggest instead, would be to read in parallel a [book][1] and the
-[Intel manuals][2], this will give the novice programmer a better overview on
-programming languages and the system they're going to develop for.
+What I would suggest instead, would be to read in parallel [PLP][1], [SICP][2]
+and the [Intel manuals][3], this will give the novice programmer a better
+overview on programming languages, on programming itself and the system they're
+going to develop for.
 
 After a while they should start a project on their own and choose the language
 they find most appealing. This implies that they must first look around at the
 vast land of programming languages and tools, which will end up avoiding them
 the deadly sickness which monoprogramming is.
 
-Oh and learn [vim][3], seriously.
+Oh and learn [vim][4], seriously.
 
 [1]: http://www.cs.rochester.edu/~scott/pragmatics/
-[2]: http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
-[3]: http://www.vim.org/
+[2]: https://mitpress.mit.edu/sicp/
+[3]: http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
+[4]: http://www.vim.org/
