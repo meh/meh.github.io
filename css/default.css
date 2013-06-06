@@ -2,7 +2,7 @@ html, body {
 	background: #000000;
 	color: #bebebe;
 
-	font-family: monospace !important;
+	font-family: "GohuFont", monospace !important;
 	font-size: 1em !important;
 }
 
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6  {
 }
 
 pre, pre code, kbd, samp {
-	font-family: monospace !important;
+	font-family: "GohuFont", monospace !important;
 	font-size: 1em !important;
 
   background: #0a0a0a !important;
@@ -45,6 +45,10 @@ menu, ol, ul {
 
 	padding: 5px;
   padding-bottom: 0px;
+}
+
+#container img {
+	width: 100% !important;
 }
 
 #container .date {
@@ -108,7 +112,7 @@ menu, ol, ul {
 	color: #bebebe !important;
 	border: 1px solid #b21818 !important;
 	border-radius: 0 !important;
-	font-family: monospace !important;
+	font-family: "GohuFont", monospace !important;
 }
 
 #idc-container-parent #idc-container .idc-focus {
