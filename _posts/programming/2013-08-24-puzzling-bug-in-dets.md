@@ -14,7 +14,7 @@ Apparently if you use a tuple as key and you have differing shapes of it as key
 the table gets broken permanently.
 
 So if you use as key `{ 1, 2 }` and `{ 1, 2, 3 }` you'll get a broken table,
-although you could use `{ 1, 2 }` and `{ 1, { 2, 3 } }`, and probably `\{{ 1, 2
-}\}` and `\{{ 1, 2, 3 }\}`.
+although you could use `{ 1, 2 }` and `{ 1, { 2, 3 } }`, and probably `{ { 1, 2
+} }` and `{ { 1, 2, 3 } }`.
 
-The more you know.
+If you use asynchronous mode, everything works properly, the more you know.
