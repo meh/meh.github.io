@@ -20,7 +20,7 @@ menu:
 ---
 
 <div id="posts">
-  {% for post in site.posts limit:5 %}
+  {% for post in site.posts limit:10 %}
     <div class="post">
       <div class="header" title="{{ post.categories | array_to_sentence_string }}"><h1>
         <a href="{{ post.url }}">{{ post.title | format_text }}</a>
@@ -30,7 +30,7 @@ menu:
       </h1></div>
 
       <div class="content">
-        {{ post.content }}
+        {{ post.excerpt }}
       </div>
     </div>
 
