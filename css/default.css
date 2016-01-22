@@ -98,6 +98,16 @@ menu, ol, ul {
 	text-decoration: none;
 }
 
+del {
+	background: #fff;
+	color: #fff;
+}
+
+del:hover {
+	color: #b21818;
+	text-decoration: none;
+}
+
 /* intense debate */
 #idc-container-parent #idc-container {
   max-width: 100% !important;
