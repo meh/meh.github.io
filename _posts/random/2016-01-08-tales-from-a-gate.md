@@ -3,6 +3,19 @@ title: Tales from a gate
 categories: [random, lulz]
 layout: post
 comments: false
+
+trigger:
+  fucking faggots: real human beans
+  faggot: gentleman
+  retard: dullard
+  disabled: turned off
+  man the harpoons: a beautiful woman
+  purplehairs: socially conscious heroines
+  purplehair signal: rightful call for help
+  cucks: socially conscious heroes
+  cuck: socially conscious hero
+  an SJW shitstorm: a rightful request for inclusivity and justice
+  SJW mob: socially conscious heroes
 ---
 
 This is the tale of a gate, OpalGate to be precise, or at least that's how it's
@@ -112,8 +125,6 @@ disabled themselves by getting a gimped Code of Conduct included and making the
 only person who agreed with them, Adam Beynon, leave the project.
 
 PS: [This][10] must be one of my crowning achievements.
-PPS: This blog post has been verified to not contain any insensitive or
-inconsiderate writing by alexjs.
 
 [0]: https://web.archive.org/web/20151208143727/https://github.com/opal/opal/issues/941
 [1]: https://web.archive.org/web/20151208143727/https://github.com/opal/opal/issues/941#issuecomment-113219234
