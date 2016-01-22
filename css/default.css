@@ -101,11 +101,60 @@ menu, ol, ul {
 del {
 	background: #fff;
 	color: #fff;
+	text-decoration: none;
 }
 
 del:hover {
 	color: #b21818;
 	text-decoration: none;
+}
+
+.modal {
+	background: black;
+	color: white;
+
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+
+	border: 1px solid #b21818;
+	border-top: none;
+	border-bottom: none;
+
+	width: 50em;
+	width: 80ch;
+
+	height: 100vh;
+
+	margin: 0 auto;
+	padding: 5px;
+
+	text-align: center;
+}
+
+.modal .header {
+	margin-top: 10px;
+
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+
+.modal .message {
+	padding: 5px;
+}
+
+.modal .button {
+	display: inline-block;
+	border: 1px solid #b21818;
+
+	font-weight: bold;
+	margin-top: 10px;
+
+	padding: 5px;
+
+	cursor: pointer;
 }
 
 /* intense debate */
