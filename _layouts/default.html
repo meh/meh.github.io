@@ -19,6 +19,18 @@
 
 		<script src="/js/jquery.js"></script>
     <script src="/js/trigger.js"></script>
+
+    {% if page.trigger %}
+      <script>
+        $(document).ready(function() {
+          trigger({
+            {% for trigger in page.trigger %}
+              "{{trigger[0]}}": "{{trigger[1]}}",
+            {% endfor %}
+          });
+        });
+      </script>
+    {% endif %}
   </head>
 
   <body>
@@ -52,15 +64,5 @@
         <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
       {% endif %}
     </div>
-
-    {% if page.trigger %}
-      <script>
-        trigger({
-          {% for trigger in page.trigger %}
-            "{{trigger[0]}}": "{{trigger[1]}}",
-          {% endfor %}
-        });
-      </script>
-    {% endif %}
   </body>
 </html>
