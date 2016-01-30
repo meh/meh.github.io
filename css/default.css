@@ -34,6 +34,11 @@ pre {
 	border-right: none;
 }
 
+pre.no-decorations {
+	background: none !important;
+	border: none;
+}
+
 code {
   border-bottom: 1px solid #b21818;
 	color: white;
