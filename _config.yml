@@ -1,6 +1,0 @@
-highlighter: pygments
-
-markdown: redcarpet
-
-redcarpet:
-  extensions: [tables, fenced_code_blocks, strikethrough, autolink, superscript, no_intra_emphasis]
