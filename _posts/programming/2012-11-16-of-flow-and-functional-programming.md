@@ -20,6 +20,7 @@ After getting some hints on how to approach the filtering, I managed to write
 some, in my opinion, beautifully concise filtering code, just look at that
 `in_expression` function.
 
+{% raw %}
 ```erlang
 find_flows(Expression) ->
   MatchSpec = match_all(#flow_float{name = '$1', flows = '$2', _ = '_'},
@@ -60,6 +61,7 @@ in_expression(Flow, {'xor', Left, Right}, Floats) ->
 in_expression(Flow, Term, Floats) when is_list(Term) ->
   lists:member(Flow, dict:fetch(Term, Floats)).
 ```
+{% endraw %}
 
 The funny part about all this is that I knew what kind of data structure to
 return from the parsing, but had no idea how to write `in_expression` at the

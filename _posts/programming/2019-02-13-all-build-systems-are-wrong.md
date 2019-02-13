@@ -14,7 +14,7 @@ terrible.
 
 In this blog post I'm going to cover why I think everything is awful and should
 be set on fire, and in the [next]({% post_url
-2019-02-13-my-build-system-is-wrong %}) I'm going to propose an alternative
+programming/2019-02-13-my-build-system-is-wrong %}) I'm going to propose an alternative
 that other people are going to think is terrible and should be set on fire.
 
 You need to learn some weird (and usually awful) DSL
