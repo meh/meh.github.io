@@ -17,7 +17,7 @@
 
     <link rel="icon" type="image/png" href="/favicon.gif" />
 
-    <script src="/js/jquery.js"></script>
+    <script src="/js/cash.min.js"></script>
     <script src="/js/trigger.js"></script>
 
     {% if page.trigger %}
@@ -55,13 +55,6 @@
       </div>
 
       {% if page.comments %}
-        <script>
-          var idcomments_acct = '271f1129241a34fd651d24a100e2cfc4';
-          var idcomments_post_id = "{{ page.url }}";
-          var idcomments_post_url = "http://meh.schizofreni.co{{ page.url }}";
-        </script>
-        <span id="IDCommentsPostTitle" style="display:none"></span>
-        <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
       {% endif %}
     </div>
   </body>

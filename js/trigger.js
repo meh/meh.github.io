@@ -1,6 +1,6 @@
 function trigger(what) {
-	var el = $(`
-		<div class="modal">
+	var el = $(
+		`<div class="modal">
 			<div class="header">
 				TRIGGER WARNING
 			</div>
@@ -12,8 +12,8 @@ function trigger(what) {
 
 			<div class="button trigger">TRIGGER ME</div>
 			<div class="button safe">SPARE MY FEELINGS</div>
-		</div>
-	`).first();
+		</div>`
+	).first();
 
 	el.appendTo('body');
 
