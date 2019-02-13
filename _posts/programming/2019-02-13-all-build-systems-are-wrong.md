@@ -13,9 +13,8 @@ some regards, and much worse in others, but all in all things are still
 terrible.
 
 In this blog post I'm going to cover why I think everything is awful and should
-be set on fire, and in the [next]({% post_url
-programming/2019-02-13-my-build-system-is-wrong %}) I'm going to propose an alternative
-that other people are going to think is terrible and should be set on fire.
+be set on fire, and in the next I'm going to propose an alternative that other
+people are going to think is terrible and should be set on fire.
 
 You need to learn some weird (and usually awful) DSL
 ----------------------------------------------------
