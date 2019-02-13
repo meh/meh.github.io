@@ -25,13 +25,15 @@ menu:
       <div class="header" title="{{ post.categories | array_to_sentence_string }}"><h1>
         <a href="{{ post.url }}">{{ post.title | format_text }}</a>
 
-        <span class="date"><span class="bracket">[</span>{{ post.date | date:"%B %d, %Y" }}<span class="bracket">]</span></span>
+        <span class="date"><span class="bracket">[</span>{{ post.date | date:"%A, %Y-%m-%d" }}<span class="bracket">]</span></span>
         <div style="clear: both"></div>
       </h1></div>
 
       <div class="content">
         {{ post.excerpt }}
       </div>
+
+      <a href="{{ post.url }}">Read more…</a>
     </div>
 
     <hr/>
