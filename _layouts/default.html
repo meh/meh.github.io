@@ -51,33 +51,30 @@
           });
         });
       </script>
+    {% endif %}
 
-      {% if page.comments %}
-        <script>
-          $(document).ready(function() {
-            axios.get("https://api.github.com/repos/meh/meh.github.io/issues/{{ page.comments }}/comments", {
-              headers: {
-                "Accept": "application/vnd.github.3.full+json"
-              }
-            }).then(function(response) {
-              return response.data.map(function(comment) {
-                return $(tmpl("template-comment", comment).trim())
-              });
-            }).then(function(comments) {
-              var comments = $('<div id="comments"></div>');
+    {% if page.comments %}
+      {% raw %}
+      <script>
+        $(document).ready(function() {
+          axios.get("https://api.github.com/repos/meh/meh.github.io/issues/{{ page.comments }}/comments", {
+            headers: {
+              "Accept": "application/vnd.github.3.full+json"
+            }
+          }).then(function(response) {
+            var comments = $('<div id="comments"></div>');
 
-              comments.forEach(function(comment) {
-                comment.appendTo(comments);
-              });
+            response.data.forEach(function(comment) {
+              $(tmpl("template-comment", comment).trim()).appendTo(comments);
+            });
 
-              comments.appendTo($('#container'));
-            })
-            .catch(function() {
-              console.warn("Who needs comments anyway?");
-            })
-          });
-        </script>
-      {% endif %}
+            comments.appendTo($('#container'));
+          }).catch(function() {
+            console.warn("Who needs comments anyway?");
+          })
+        });
+      </script>
+      {% endraw %}
     {% endif %}
   </head>
 
