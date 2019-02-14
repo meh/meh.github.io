@@ -171,42 +171,18 @@ del:hover {
 	cursor: pointer;
 }
 
-#posts .post > a {
-	color: #686868 !important;
-	font-weight: normal;
-	font-style: italic;
-	border-bottom: none;
-}
-
 #posts {
 	margin-bottom: .5em;
 }
 
-/* intense debate */
-#idc-container-parent #idc-container {
-	max-width: 100% !important;
-	min-width: 100% !important;
-	width: 100% !important;
-	border-top: 1px solid #b21818;
-	padding-top: 10px;
+#posts .post .more {
+	width: 100%;
+	text-align: right;
 }
 
-#idc-container-parent #idc-container textarea, #idc-container-parent #idc-container input {
-	background: #000000 !important;
-	color: #bebebe !important;
-	border: 1px solid #b21818 !important;
-	border-radius: 0 !important;
-	font-family: "GohuFont", monospace !important;
-}
-
-#idc-container-parent #idc-container .idc-focus {
-	border-color: #b21818 !important;
-}
-
-#idc-container-parent #idc-container .idc-foot {
-	display: none;
-}
-
-#idc-container-parent #idc-container .idc-new {
-	margin: 0 !important;
+#posts .post .more > a {
+	color: #686868 !important;
+	font-weight: normal;
+	font-style: italic;
+	border-bottom: none;
 }
