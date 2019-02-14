@@ -23,8 +23,6 @@ function trigger(what) {
 				return this.nodeType == Node.TEXT_NODE;
 			})
 			.each(function(i, t) {
-				console.log(t);
-
 				for (from in what) {
 					t.textContent = t.textContent.replace(new RegExp("\\b" + from + "\\b", "g"), what[from]);
 				}

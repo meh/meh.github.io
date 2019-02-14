@@ -18,7 +18,28 @@
     <link rel="icon" type="image/png" href="/favicon.gif" />
 
     <script src="/js/cash.min.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/tmpl.min.js"></script>
     <script src="/js/trigger.js"></script>
+
+    {% raw %}
+    <script type="text/x-tmpl" id="template-comment">
+      <div class="comment">
+        <div class="user">
+          <img src="{%# o.user.avatar_url %}" />
+          <span>{%= o.user.login %}</span>
+        </div>
+
+        <div class="date">
+          {%= o.created_at %}
+        </div>
+
+        <div class="body">
+          {%# o.body_html %}
+        </div>
+      </div>
+    </script>
+    {% endraw %}
 
     {% if page.trigger %}
       <script>
@@ -30,6 +51,33 @@
           });
         });
       </script>
+
+      {% if page.comments %}
+        <script>
+          $(document).ready(function() {
+            axios.get("https://api.github.com/repos/meh/meh.github.io/issues/{{ page.comments }}/comments", {
+              headers: {
+                "Accept": "application/vnd.github.3.full+json"
+              }
+            }).then(function(response) {
+              return response.data.map(function(comment) {
+                return $(tmpl("template-comment", comment).trim())
+              });
+            }).then(function(comments) {
+              var comments = $('<div id="comments"></div>');
+
+              comments.forEach(function(comment) {
+                comment.appendTo(comments);
+              });
+
+              comments.appendTo($('#container'));
+            })
+            .catch(function() {
+              console.warn("Who needs comments anyway?");
+            })
+          });
+        </script>
+      {% endif %}
     {% endif %}
   </head>
 
@@ -53,9 +101,6 @@
       <div id="content">
         {{ content }}
       </div>
-
-      {% if page.comments %}
-      {% endif %}
     </div>
   </body>
 </html>

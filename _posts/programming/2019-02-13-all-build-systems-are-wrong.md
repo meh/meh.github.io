@@ -2,6 +2,7 @@
 title: All build systems for C and C++ are wrong.
 categories: [programming, c, cxx]
 layout: post
+comments: 2
 ---
 
 Since I haven't blogged in years and I feel like starting again I thought it
