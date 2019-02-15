@@ -65,11 +65,11 @@ menu, ol, ul {
 	padding-bottom: 0px;
 }
 
-#container img {
+#container .post img {
 	width: 100% !important;
 }
 
-#container .date {
+#container .post .date {
 	float: right;
 }
 
