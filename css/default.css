@@ -13,6 +13,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	border: none;
+}
+
 h1, h2, h3, h4, h5, h6  {
 	color: #ffffff !important;
 	font-size: inherit !important;
@@ -185,4 +189,69 @@ del:hover {
 	font-weight: normal;
 	font-style: italic;
 	border-bottom: none;
+}
+
+#comments {
+	border-top: 1px solid #b21818;
+}
+
+#comments .comment {
+	display: flex;
+	align-items: baseline;
+	margin-top: 1em;
+}
+
+#comments .comment .avatar {
+	display: none;
+}
+
+#comments .comment .date {
+	color: #686868;
+	white-space: nowrap;
+}
+
+#comments .comment > div {
+	margin-right: 0.5em;
+}
+
+#comments .comment .name {
+	white-space: nowrap;
+}
+
+#comments .comment .name:after {
+	color: #686868;
+	content: ">";
+	margin-left: 0.5em;
+}
+
+#comments .comment .name.OWNER a {
+	display: none;
+}
+
+#comments .comment .name.OWNER:after {
+	content: "<";
+	margin: 0;
+}
+
+#comments .comment .content p:first-child {
+	margin-top: 0;
+}
+
+#comments .comment .content p:last-child {
+	margin-bottom: 0;
+}
+
+#comments .add-comment {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	text-align: right;
+}
+
+#comments .add-comment a {
+	color: #686868;
+	border: none;
+}
+
+#comments .add-comment a:hover {
+	border-bottom: 1px solid #b21818;
 }

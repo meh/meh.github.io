@@ -23,20 +23,25 @@
     <script src="/js/trigger.js"></script>
 
     {% raw %}
+    <script type="text/x-tmpl" id="template-comments">
+      <div id="comments">
+        <div class="container"></div>
+
+        <div class="add-comment">
+          <a href="https://github.com/meh/meh.github.io/issues/{%= o.issue %}" target="_blank">Add a comment</a>
+        </div>
+      </div>
+    </script>
+    {% endraw %}
+
+
+    {% raw %}
     <script type="text/x-tmpl" id="template-comment">
       <div class="comment">
-        <div class="user">
-          <img src="{%# o.user.avatar_url %}" />
-          <span>{%= o.user.login %}</span>
-        </div>
-
-        <div class="date">
-          {%= o.created_at %}
-        </div>
-
-        <div class="body">
-          {%# o.body_html %}
-        </div>
+        <div class="date">{%= o.created_at.replace(/T/, " ").replace(/Z/, "") %}</div>
+        <div class="avatar"><img src="{%# o.user.avatar_url %}" /></div>
+        <div class="name {%= o.author_association %}"><a href="{%= o.user.html_url %}">{%= o.user.login %}</a></div>
+        <div class="content">{%# o.body_html %}</div>
       </div>
     </script>
     {% endraw %}
@@ -54,27 +59,26 @@
     {% endif %}
 
     {% if page.comments %}
-      {% raw %}
       <script>
         $(document).ready(function() {
+          var comments = $(tmpl("template-comments", { issue: {{ page.comments }} }).trim());
+          var container = comments.find('.container');
+
           axios.get("https://api.github.com/repos/meh/meh.github.io/issues/{{ page.comments }}/comments", {
             headers: {
               "Accept": "application/vnd.github.3.full+json"
             }
           }).then(function(response) {
-            var comments = $('<div id="comments"></div>');
-
             response.data.forEach(function(comment) {
-              $(tmpl("template-comment", comment).trim()).appendTo(comments);
+              $(tmpl("template-comment", comment).trim()).appendTo(container);
             });
-
-            comments.appendTo($('#container'));
           }).catch(function() {
             console.warn("Who needs comments anyway?");
-          })
+          });
+
+          comments.appendTo($('#container'));
         });
       </script>
-      {% endraw %}
     {% endif %}
   </head>
 
