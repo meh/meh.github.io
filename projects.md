@@ -3,6 +3,7 @@ title: meh, some projects
 lang: en
 
 layout: projects
+permalink: /projects
 ---
 
 Active projects are projects that are still actively and heavily developed.

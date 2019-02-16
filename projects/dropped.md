@@ -3,6 +3,7 @@ title: meh, dropped projects
 lang: en
 
 layout: projects
+permalink: /projects/dropped
 ---
 
 lulzKey

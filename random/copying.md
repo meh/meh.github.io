@@ -3,6 +3,7 @@ title: COPYING
 lang: en
 
 layout: random
+permalink: /random/copying
 ---
 
 All the content that is not code is under the following license unless

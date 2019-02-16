@@ -3,6 +3,7 @@ title: meh, paused projects
 lang: en
 
 layout: projects
+permalink: /projects/paused
 ---
 
 [impedito](https://github.com/meh/impedito)

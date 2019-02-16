@@ -3,6 +3,7 @@ title: meh, active projects
 lang: en
 
 layout: projects
+permalink: /projects/active
 ---
 
 [barlume](https://github.com/meh/barlume)

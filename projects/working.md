@@ -3,6 +3,7 @@ title: meh, working projects
 lang: en
 
 layout: projects
+permalink: /projects/working
 ---
 
 <center class="section">DAEMONS</center><hr/>
