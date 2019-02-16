@@ -30,6 +30,12 @@ pre, pre code, kbd, samp {
 	border: none;
 }
 
+blockquote {
+	padding-left: 0.5em;
+	margin-left: 1em;
+	border-left: 1px dashed #b21818;
+}
+
 pre {
 	padding: 5px 0;
 
@@ -216,7 +222,7 @@ del:hover {
 }
 
 #comments .comment .name:after {
-	color: #686868;
+	color: #b21818;
 	content: ">";
 	margin-left: 0.5em;
 }
@@ -230,11 +236,11 @@ del:hover {
 	margin: 0;
 }
 
-#comments .comment .content p:first-child {
+#comments .comment .content *:first-child {
 	margin-top: 0;
 }
 
-#comments .comment .content p:last-child {
+#comments .comment .content *:last-child {
 	margin-bottom: 0;
 }
 
