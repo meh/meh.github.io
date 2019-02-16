@@ -55,7 +55,6 @@ menu, ol, ul {
 #container {
 	position: relative;
 
-	width: 50em;
 	width: 80ch;
 	margin: 40px auto;
 	border: 1px solid #b21818;
@@ -140,9 +139,7 @@ del:hover {
 	border-top: none;
 	border-bottom: none;
 
-	width: 50em;
 	width: 80ch;
-
 	height: 100vh;
 
 	margin: 0 auto;
