@@ -2,7 +2,7 @@ html, body {
 	background: #000000;
 	color: #bebebe;
 
-	font-family: "GohuFont", monospace !important;
+	font-family: "GohuFont", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !important;
 	font-size: 11px !important;
 }
 
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6  {
 }
 
 pre, pre code, kbd, samp {
-	font-family: "GohuFont", monospace !important;
+	font-family: "GohuFont", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !important;
 	font-size: 11px !important;
 
 	background: #0a0a0a !important;
