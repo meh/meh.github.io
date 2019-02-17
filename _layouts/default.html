@@ -20,6 +20,7 @@
     <script src="/js/cash.min.js"></script>
     <script src="/js/axios.min.js"></script>
     <script src="/js/tmpl.min.js"></script>
+    <script src="/js/comments.js"></script>
     <script src="/js/trigger.js"></script>
 
     {% raw %}
@@ -33,7 +34,6 @@
       </div>
     </script>
     {% endraw %}
-
 
     {% raw %}
     <script type="text/x-tmpl" id="template-comment">
@@ -61,22 +61,9 @@
     {% if page.comments %}
       <script>
         $(document).ready(function() {
-          var comments = $(tmpl("template-comments", { issue: {{ page.comments }} }).trim());
-          var container = comments.find('.container');
-
-          axios.get("https://api.github.com/repos/meh/meh.github.io/issues/{{ page.comments }}/comments", {
-            headers: {
-              "Accept": "application/vnd.github.3.full+json"
-            }
-          }).then(function(response) {
-            response.data.forEach(function(comment) {
-              $(tmpl("template-comment", comment).trim()).appendTo(container);
-            });
-          }).catch(function() {
-            console.warn("Who needs comments anyway?");
+          comments({{ page.comments }}).then(function(el) {
+            el.appendTo($('#container'));
           });
-
-          comments.appendTo($('#container'));
         });
       </script>
     {% endif %}
