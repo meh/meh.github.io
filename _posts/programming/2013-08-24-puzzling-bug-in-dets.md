@@ -4,8 +4,8 @@ categories: [programming, erlang, elixir]
 layout: post
 ---
 
-I was playing with DETS and I kept getting weird `{ error, { bad_object_header,
-* } }` without understanding what was going on.
+I was playing with DETS and I kept getting weird
+`{ error, { bad_object_header, * } }` without understanding what was going on.
 
 The table got broken permanently after the fact, but only one process was
 accessing the table so it wasn't a race.
