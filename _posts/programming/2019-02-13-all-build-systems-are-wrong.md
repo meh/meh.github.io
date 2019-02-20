@@ -17,19 +17,6 @@ In this blog post I'm going to cover why I think everything is awful and should
 be set on fire, and in the next I'm going to propose an alternative that other
 people are going to think is terrible and should be set on fire.
 
-You need to learn some weird (and usually awful) DSL
-----------------------------------------------------
-Why the hell do I need to learn some godawful DSL some high or drunk programmer
-came up with in an afternoon when I already know C++?
-
-Think about it, the syntax for Makefiles is terrible, the syntax for CMake
-looks like someone started using a C preprocessor to _streamline_ their
-`Makefile` generation, and then thought it was a good idea to extend into its
-own program.
-
-And don't get me started on build systems that use formats that were never
-meant for direct human consumption (looking at you JSON and XML).
-
 You need external tools, that you have to install
 -------------------------------------------------
 Why should I have to install external dependencies for building a C++ program?
@@ -51,6 +38,19 @@ instance you don't want your build system to create packages for distributions,
 or running tests, or doing whatever, you want your build system to build, and
 that is it.
 
+You need to learn some weird (and usually awful) DSL
+----------------------------------------------------
+Why the hell do I need to learn some godawful DSL some high or drunk programmer
+came up with in an afternoon when I already know C++?
+
+Think about it, the syntax for Makefiles is terrible, the syntax for CMake
+looks like someone started using a C preprocessor to _streamline_ their
+`Makefile` generation, and then thought it was a good idea to extend into its
+own program.
+
+And don't get me started on build systems that use formats that were never
+meant for direct human consumption (looking at you JSON and XML).
+
 It must handle third-party dependencies
 ---------------------------------------
 It doesn't need to be fancy, but if your build system can't download
@@ -69,7 +69,7 @@ This is especially important for embedded, but it's also important for desktops
 and other garbage.
 
 Modifying a dependency is practically impossible
-----------------------------------------------
+------------------------------------------------
 Ever needed to change a line in a dependency of a dependency, or add a file, or
 do something before or after building?  Sucks to be you, you can't.
 
