@@ -1,1 +1,4 @@
 permalink: /:year-:month-:day/:slug
+
+plugins:
+  - jekyll-target-blank
